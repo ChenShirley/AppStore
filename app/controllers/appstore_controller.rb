@@ -1,0 +1,2 @@
+class AppstoreController < ApplicationController
+end

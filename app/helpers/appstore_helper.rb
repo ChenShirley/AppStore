@@ -1,0 +1,2 @@
+module AppstoreHelper
+end

@@ -43,3 +43,6 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# Rails 4 not support 'attr_accessible', so add this gem
+gem 'protected_attributes'
