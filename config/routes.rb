@@ -1,4 +1,11 @@
 AppStore::Application.routes.draw do
+
+	# match ':controller(/:action(/:id(.:format)))', :via => :all
+	root :to => "appstores#index"
+	resources :appstores
+	get "appstores/rfscenario/:esearch"=>"appstores#rfscenario"
+	get "appstores/apps/:esearch"=>"appstores#apps"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,181 @@
+<style>
+.rate {
+	height: 22px;
+	width: 100%;
+	background: #F0F0F0;
+	margin: 2px 0;
+}
+
+.fitted.star.icon {
+	margin: 2px 0;
+}
+
+.ratings {
+	width: 5em;
+	color: black;
+	text-align: left;
+	margin: 2px 0;
+}
+
+.five_rate, .four_rate, .three_rate, .two_rate, .one_rate {
+	background: #8E8E8E;
+	height: 20px;
+	line-height: 20px;
+	color: black;
+}
+.ui.disabled.image{
+	height: 22px;
+	width: 24px;
+}
+</style>
+
+<div class="ui raised very padded text container segment" style="margin:1em auto;">
+
+	<h2 class="ui header">
+		<img src=<%= @app.icon %> class="ui small left floated image">
+		
+		<div><%= @app.appname %></div>
+		
+		<div class="ui small statistic">
+			<div class="value">
+				<%= number_with_delimiter(@app.totalrating, delimiter: ",") %>
+			</div>
+			<div class="label" style="text-transform:capitalize;">
+				Ratings
+			</div>
+		</div>
+
+		<!-- remove buy 0.99 button		
+		<div class="extra" style="text-align:right;">
+			<%= button_to "$ #{@app.price}", {:action=>"survey", :esearch=>@app.esearch, :apporder=>@app.apporder}, :method => :get, :class => "ui basic button", :data => { :confirm => "Are you sure you want to purchase this app?" } %>
+		</div>
+		-->
+
+	</h2>
+	
+	<p class="distribution">
+		<div class="bar-chart stacked pad" style="width:80%; margin: 0 auto;">
+			<ul class="plot-container group-by-number">
+				<li>
+					<%= image_tag("star.png", class: "ui disabled image") %>
+					<%= image_tag("star.png", class: "ui disabled image") %>
+					<%= image_tag("star.png", class: "ui disabled image") %>
+					<%= image_tag("star.png", class: "ui disabled image") %>
+					<%= image_tag("star.png", class: "ui disabled image") %>
+					<div class="rate">
+						<div class="five_rate" style=<%= "width:#{@app.pct_star5}%;" %> ></div>
+					</div>
+					<div class="ratings"><%= number_with_delimiter(@app.num_star5, delimiter: ",") %></div>
+				</li>
+				<li>
+					<%= image_tag("empty.png", class: "ui disabled image") %>
+					<%= image_tag("star.png", class: "ui disabled image") %>
+					<%= image_tag("star.png", class: "ui disabled image") %>
+					<%= image_tag("star.png", class: "ui disabled image") %>
+					<%= image_tag("star.png", class: "ui disabled image") %>
+					<div class="rate">
+						<div class="four_rate" style=<%= "width:#{@app.pct_star4}%;" %> ></div>
+					</div>
+					<div class="ratings"><%= number_with_delimiter(@app.num_star4, delimiter: ",") %></div>
+				</li>
+				<li>
+					<%= image_tag("empty.png", class: "ui disabled image") %>
+					<%= image_tag("empty.png", class: "ui disabled image") %>
+					<%= image_tag("star.png", class: "ui disabled image") %>
+					<%= image_tag("star.png", class: "ui disabled image") %>
+					<%= image_tag("star.png", class: "ui disabled image") %>
+					<div class="rate">
+						<div class="three_rate" style=<%= "width:#{@app.pct_star3}%;" %> ></div>
+					</div>
+					<div class="ratings"><%= number_with_delimiter(@app.num_star3, delimiter: ",") %></div>
+				</li>
+				<li>
+					<%= image_tag("empty.png", class: "ui disabled image") %>
+					<%= image_tag("empty.png", class: "ui disabled image") %>
+					<%= image_tag("empty.png", class: "ui disabled image") %>
+					<%= image_tag("star.png", class: "ui disabled image") %>
+					<%= image_tag("star.png", class: "ui disabled image") %>
+					<div class="rate">
+						<div class="two_rate" style=<%= "width:#{@app.pct_star2}%;" %> ></div>
+					</div>
+					<div class="ratings"><%= number_with_delimiter(@app.num_star2, delimiter: ",") %></div>
+				</li>
+				<li>
+					<%= image_tag("empty.png", class: "ui disabled image") %>
+					<%= image_tag("empty.png", class: "ui disabled image") %>
+					<%= image_tag("empty.png", class: "ui disabled image") %>
+					<%= image_tag("empty.png", class: "ui disabled image") %>
+					<%= image_tag("star.png", class: "ui disabled image") %>
+					<div class="rate">
+						<div class="one_rate" style=<%= "width:#{@app.pct_star1}%;" %> ></div>
+					</div>
+					<div class="ratings"><%= number_with_delimiter(@app.num_star1, delimiter: ",") %></div>
+				</li>
+			</ul>
+		</div>
+	</p>
+
+	<h2 class="ui header">Customer Reviews</h2>
+	<div class="ui comments">
+
+	<% @appreview.each do |appreview| %>
+
+		<div class="comment">
+			<a class="avatar">
+				<%= image_tag("avatar.png") %>
+			</a>
+			<div class="content">
+				<div class="rating" style="padding:5px 0;">
+						<% case appreview.star %>
+						<% when 1 %>
+								<%= image_tag("star.png", class: "ui disabled image", style:"float:left;") %>
+								<%= image_tag("empty.png", class: "ui disabled image", style:"float:left;") %>
+								<%= image_tag("empty.png", class: "ui disabled image", style:"float:left;") %>
+								<%= image_tag("empty.png", class: "ui disabled image", style:"float:left;") %>
+								<%= image_tag("empty.png", class: "ui disabled image") %>
+						<% when 2 %>
+								<%= image_tag("star.png", class: "ui disabled image", style:"float:left;") %>
+								<%= image_tag("star.png", class: "ui disabled image", style:"float:left;") %>
+								<%= image_tag("empty.png", class: "ui disabled image", style:"float:left;") %>
+								<%= image_tag("empty.png", class: "ui disabled image", style:"float:left;") %>
+								<%= image_tag("empty.png", class: "ui disabled image") %>
+						<% when 3 %>
+								<%= image_tag("star.png", class: "ui disabled image", style:"float:left;") %>
+								<%= image_tag("star.png", class: "ui disabled image", style:"float:left;") %>
+								<%= image_tag("star.png", class: "ui disabled image", style:"float:left;") %>
+								<%= image_tag("empty.png", class: "ui disabled image", style:"float:left;") %>
+								<%= image_tag("empty.png", class: "ui disabled image") %>
+						<% when 4 %>
+								<%= image_tag("star.png", class: "ui disabled image", style:"float:left;") %>
+								<%= image_tag("star.png", class: "ui disabled image", style:"float:left;") %>
+								<%= image_tag("star.png", class: "ui disabled image", style:"float:left;") %>
+								<%= image_tag("star.png", class: "ui disabled image", style:"float:left;") %>
+								<%= image_tag("empty.png", class: "ui disabled image") %>
+						<% when 5 %>
+								<%= image_tag("star.png", class: "ui disabled image", style:"float:left;") %>
+								<%= image_tag("star.png", class: "ui disabled image", style:"float:left;") %>
+								<%= image_tag("star.png", class: "ui disabled image", style:"float:left;") %>
+								<%= image_tag("star.png", class: "ui disabled image", style:"float:left;") %>
+								<%= image_tag("star.png", class: "ui disabled image") %>
+						<% end %>
+				</div>
+				<div style="font-weight:bolder; float:left;"><%= appreview.title %></div>
+				<div class="metadata">
+					<div>By <%= appreview.author %></div>
+				</div>
+				<div class="text">
+					<%= simple_format appreview.content %>
+				</div>
+			</div>
+		</div>
+
+		<div class="ui divider"></div>
+
+	<% end %>
+
+	<div class="content" style="text-align:right;">
+		<%= button_to "Back App Store", {:action=>"applist", :id=>@app.esearch}, :method => :get,:class => "ui button" %>
+	</div>
+
+	</div>
+</div>

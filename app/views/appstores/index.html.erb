@@ -1,0 +1,37 @@
+<div class="container-fluid" style="margin:2em auto;">
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+		<div class="panel panel-default">
+			<div class="panel-body" style="margin:1em 2em;">
+
+				<p class="notice text-center" style="color: red;"><%= flash[:notice] %></p>
+				<h3 class="text-center">Consumer behavior in App Store</h3>
+				</br>
+
+				<div>
+					This survey aims to better understand mobile device users’ purchasing behavior in app store.
+					(We define a mobile device as one that can connect to the Internet AND download and run apps.)
+					If you are a <strong>mobile device user</strong> AND <strong>have used app store once</strong>, please help us complete this research.
+					The survey takes approximately 30 to 45 minutes to complete. There are three parts in this study - your app store experience, your app purchasing behavior in app store, and your perception toward apps when evaluating. 
+					Thank you.
+				</div>
+				</br>
+
+				<div>
+					National Tsing Hua University</br>
+					Institute of Service Science</br>
+					Advisor: Prof. Soumya Ray</br>
+					Student: Pei-Rong Chen</br>
+					Email: shirley7483@gmail.com</br>
+				</div>
+				</br>
+
+				<div class="text-center">
+					<%= button_to "START", new_appstore_path, :method => :get, :class => "btn btn-default btn-outline btn-lg" %>
+				</div>
+
+			</div>
+		</div>
+		</div>
+	</div>
+</div>

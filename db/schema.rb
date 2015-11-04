@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151102071515) do
+ActiveRecord::Schema.define(version: 20151103110537) do
 
   create_table "applists", force: true do |t|
     t.text     "link"
@@ -50,6 +50,50 @@ ActiveRecord::Schema.define(version: 20151102071515) do
     t.datetime "updated_at"
   end
 
+  create_table "mockupapps", force: true do |t|
+    t.string   "esearch"
+    t.string   "regulatory_focus"
+    t.integer  "apporder"
+    t.string   "appname"
+    t.text     "description"
+    t.text     "icon"
+    t.text     "screenshot1"
+    t.text     "screenshot2"
+    t.text     "screenshot3"
+    t.float    "averagerating"
+    t.integer  "totalrating"
+    t.string   "distribution"
+    t.integer  "num_star5"
+    t.integer  "num_star4"
+    t.integer  "num_star3"
+    t.integer  "num_star2"
+    t.integer  "num_star1"
+    t.float    "pct_star5"
+    t.float    "pct_star4"
+    t.float    "pct_star3"
+    t.float    "pct_star2"
+    t.float    "pct_star1"
+    t.string   "price"
+    t.integer  "subjectinfo_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mockupreviews", force: true do |t|
+    t.string   "esearch"
+    t.integer  "apporder"
+    t.string   "appname"
+    t.integer  "revieworder"
+    t.integer  "star"
+    t.text     "title"
+    t.text     "author"
+    t.text     "content"
+    t.string   "date"
+    t.integer  "mockupapp_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "reviewlists", force: true do |t|
     t.string   "appname"
     t.integer  "star"
@@ -59,6 +103,20 @@ ActiveRecord::Schema.define(version: 20151102071515) do
     t.string   "date"
     t.string   "country"
     t.string   "version"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "subjectinfos", force: true do |t|
+    t.string   "esearch"
+    t.string   "regulatory_focus"
+    t.integer  "mobile_user"
+    t.integer  "appstore"
+    t.integer  "visit_frequency"
+    t.integer  "app_expense"
+    t.integer  "previous_experience"
+    t.string   "ip_address"
+    t.datetime "start_time"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
