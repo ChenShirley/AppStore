@@ -5,9 +5,9 @@ $(document).ready(function(){
 		var rf = $("input[name='rf']:checked").val();
 
 		if(read==undefined || rf==undefined || read==0 || rf==1){
-			alert("Please read instructions and scenario again, and check your answer." + rf);
+			alert("Please read instructions and scenario again, and check your answer.");
 		} else {
-			if(confirm("You will redirect to a page with a list of apps, please follow instructions you received - evaluating apps and choosing one app to purchase.")){
+			if(confirm("Remember to follow instructions you just received - evaluating apps and choosing one app to purchase based on the scenario.\nIf you are ready, please click yes and you will be redirected to a page with a list of apps.")){
 				window.location.href= "/appstores/apps/<%= @subject.esearch %>" ;
 			}
 		}
@@ -40,25 +40,6 @@ $(document).ready(function(){
 						Regular exercise <strong>reduce the risk of chronic diseases</strong> and help <strong>prevent disease</strong>.
 					<% end %>
 				</p>
-
-		<div class="ui form item">
-		  <div class="grouped fields">
-			Have you read the scenario and understand the requirements completely? </br>
-			(please make sure you have carefully reviewed the scenario)
-				<div class="field">
-					<div class="ui radio checkbox" id="yes" onclick="on()">
-					<input type="radio" name="scenario">
-					<label>Yes</label>
-					</div>
-				</div>
-				<div class="field">
-					<div class="ui radio checkbox" id="no" onclick="off()">
-					<input type="radio" name="scenario">
-					<label>No</label>
-					</div>
-				</div>
-		  </div>
-		</div>
 
 	<ol>
 		<div class="form-group">

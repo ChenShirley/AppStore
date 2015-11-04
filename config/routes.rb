@@ -5,6 +5,13 @@ AppStore::Application.routes.draw do
 	resources :appstores
 	get "appstores/rfscenario/:esearch"=>"appstores#rfscenario"
 	get "appstores/apps/:esearch"=>"appstores#apps"
+	get "appstores/detail/:esearch/:apporder"=>"appstores#detail"
+	get "appstores/review/:esearch/:apporder"=>"appstores#review"
+	get "appstores/detail/:esearch/:apporder"=>"appstores#detail"
+
+  get "appstores/survey/:esearch"=>"appstores#survey"
+  post "appstores/endsurvey"=>"appstores#endsurvey" # create is POST
+  get "appstores/thankyou"=>"appstores#thankyou"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
