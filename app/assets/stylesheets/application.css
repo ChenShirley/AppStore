@@ -173,43 +173,48 @@
 
 /* radio box with font awesome */
 input[type=radio].with-font {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }
     
 input[type=radio].with-font ~ label:before {
-    font-family: FontAwesome;
-    display: inline-block;
-    content: "\f1db";
-    letter-spacing: 10px;
-    color: #428bca;
-    width: 1.4em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f1db";
+  letter-spacing: 10px;
+  color: #428bca;
+  width: 1.4em;
 }
 
 input[type=radio].with-font:checked ~ label:before  {
-    content: "\f111";
-    color: #428bca;
-    letter-spacing: 10px;
+	content: "\f111";
+	color: #428bca;
+	letter-spacing: 10px;
 }
 
 input[type=radio].with-font:focus ~ label:before,
 input[type=radio].with-font:focus ~ label {                
-    color: #428bca;
+	color: #428bca;
 }
 
 
 /* form model level validation error */
 .model-error {
-	color:red;
+	color: red;
 }
 
 /* for star rating bar */
+.rating-distribution-details .progress {
+  margin-bottom: 8px;
+  height: 15px;
+}
+
 .progress {
   height: 12px;
   margin-bottom: 5px;
@@ -284,11 +289,58 @@ input[type=radio].with-font:focus ~ label {
   background-image: none;
 }
 
-/* for app-icon */
+/* for app-icon in apps & detail*/
+/* xs */
 .app-icon {
-	max-width: 150px;
+	max-width: 80px;
 	width: 100%;
 	vertical-align: middle;
-	text-align: center;
+	text-align: right;
 	margin: 2px auto;
+}
+/* sm, md, lg */
+@media (min-width: 768px), @media (min-width: 992px), @media (min-width: 1200px) {
+	.app-icon {
+		max-width: 150px;
+		width: 100%;
+		vertical-align: middle;
+		text-align: right;
+		margin: 2px auto;
+	}
+}
+
+.app-screenshot {
+	max-width: 200px;
+	width: 100%;
+	vertical-align: middle;
+	text-align: right;
+	margin: 2px auto;
+}
+
+/* for avatar in review */
+/* xs */
+.avatar {
+	width: 35px;
+	vertical-align: middle;
+	text-align: right;
+	margin: 2px auto;
+}
+/* sm, md, lg */
+@media (min-width: 768px), @media (min-width: 992px), @media (min-width: 1200px) {
+	.avatar {
+		width: 80px;
+		vertical-align: middle;
+		text-align: right;
+		margin: 2px auto;
+	}
+}
+
+
+hr {
+	width: 90%;
+	margin: 1em auto;
+}
+
+th {
+	text-align: center;
 }

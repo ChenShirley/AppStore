@@ -1,38 +1,89 @@
 <div class="container-fluid" style="margin:2em auto;">
 	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
+		<div class="col-sm-8 col-sm-offset-2">
 
 <% @app.each do |app| %>
 		<div class="thumbnail">
 			<div class="row" style="margin:1em auto;">
-				<div class="col-md-2 text-center" style="vertical-align: middle;">
+				<div class="col-sm-2 text-center" style="vertical-align: middle;">
 					<img src=<%= app.icon %> class="img-rounded app-icon">
 				</div>
-				<div class="col-md-10" style="margin-bottom:1em;">
+				<div class="col-sm-10" style="margin-bottom:1em;">
 					<div class="row">
-						<div class="col-md-12">
+						<div class="col-sm-12">
 							<h4><%= app.appname %></h4>
 						</div>
 					</div>
 					<!-- start second layer -->
 					<div class="row" style="padding:2px 2px;">
-						<div class="col-md-4">
+						<div class="col-sm-4">
 							<div>
-								<b>average: </b>
-								<%= app.averagerating %>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star-half-o"></i>
-								<i class="fa fa-star-o"></i>
+								<span class="hidden"><%= app.averagerating %></span>
+									<% case ((app.averagerating*2.0).round / 2.0) %>
+										<% when 1 %>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star-o"></i>
+												<i class="fa fa-star-o"></i>
+												<i class="fa fa-star-o"></i>
+												<i class="fa fa-star-o"></i>
+										<% when 2 %>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star-o"></i>
+												<i class="fa fa-star-o"></i>
+												<i class="fa fa-star-o"></i>
+										<% when 3 %>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star-o"></i>
+												<i class="fa fa-star-o"></i>
+										<% when 4 %>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star-o"></i>
+										<% when 5 %>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+										<% when 1.5 %>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star-half-o"></i>
+												<i class="fa fa-star-o"></i>
+												<i class="fa fa-star-o"></i>
+												<i class="fa fa-star-o"></i>
+										<% when 2.5 %>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star-half-o"></i>
+												<i class="fa fa-star-o"></i>
+												<i class="fa fa-star-o"></i>
+										<% when 3.5 %>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star-half-o"></i>
+												<i class="fa fa-star-o"></i>
+										<% when 4.5 %>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star-half-o"></i>
+										<% end %>
 							</div>
-							<div>
-								<b>total: </b>
-								<%= number_with_delimiter(app.totalrating, delimiter: ",") %> <i class="fa fa-user"></i>
+							<div style="margin: 1em 0 1em 0;">
+								<span class="h2"><%= number_with_delimiter(app.totalrating, delimiter: ",") %></span>
+								<i class="fa fa-user fa-lg"></i>
+								<span class="h4">total ratings</span>
 							</div>
 						</div>
 						<!-- start rating distribution-->
-						<div class="col-md-8">
+						<div class="col-sm-8">
 							<div class="row rating-distribution">
 								<div class="col-xs-12">
 									<div style="float:left; padding: 0 1em;">
@@ -42,7 +93,6 @@
 										<i class="fa fa-star"></i>
 										<i class="fa fa-star"></i>		
 									</div>
-									<div style="float:right; padding: 0 1em;">60%</div>
 									<div class="progress">
 										<div class="progress-bar progress-bar-default" role="progressbar" aria-valuemin="0" aria-valuemax="100" style=<%= "width:#{app.pct_star5}%;" %> >
 										</div>
@@ -56,7 +106,6 @@
 										<i class="fa fa-star"></i>
 										<i class="fa fa-star"></i>
 									</div>
-									<div style="float:right; padding: 0 1em;">60%</div>
 									<div class="progress">
 										<div class="progress-bar progress-bar-default" role="progressbar" aria-valuemin="0" aria-valuemax="100" style=<%= "width:#{app.pct_star4}%;" %> >
 										</div>
@@ -70,7 +119,6 @@
 										<i class="fa fa-star"></i>
 										<i class="fa fa-star"></i>
 									</div>
-									<div style="float:right; padding: 0 1em;">60%</div>
 									<div class="progress">
 										<div class="progress-bar progress-bar-default" role="progressbar" aria-valuemin="0" aria-valuemax="100" style=<%= "width:#{app.pct_star3}%;" %> >
 										</div>
@@ -84,7 +132,6 @@
 										<i class="fa fa-star"></i>
 										<i class="fa fa-star"></i>
 									</div>
-									<div style="float:right; padding: 0 1em;">60%</div>
 									<div class="progress">
 										<div class="progress-bar progress-bar-default" role="progressbar" aria-valuemin="0" aria-valuemax="100" style=<%= "width:#{app.pct_star2}%;" %> >
 										</div>
@@ -98,7 +145,6 @@
 										<i class="fa fa-star-o"></i>
 										<i class="fa fa-star"></i>
 									</div>
-									<div style="float:right; padding: 0 1em;">60%</div>
 									<div class="progress">
 										<div class="progress-bar progress-bar-default" role="progressbar" aria-valuemin="0" aria-valuemax="100" style=<%= "width:#{app.pct_star1}%;" %> >
 										</div>
@@ -111,13 +157,13 @@
 				</div><!-- end right part column -->
 				<!-- start row of buttons -->
 				<div class="row" style="margin:0 auto;">
-					<div class="col-md-4 text-center">
+					<div class="col-sm-4 text-center">
 						<%= button_to "Read Details", {:action=>"detail", :esearch=>app.esearch, :apporder=>app.apporder}, :method=>:get, :class=>"btn btn-primary btn-outline btn-block" %>
 					</div>
-					<div class="col-md-4 text-center">
+					<div class="col-sm-4 text-center">
 						<%= button_to "Read Reviews", {:action=>"review", :esearch=>app.esearch, :apporder=>app.apporder}, :method=>:get, :class=>"btn btn-primary btn-outline btn-block" %>
 					</div>
-					<div class="col-md-4 text-center">
+					<div class="col-sm-4 text-center">
 						<%= button_to "Buy USD $#{app.price}", {:action=>"survey", :esearch=>app.esearch, :apporder=>app.apporder}, :method=>:get, :class=>"btn btn-primary btn-outline btn-block", :data => { :confirm => "Are you sure you want to purchase this app?\nIf yes, you will leave the app store and be redirected to a following survey." } %>
 					</div>
 				</div>

@@ -1,0 +1,248 @@
+<div class="container-fluid" style="margin:2em auto;">
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+
+		<div class="thumbnail">
+			<div class="row" style="margin:2em 3em;">
+				<div class="row">
+				<div class="col-md-2 text-center" style="vertical-align: middle;">
+					<img src=<%= @app.icon %> class="img-rounded app-icon">
+				</div>
+				<div class="col-md-10" style="margin-bottom:1em;">
+					<div class="row">
+						<div class="col-md-12">
+							<h3><%= @app.appname %></h3>
+						</div>
+					</div>
+					<!-- start second layer -->
+					<div class="row" style="padding:2px 2px;">
+						<div class="col-md-12">
+							<div>
+								<span class="hidden"><%= @app.averagerating %></span>
+									<% case ((@app.averagerating*2.0).round / 2.0) %>
+										<% when 1 %>
+												<i class="fa fa-star fa-lg"></i>
+												<i class="fa fa-star-o fa-lg"></i>
+												<i class="fa fa-star-o fa-lg"></i>
+												<i class="fa fa-star-o fa-lg"></i>
+												<i class="fa fa-star-o fa-lg"></i>
+										<% when 2 %>
+												<i class="fa fa-star fa-lg"></i>
+												<i class="fa fa-star fa-lg"></i>
+												<i class="fa fa-star-o fa-lg"></i>
+												<i class="fa fa-star-o fa-lg"></i>
+												<i class="fa fa-star-o fa-lg"></i>
+										<% when 3 %>
+												<i class="fa fa-star fa-lg"></i>
+												<i class="fa fa-star fa-lg"></i>
+												<i class="fa fa-star fa-lg"></i>
+												<i class="fa fa-star-o fa-lg"></i>
+												<i class="fa fa-star-o fa-lg"></i>
+										<% when 4 %>
+												<i class="fa fa-star fa-lg"></i>
+												<i class="fa fa-star fa-lg"></i>
+												<i class="fa fa-star fa-lg"></i>
+												<i class="fa fa-star fa-lg"></i>
+												<i class="fa fa-star-o fa-lg"></i>
+										<% when 5 %>
+												<i class="fa fa-star fa-lg"></i>
+												<i class="fa fa-star fa-lg"></i>
+												<i class="fa fa-star fa-lg"></i>
+												<i class="fa fa-star fa-lg"></i>
+												<i class="fa fa-star fa-lg"></i>
+										<% when 1.5 %>
+												<i class="fa fa-star fa-lg"></i>
+												<i class="fa fa-star-half-o fa-lg"></i>
+												<i class="fa fa-star-o fa-lg"></i>
+												<i class="fa fa-star-o fa-lg"></i>
+												<i class="fa fa-star-o fa-lg"></i>
+										<% when 2.5 %>
+												<i class="fa fa-star fa-lg"></i>
+												<i class="fa fa-star fa-lg"></i>
+												<i class="fa fa-star-half-o fa-lg"></i>
+												<i class="fa fa-star-o fa-lg"></i>
+												<i class="fa fa-star-o fa-lg"></i>
+										<% when 3.5 %>
+												<i class="fa fa-star fa-lg"></i>
+												<i class="fa fa-star fa-lg"></i>
+												<i class="fa fa-star fa-lg"></i>
+												<i class="fa fa-star-half-o fa-lg"></i>
+												<i class="fa fa-star-o fa-lg"></i>
+										<% when 4.5 %>
+												<i class="fa fa-star fa-lg"></i>
+												<i class="fa fa-star fa-lg"></i>
+												<i class="fa fa-star fa-lg"></i>
+												<i class="fa fa-star fa-lg"></i>
+												<i class="fa fa-star-half-o fa-lg"></i>
+										<% end %>
+							</div>
+							<div style="margin-top: 1em;">
+								<span class="h2"><%= number_with_delimiter(@app.totalrating, delimiter: ",") %></span>
+								<i class="fa fa-user fa-lg"></i>
+								<span class="h4">total ratings</span>
+							</div>
+						</div>
+					</div><!-- end second layer -->
+				</div><!-- end right part column -->
+				</div><!-- end first row -->
+
+				<!-- start row of rating distribution-->
+				<div class="row rating-distribution-details text-center" style="margin: 1em auto; width: 90%;">
+					<div class="col-xs-10">
+						<div style="float:left; padding: 0 1em;">
+							<i class="fa fa-star fa-lg"></i>
+							<i class="fa fa-star fa-lg"></i>
+							<i class="fa fa-star fa-lg"></i>
+							<i class="fa fa-star fa-lg"></i>
+							<i class="fa fa-star fa-lg"></i>		
+						</div>
+						<div class="progress">
+							<div class="progress-bar progress-bar-default" role="progressbar" aria-valuemin="0" aria-valuemax="100" style=<%= "width:#{@app.pct_star5}%;" %> >
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-2">
+						<div class="text-left"><%= number_with_delimiter(@app.num_star5, delimiter: ",") %></div>
+					</div><!-- end 5 -->
+					<div class="col-xs-10">
+						<div style="float:left; padding: 0 1em;">
+							<i class="fa fa-star-o fa-lg"></i>
+							<i class="fa fa-star fa-lg"></i>
+							<i class="fa fa-star fa-lg"></i>
+							<i class="fa fa-star fa-lg"></i>
+							<i class="fa fa-star fa-lg"></i>
+						</div>
+						<div class="progress">
+							<div class="progress-bar progress-bar-default" role="progressbar" aria-valuemin="0" aria-valuemax="100" style=<%= "width:#{@app.pct_star4}%;" %> >
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-2">
+						<div class="text-left"><%= number_with_delimiter(@app.num_star4, delimiter: ",") %></div>
+					</div><!-- end 4 -->
+					<div class="col-xs-10">
+						<div style="float:left; padding: 0 1em;">
+							<i class="fa fa-star-o fa-lg"></i>
+							<i class="fa fa-star-o fa-lg"></i>
+							<i class="fa fa-star fa-lg"></i>
+							<i class="fa fa-star fa-lg"></i>
+							<i class="fa fa-star fa-lg"></i>
+						</div>
+						<div class="progress">
+							<div class="progress-bar progress-bar-default" role="progressbar" aria-valuemin="0" aria-valuemax="100" style=<%= "width:#{@app.pct_star3}%;" %> >
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-2">
+						<div class="text-left"><%= number_with_delimiter(@app.num_star3, delimiter: ",") %></div>
+					</div><!-- end 3 -->
+					<div class="col-xs-10">
+						<div style="float:left; padding: 0 1em;">
+							<i class="fa fa-star-o fa-lg"></i>
+							<i class="fa fa-star-o fa-lg"></i>
+							<i class="fa fa-star-o fa-lg"></i>
+							<i class="fa fa-star fa-lg"></i>
+							<i class="fa fa-star fa-lg"></i>
+						</div>
+						<div class="progress">
+							<div class="progress-bar progress-bar-default" role="progressbar" aria-valuemin="0" aria-valuemax="100" style=<%= "width:#{@app.pct_star2}%;" %> >
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-2">
+						<div class="text-left"><%= number_with_delimiter(@app.num_star2, delimiter: ",") %></div>
+					</div><!-- end 2 -->
+					<div class="col-xs-10">
+						<div style="float:left; padding: 0 1em;">
+							<i class="fa fa-star-o fa-lg"></i>
+							<i class="fa fa-star-o fa-lg"></i>
+							<i class="fa fa-star-o fa-lg"></i>
+							<i class="fa fa-star-o fa-lg"></i>
+							<i class="fa fa-star fa-lg"></i>
+						</div>
+						<div class="progress">
+							<div class="progress-bar progress-bar-default" role="progressbar" aria-valuemin="0" aria-valuemax="100" style=<%= "width:#{@app.pct_star1}%;" %> >
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-2">
+						<div class="text-left"><%= number_with_delimiter(@app.num_star1, delimiter: ",") %></div>
+					</div><!-- end 1 -->								
+				</div>
+				<!-- end rating distribution -->
+
+				<!-- start row of reviews -->
+				<div class="row">
+					<div class="col-xs-12" style="margin:1em auto;">
+						<h4>Customer Reviews</h4>
+						<% @appreview.each do |appreview| %>
+						<div class="row" style="margin:1em auto;">
+							<div class="col-xs-4 col-md-2 text-right" style="vertical-align: middle;">
+								<%= image_tag("user.png", class: "img-rounded avatar", alt: "avatar") %>
+							</div>
+							<div class="col-xs-8 col-md-10">
+								<div class="row">
+									<div class="col-xs-12">
+									<% case appreview.star %>
+										<% when 1 %>
+												<i class="fa fa-star fa-lg"></i>
+												<i class="fa fa-star-o fa-lg"></i>
+												<i class="fa fa-star-o fa-lg"></i>
+												<i class="fa fa-star-o fa-lg"></i>
+												<i class="fa fa-star-o fa-lg"></i>
+										<% when 2 %>
+												<i class="fa fa-star fa-lg"></i>
+												<i class="fa fa-star fa-lg"></i>
+												<i class="fa fa-star-o fa-lg"></i>
+												<i class="fa fa-star-o fa-lg"></i>
+												<i class="fa fa-star-o fa-lg"></i>
+										<% when 3 %>
+												<i class="fa fa-star fa-lg"></i>
+												<i class="fa fa-star fa-lg"></i>
+												<i class="fa fa-star fa-lg"></i>
+												<i class="fa fa-star-o fa-lg"></i>
+												<i class="fa fa-star-o fa-lg"></i>
+										<% when 4 %>
+												<i class="fa fa-star fa-lg"></i>
+												<i class="fa fa-star fa-lg"></i>
+												<i class="fa fa-star fa-lg"></i>
+												<i class="fa fa-star fa-lg"></i>
+												<i class="fa fa-star-o fa-lg"></i>
+										<% when 5 %>
+												<i class="fa fa-star fa-lg"></i>
+												<i class="fa fa-star fa-lg"></i>
+												<i class="fa fa-star fa-lg"></i>
+												<i class="fa fa-star fa-lg"></i>
+												<i class="fa fa-star fa-lg"></i>
+										<% end %>
+									</div>
+								</div><!-- end review star rating-->
+								<div class="row">
+									<div class="col-xs-12">
+										<strong><%= appreview.title %></strong>
+										<span style="margin-left:1em; color:#8e8e93;">By <%= appreview.author %></span>
+									</div>
+								</div><!-- end review title & name-->
+								<div class="row">
+									<div class="col-xs-12">
+										<%= simple_format appreview.content %>
+									</div>
+								</div><!-- end review content-->
+							</div>
+						</div>
+						<hr>
+						<% end %>
+					</div>
+				</div>
+				<!-- end row of reviews -->
+
+			<div class="row text-right" style="margin-top:2em;">
+				<%= button_to "Back to App Store", {:action=>"apps", :id=>@app.esearch}, :method=>:get, :class=>"btn btn-default btn-outline btn-lg" %>
+			</div>
+
+			</div>
+		</div><!-- end thumbnail -->
+		
+		</div>
+	</div>
+</div>

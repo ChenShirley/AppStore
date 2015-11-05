@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151103110537) do
+ActiveRecord::Schema.define(version: 20151105074236) do
 
   create_table "applists", force: true do |t|
     t.text     "link"
@@ -117,6 +117,27 @@ ActiveRecord::Schema.define(version: 20151103110537) do
     t.integer  "previous_experience"
     t.string   "ip_address"
     t.datetime "start_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "surveys", force: true do |t|
+    t.string   "esearch"
+    t.string   "regulatory_focus"
+    t.string   "age"
+    t.integer  "gender"
+    t.integer  "income"
+    t.integer  "involvement1"
+    t.integer  "involvement2"
+    t.integer  "involvement3"
+    t.integer  "rf1"
+    t.integer  "rf2"
+    t.integer  "rf3"
+    t.integer  "rf4"
+    t.integer  "rf5"
+    t.integer  "rf6"
+    t.integer  "rf7"
+    t.datetime "end_time"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

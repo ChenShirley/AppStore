@@ -1,7 +1,57 @@
+<script>
+$(document).ready(function(){
+	$("#formvalidate").submit(function() {
+		var esearch = $("input[name='subjectinfo[esearch]']").val();
+		var mobile = $("input[name='subjectinfo[mobile_user]']:checked").val();
+		var appstore = $("input[name='subjectinfo[appstore]']:checked").val();
+		var visit = $("input[name='subjectinfo[visit_frequency]']:checked").val();
+		var expense = $("input[name='subjectinfo[app_expense]']:checked").val();
+		var experience = $("input[name='subjectinfo[previous_experience]']:checked").val();
+		if(esearch.length == 0){
+			$("#esearch_error").text("This field is required.");
+		} else {
+			$("#esearch_error").text("");
+		}
+		if(mobile===undefined){
+			$("#mobile_error").text("This field is required.");
+		} else {
+			$("#mobile_error").text("");
+		}
+		if(appstore===undefined){
+			$("#appstore_error").text("This field is required.");
+		} else {
+			$("#appstore_error").text("");
+		}
+		if(visit===undefined){
+			$("#visit_error").text("This field is required.");
+		} else {
+			$("#visit_error").text("");
+		}
+		if(expense===undefined){
+			$("#expense_error").text("This field is required.");
+		} else {
+			$("#expense_error").text("");
+		}
+		if(experience===undefined){
+			$("#experience_error").text("This field is required.");
+		} else {
+			$("#experience_error").text("");
+		}
+
+		if(esearch.length != 0 && mobile!==undefined && appstore!==undefined && visit!==undefined && expense!==undefined && experience!==undefined){
+			return true;
+		} else {
+			alert("Please make sure you have already answer all required fields.");
+			return false;
+		}
+	});
+});
+</script>
+
 <div class="container-fluid" style="margin:2em auto;">
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
-		<div class="panel panel-default">
+		<div class="panel panel-default" style="margin:2em auto; width: 80%;">
 			<div class="panel-body" style="margin:1em 2em;">
 
 				<!-- model level validation -->
@@ -17,7 +67,7 @@
 				<h3 class="text-center">Part1 - App Store Experience</h3>
 
 
-<%= form_for @subject, :url => { :controller => 'appstores', :action => 'create' }, :html=> { :class => "form-horizontal" } do |f| %>
+<%= form_for @subject, :url => { :controller => 'appstores', :action => 'create' }, :html=> { :class => "form-horizontal", :id=>"formvalidate"} do |f| %>
 <ol>
   <div class="form-group">
 	<li>
@@ -26,6 +76,7 @@
 		<% if @subject.errors[:esearch].presence %>
 			<span class="model-error"><%= @subject.errors[:esearch].join(", ") %></span>
 		<% end %>
+		<span id="esearch_error" class="model-error"></span>
 		<%= f.text_field :esearch, :autocomplete=>"off", :placeholder=>"Esearch ID", :class=>"form-control", :id=>"esearch" %>
   </div>
 
@@ -37,6 +88,7 @@
 		<% if @subject.errors[:mobile_user].presence %>
 			<span class="model-error"><%= @subject.errors[:mobile_user].join(", ") %></span>
 		<% end %>
+		<span id="mobile_error" class="model-error"></span>
 		<div class="radio radio-primary">
 			<%= f.radio_button :mobile_user, "1", :id=>"mobile_user_1", :class=>"with-font" %>
 			<%= f.label :mobile_user, "Yes", :class=>"control-label", :for=>"mobile_user_1" %>
@@ -54,6 +106,7 @@
 		<% if @subject.errors[:appstore].presence %>
 			<span class="model-error"><%= @subject.errors[:appstore].join(", ") %></span>
 		<% end %>
+		<span id="appstore_error" class="model-error"></span>
 		<div class="radio radio-primary">
 			<%= f.radio_button :appstore, "1", :id=>"appstore_1", :class=>"with-font" %>
 			<%= f.label :appstore, "Apple App Store", :class=>"control-label", :for=>"appstore_1" %>
@@ -75,6 +128,7 @@
 		<% if @subject.errors[:visit_frequency].presence %>
 			<span class="model-error"><%= @subject.errors[:visit_frequency].join(", ") %></span>
 		<% end %>
+		<span id="visit_error" class="model-error"></span>
 		<div class="radio radio-primary">
 			<%= f.radio_button :visit_frequency, "1", :id=>"visit_frequency_1", :class=>"with-font" %>
 			<%= f.label :visit_frequency, "At least once a day", :class=>"control-label", :for=>"visit_frequency_1" %>
@@ -109,6 +163,7 @@
 		<% if @subject.errors[:app_expense].presence %>
 			<span class="model-error"><%= @subject.errors[:app_expense].join(", ") %></span>
 		<% end %>
+		<span id="expense_error" class="model-error"></span>
 		<div class="radio radio-primary">
 			<%= f.radio_button :app_expense, "1", :id=>"app_expense_1", :class=>"with-font" %>
 			<%= f.label :app_expense, "$0", :class=>"control-label", :for=>"app_expense_1" %>
@@ -138,6 +193,7 @@
 		<% if @subject.errors[:previous_experience].presence %>
 			<span class="model-error"><%= @subject.errors[:previous_experience].join(", ") %></span>
 		<% end %>
+		<span id="experience_error" class="model-error"></span>
 		<div class="radio radio-primary">
 			<%= f.radio_button :previous_experience, "1", :id=>"previous_experience_1", :class=>"with-font" %>
 			<%= f.label :previous_experience, "Strongly unfamiliar", :class=>"control-label", :for=>"previous_experience_1" %>
@@ -173,7 +229,8 @@
 	<%= f.hidden_field :start_time, :value=>Time.now %>
 
 		<div class="text-center">
-    	<%= f.submit "NEXT", :class=> "btn btn-default btn-outline btn-lg" %>
+    	<%= f.submit "NEXT", :class=> "btn btn-default btn-outline btn-lg", :id=>"submit" %>
+			<button type="button" class="btn btn-default btn-outline btn-lg" id="submit2">NEXT</button>
 		</div>
 
 <% end %>

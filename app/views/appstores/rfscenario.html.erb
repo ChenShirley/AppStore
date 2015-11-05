@@ -4,7 +4,7 @@ $(document).ready(function(){
 		var read = $("input[name='read']:checked").val();
 		var rf = $("input[name='rf']:checked").val();
 
-		if(read==undefined || rf==undefined || read==0 || rf==1){
+		if(read===undefined || rf===undefined || read==0 || rf==1){
 			alert("Please read instructions and scenario again, and check your answer.");
 		} else {
 			if(confirm("Remember to follow instructions you just received - evaluating apps and choosing one app to purchase based on the scenario.\nIf you are ready, please click yes and you will be redirected to a page with a list of apps.")){

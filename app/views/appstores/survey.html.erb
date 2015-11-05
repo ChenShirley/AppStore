@@ -1,0 +1,711 @@
+<script>
+/* need to rewrite based on survey questions */
+$(document).ready(function(){
+	$("#formvalidate").submit(function() {
+		var esearch = $("input[name='subjectinfo[esearch]']").val();
+		var mobile = $("input[name='subjectinfo[mobile_user]']:checked").val();
+		if(esearch.length == 0){
+			$("#esearch_error").text("This field is required.");
+		} else {
+			$("#esearch_error").text("");
+		}
+		if(mobile===undefined){
+			$("#mobile_error").text("This field is required.");
+		} else {
+			$("#mobile_error").text("");
+		}
+
+		if(esearch.length != 0 && mobile!==undefined){
+			return true;
+		} else {
+			alert("Please make sure you have already answer all required fields.");
+			return false;
+		}
+	});
+});
+</script>
+
+		<div class="panel panel-default" style="margin:2em auto; width: 80%;">
+			<div class="panel-body" style="margin:1em 2em;">
+
+				<!-- model level validation -->
+				<% if @subject.errors.any? %>
+					<div id="error_explanation" class="notice text-center error">
+						<span class="model-error">
+								There is a problem with your submission!</br>
+								<%= pluralize(@subject.errors.count, "error") %> are highlighted below.
+						</span>
+					</div>
+				<% end %>
+
+				<h3 class="text-center">Part3 - Perception toward Apps</h3>
+
+<%= form_for @subject, :url => { :controller => 'appstores', :action => 'endsurvey', :esearch =>@esearch.esearch } do |f| %>
+
+<ol>
+	<li>Involvement</li>
+<div class="table-responsive">
+<table class="table table-hover text-center">
+	<thead>
+	<tr>
+	  <th></th>
+	  <th>Strongly Disagree</th>
+	  <th>Mostly Disagree</th>
+	  <th>Slightly Disagree</th>
+	  <th>Neutral</th>
+	  <th>Slightly Agree</th>
+	  <th>Mostly Agree</th>
+	  <th>Strongly Agree</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+	  <td class="text-left">
+			I have a strong interest in activities tracking apps.
+			<% if @subject.errors[:involvement1].presence %>
+					<span class="model-error"><%= @subject.errors[:involvement1].join(", ") %></span>
+			<% end %>
+		</td>
+	  <td>
+			<div class="form-group">
+			<div class="radio radio-primary">
+				<%= f.radio_button :involvement1, "1", :id=>"involvement1_1", :class=>"with-font" %>
+					<label class="control-label" for="involvement1_1"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+				<%= f.radio_button :involvement1, "2", :id=>"involvement1_2", :class=>"with-font" %>
+					<label class="control-label" for="involvement1_2"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :involvement1, "3", :id=>"involvement1_3", :class=>"with-font" %>
+					<label class="control-label" for="involvement1_3"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :involvement1, "4", :id=>"involvement1_4", :class=>"with-font" %>
+					<label class="control-label" for="involvement1_4"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :involvement1, "5", :id=>"involvement1_5", :class=>"with-font" %>
+					<label class="control-label" for="involvement1_5"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :involvement1, "6", :id=>"involvement1_6", :class=>"with-font" %>
+					<label class="control-label" for="involvement1_6"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :involvement1, "7", :id=>"involvement1_7", :class=>"with-font" %>
+					<label class="control-label" for="involvement1_7"></label>
+			</div>
+			</div>
+	  </td>
+	</tr>
+	<tr>
+	  <td class="text-left">
+			For me, activities tracking apps does not matter.
+			<% if @subject.errors[:involvement2].presence %>
+					<span class="model-error"><%= @subject.errors[:involvement2].join(", ") %></span>
+			<% end %>
+		</td>
+	  <td>
+			<div class="form-group">
+			<div class="radio radio-primary">
+					<%= f.radio_button :involvement2, "1", :id=>"involvement2_1", :class=>"with-font" %>
+					<label class="control-label" for="involvement2_1"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :involvement2, "2", :id=>"involvement2_2", :class=>"with-font" %>
+					<label class="control-label" for="involvement2_2"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :involvement2, "3", :id=>"involvement2_3", :class=>"with-font" %>
+					<label class="control-label" for="involvement2_3"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :involvement2, "4", :id=>"involvement2_4", :class=>"with-font" %>
+					<label class="control-label" for="involvement2_4"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :involvement2, "5", :id=>"involvement2_5", :class=>"with-font" %>
+					<label class="control-label" for="involvement2_5"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :involvement2, "6", :id=>"involvement2_6", :class=>"with-font" %>
+					<label class="control-label" for="involvement2_6"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :involvement2, "7", :id=>"involvement2_7", :class=>"with-font" %>
+					<label class="control-label" for="involvement2_7"></label>
+			</div>
+			</div>
+	  </td>
+	</tr>
+	<tr>
+	  <td class="text-left">
+			Activities tracking apps are very important to me.
+			<% if @subject.errors[:involvement3].presence %>
+					<span class="model-error"><%= @subject.errors[:involvement3].join(", ") %></span>
+			<% end %>
+		</td>
+	  <td>
+			<div class="form-group">
+			<div class="radio radio-primary">
+					<%= f.radio_button :involvement3, "1", :id=>"involvement3_1", :class=>"with-font" %>
+					<label class="control-label" for="involvement3_1"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :involvement3, "2", :id=>"involvement3_2", :class=>"with-font" %>
+					<label class="control-label" for="involvement3_2"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :involvement3, "3", :id=>"involvement3_3", :class=>"with-font" %>
+					<label class="control-label" for="involvement3_3"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :involvement3, "4", :id=>"involvement3_4", :class=>"with-font" %>
+					<label class="control-label" for="involvement3_4"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :involvement3, "5", :id=>"involvement3_5", :class=>"with-font" %>
+					<label class="control-label" for="involvement3_5"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :involvement3, "6", :id=>"involvement3_6", :class=>"with-font" %>
+					<label class="control-label" for="involvement3_6"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :involvement3, "7", :id=>"involvement3_7", :class=>"with-font" %>
+					<label class="control-label" for="involvement3_7"></label>
+			</div>
+			</div>
+	  </td>
+	</tr>
+	</tbody>
+</table>
+</div>
+
+	<li>Reguratory Focus</li>
+<div class="table-responsive">
+<table class="table table-hover text-center">
+	<thead>
+	<tr>
+	  <th></th>
+	  <th></th>
+	  <th>1</th>
+	  <th>2</th>
+	  <th>3</th>
+	  <th>4</th>
+	  <th>5</th>
+	  <th>6</th>
+	  <th>7</th>
+	  <th></th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+	  <td class="text-left">
+			Using an activities tracking app helps me
+			<% if @subject.errors[:rf1].presence %>
+					<span class="model-error"><%= @subject.errors[:rf1].join(", ") %></span>
+			<% end %>
+		</td>
+		<td>attaining something positive</td>
+	  <td>
+			<div class="form-group">
+			<div class="radio radio-primary">
+				<%= f.radio_button :rf1, "1", :id=>"rf1_1", :class=>"with-font" %>
+				<label class="control-label" for="rf1_1"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+				<%= f.radio_button :rf1, "2", :id=>"rf1_2", :class=>"with-font" %>
+				<label class="control-label" for="rf1_2"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :rf1, "3", :id=>"rf1_3", :class=>"with-font" %>
+					<label class="control-label" for="rf1_3"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :rf1, "4", :id=>"rf1_4", :class=>"with-font" %>
+					<label class="control-label" for="rf1_4"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :rf1, "5", :id=>"rf1_5", :class=>"with-font" %>
+					<label class="control-label" for="rf1_5"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :rf1, "6", :id=>"rf1_6", :class=>"with-font" %>
+					<label class="control-label" for="rf1_6"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :rf1, "7", :id=>"rf1_7", :class=>"with-font" %>
+					<label class="control-label" for="rf1_7"></label>
+			</div>
+			</div>
+	  </td>
+		<td>avoiding something negative</td>
+	</tr>
+	<tbody>
+</table>
+</div>
+
+<div class="table-responsive">
+<table class="table table-hover text-center">
+	<thead>
+	<tr>
+	  <th></th>
+	  <th>Strongly Disagree</th>
+	  <th>Mostly Disagree</th>
+	  <th>Slightly Disagree</th>
+	  <th>Neutral</th>
+	  <th>Slightly Agree</th>
+	  <th>Mostly Agree</th>
+	  <th>Strongly Agree</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+	  <td class="text-left">
+			In evaluating an activities tracking app, I am more concerned about achieving success rather than avoiding failure.
+			<% if @subject.errors[:rf2].presence %>
+					<span class="model-error"><%= @subject.errors[:rf2].join(", ") %></span>
+			<% end %>
+		</td>
+	  <td>
+			<div class="form-group">
+			<div class="radio radio-primary">
+				<%= f.radio_button :rf2, "1", :id=>"rf2_1", :class=>"with-font" %>
+				<label class="control-label" for="rf2_1"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+				<%= f.radio_button :rf2, "2", :id=>"rf2_2", :class=>"with-font" %>
+				<label class="control-label" for="rf2_2"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :rf2, "3", :id=>"rf2_3", :class=>"with-font" %>
+					<label class="control-label" for="rf2_3"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :rf2, "4", :id=>"rf2_4", :class=>"with-font" %>
+					<label class="control-label" for="rf2_4"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :rf2, "5", :id=>"rf2_5", :class=>"with-font" %>
+					<label class="control-label" for="rf2_5"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :rf2, "6", :id=>"rf2_6", :class=>"with-font" %>
+					<label class="control-label" for="rf2_6"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :rf2, "7", :id=>"rf2_7", :class=>"with-font" %>
+					<label class="control-label" for="rf2_7"></label>
+			</div>
+			</div>
+	  </td>
+	</tr>
+	<tr>
+	  <td class="text-left">
+			In evaluating an activities tracking app, I am more concerned about avoiding failure rather than achieving success.
+			<% if @subject.errors[:rf3].presence %>
+					<span class="model-error"><%= @subject.errors[:rf3].join(", ") %></span>
+			<% end %>
+		</td>
+	  <td>
+			<div class="form-group">
+			<div class="radio radio-primary">
+					<%= f.radio_button :rf3, "1", :id=>"rf3_1", :class=>"with-font" %>
+					<label class="control-label" for="rf3_1" %>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :rf3, "2", :id=>"rf3_2", :class=>"with-font" %>
+					<label class="control-label" for="rf3_2"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :rf3, "3", :id=>"rf3_3", :class=>"with-font" %>
+					<label class="control-label" for="rf3_3"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :rf3, "4", :id=>"rf3_4", :class=>"with-font" %>
+					<label class="control-label" for="rf3_4"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :rf3, "5", :id=>"rf3_5", :class=>"with-font" %>
+					<label class="control-label" for="rf3_5"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :rf3, "6", :id=>"rf3_6", :class=>"with-font" %>
+					<label class="control-label" for="rf3_6"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :rf3, "7", :id=>"rf3_7", :class=>"with-font" %>
+					<label class="control-label" for="rf3_7"></label>
+			</div>
+			</div>
+	  </td>
+	</tr>
+	<tr>
+	  <td class="text-left">
+			When evaluating an activities tracking app, I consider achieving positive consequences from using it.
+			<% if @subject.errors[:rf4].presence %>
+					<span class="model-error"><%= @subject.errors[:rf4].join(", ") %></span>
+			<% end %>
+		</td>
+	  <td>
+			<div class="form-group">
+			<div class="radio radio-primary">
+					<%= f.radio_button :rf4, "1", :id=>"rf4_1", :class=>"with-font" %>
+					<label class="control-label" for="rf4_1"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :rf4, "2", :id=>"rf4_2", :class=>"with-font" %>
+					<label class="control-label" for="rf4_2"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :rf4, "3", :id=>"rf4_3", :class=>"with-font" %>
+					<label class="control-label" for="rf4_3"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :rf4, "4", :id=>"rf4_4", :class=>"with-font" %>
+					<label class="control-label" for="rf4_4"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :rf4, "5", :id=>"rf4_5", :class=>"with-font" %>
+					<label class="control-label" for="rf4_5"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :rf4, "6", :id=>"rf4_6", :class=>"with-font" %>
+					<label class="control-label" for="rf4_6"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :rf4, "7", :id=>"rf4_7", :class=>"with-font" %>
+					<label class="control-label" for="rf4_7"></label>
+			</div>
+			</div>
+	  </td>
+	</tr>
+	<tr>
+	  <td class="text-left">
+			When evaluating an activities tracking app, I consider preventing negative consequences from using it.
+			<% if @subject.errors[:rf5].presence %>
+					<span class="model-error"><%= @subject.errors[:rf5].join(", ") %></span>
+			<% end %>
+		</td>
+	  <td>
+			<div class="form-group">
+			<div class="radio radio-primary">
+					<%= f.radio_button :rf5, "1", :id=>"rf5_1", :class=>"with-font" %>
+					<label class="control-label" for="rf5_1"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :rf5, "2", :id=>"rf5_2", :class=>"with-font" %>
+					<label class="control-label" for="rf5_2"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :rf5, "3", :id=>"rf5_3", :class=>"with-font" %>
+					<label class="control-label" for="rf5_3"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :rf5, "4", :id=>"rf5_4", :class=>"with-font" %>
+					<label class="control-label" for="rf5_4"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :rf5, "5", :id=>"rf5_5", :class=>"with-font" %>
+					<label class="control-label" for="rf5_5"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :rf5, "6", :id=>"rf5_6", :class=>"with-font" %>
+					<label class="control-label" for="rf5_6"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :rf5, "7", :id=>"rf5_7", :class=>"with-font" %>
+					<label class="control-label" for="rf5_7"></label>
+			</div>
+			</div>
+	  </td>
+	</tr>
+	<tr>
+	  <td class="text-left">
+			If I buy an activities tracking app, I will feel excited about the purchase.
+			<% if @subject.errors[:rf6].presence %>
+					<span class="model-error"><%= @subject.errors[:rf6].join(", ") %></span>
+			<% end %>
+		</td>
+	  <td>
+			<div class="form-group">
+			<div class="radio radio-primary">
+					<%= f.radio_button :rf6, "1", :id=>"rf6_1", :class=>"with-font" %>
+					<label class="control-label" for="rf6_1"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :rf6, "2", :id=>"rf6_2", :class=>"with-font" %>
+					<label class="control-label" for="rf6_2"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :rf6, "3", :id=>"rf6_3", :class=>"with-font" %>
+					<label class="control-label" for="rf6_3"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :rf6, "4", :id=>"rf6_4", :class=>"with-font" %>
+					<label class="control-label" for="rf6_4"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :rf6, "5", :id=>"rf6_5", :class=>"with-font" %>
+					<label class="control-label" for="rf6_5"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :rf6, "6", :id=>"rf6_6", :class=>"with-font" %>
+					<label class="control-label" for="rf6_6"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :rf6, "7", :id=>"rf6_7", :class=>"with-font" %>
+					<label class="control-label" for="rf6_7"></label>
+			</div>
+			</div>
+	  </td>
+	</tr>
+	<tr>
+	  <td class="text-left">
+			If I buy an activities tracking app, I will feel safe about the purchase.
+			<% if @subject.errors[:rf7].presence %>
+					<span class="model-error"><%= @subject.errors[:rf7].join(", ") %></span>
+			<% end %>
+		</td>
+	  <td>
+			<div class="form-group">
+			<div class="radio radio-primary">
+					<%= f.radio_button :rf7, "1", :id=>"rf7_1", :class=>"with-font" %>
+					<label class="control-label" for="rf7_1"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :rf7, "2", :id=>"rf7_2", :class=>"with-font" %>
+					<label class="control-label" for="rf7_2"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :rf7, "3", :id=>"rf7_3", :class=>"with-font" %>
+					<label class="control-label" for="rf7_3"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :rf7, "4", :id=>"rf7_4", :class=>"with-font" %>
+					<label class="control-label" for="rf7_4"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :rf7, "5", :id=>"rf7_5", :class=>"with-font" %>
+					<label class="control-label" for="rf7_5"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :rf7, "6", :id=>"rf7_6", :class=>"with-font" %>
+					<label class="control-label" for="rf7_6"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :rf7, "7", :id=>"rf7_7", :class=>"with-font" %>
+					<label class="control-label" for="rf7_7"></label>
+			</div>
+			</div>
+	  </td>
+	</tr>
+	<tbody>
+</table>
+</div>
+</ol> <!-- end question for perception toward apps-->
+
+				<h3 class="text-center">Demographic Information</h3>
+<ol>
+  <div class="form-group">
+	<li>
+		<%= f.label :age, "What is your age：", :class=>"control-label", :for=>"age" %>
+	</li>
+		<% if @subject.errors[:age].presence %>
+			<span class="model-error"><%= @subject.errors[:age].join(", ") %></span>
+		<% end %>
+		<%= f.text_field :age, :autocomplete=>"off", :placeholder=>"Age, please enter numeric values", :class=>"form-control", :id=>"age" %>
+  </div>
+
+  <div class="form-group">
+	<li>
+		<%= f.label :gender, "What is your gender?", :class=>"control-label", :for=>"gender" %>
+	</li>
+		<% if @subject.errors[:gender].presence %>
+			<span class="model-error"><%= @subject.errors[:gender].join(", ") %></span>
+		<% end %>
+		<div class="radio radio-primary">
+			<%= f.radio_button :gender, "1", :id=>"gender_1", :class=>"with-font" %>
+			<%= f.label :gender, "Male", :class=>"control-label", :for=>"gender_1" %>
+		</div>
+		<div class="radio radio-primary">
+			<%= f.radio_button :gender, "1", :id=>"gender_1", :class=>"with-font" %>
+			<%= f.label :gender, "Female", :class=>"control-label", :for=>"gender_1" %>
+		</div>
+		<div class="radio radio-primary">
+			<%= f.radio_button :gender, "1", :id=>"gender_1", :class=>"with-font" %>
+			<%= f.label :gender, "Other", :class=>"control-label", :for=>"gender_1" %>
+		</div>
+  </div>
+
+  <div class="form-group">
+	<li>
+		<%= f.label :income, "What was your total household income during the past 12 months?", :class=>"control-label", :for=>"income" %>
+	</li>
+		<% if @subject.errors[:income].presence %>
+			<span class="model-error"><%= @subject.errors[:income].join(", ") %></span>
+		<% end %>
+		<div class="radio radio-primary">
+			<%= f.radio_button :income, "1", :id=>"income_1", :class=>"with-font" %>
+			<%= f.label :income, "Less than $25,000", :class=>"control-label", :for=>"income_1" %>
+		</div>
+		<div class="radio radio-primary">
+			<%= f.radio_button :income, "2", :id=>"income_2", :class=>"with-font" %>
+			<%= f.label :income, "$25,000 to $34,999", :class=>"control-label", :for=>"income_2" %>
+		</div>
+		<div class="radio radio-primary">
+			<%= f.radio_button :income, "3", :id=>"income_3", :class=>"with-font" %>
+			<%= f.label :income, "$35,000 to $49,999", :class=>"control-label", :for=>"income_3" %>
+		</div>
+		<div class="radio radio-primary">
+			<%= f.radio_button :income, "4", :id=>"income_4", :class=>"with-font" %>
+			<%= f.label :income, "$50,000 to $74,999", :class=>"control-label", :for=>"income_4" %>
+		</div>
+		<div class="radio radio-primary">
+			<%= f.radio_button :income, "5", :id=>"income_5", :class=>"with-font" %>
+			<%= f.label :income, "$75,000 to $99,999", :class=>"control-label", :for=>"income_5" %>
+		</div>
+		<div class="radio radio-primary">
+			<%= f.radio_button :income, "6", :id=>"income_6", :class=>"with-font" %>
+			<%= f.label :income, "$100,000 to $149,999", :class=>"control-label", :for=>"income_6" %>
+		</div>
+		<div class="radio radio-primary">
+			<%= f.radio_button :income, "7", :id=>"income_7", :class=>"with-font" %>
+			<%= f.label :income, "$150,000 or more", :class=>"control-label", :for=>"income_7" %>
+		</div>
+  </div>
+</ol>
+		<%= f.hidden_field :end_time, :value=>Time.now %>
+		<%= f.hidden_field :esearch, :value=>@esearch.esearch %>
+		<%= f.hidden_field :regulatory_focus, :value=>@esearch.regulatory_focus %>
+
+		<div class="text-center">
+    	<%= f.submit "DONE", :class=> "btn btn-default btn-outline btn-lg" %>
+		</div>
+
+<% end %>
+
+			</div>
+		</div>
