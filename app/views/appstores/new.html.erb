@@ -228,9 +228,15 @@ $(document).ready(function(){
 	<%= f.hidden_field :ip_address, :value=>request.remote_ip %>
 	<%= f.hidden_field :start_time, :value=>Time.now %>
 
+	<% user_agent = request.user_agent %>
+	<% parsed_user_agent = UserAgent.parse(user_agent) %>
+	<%= f.hidden_field :browser, :value=>parsed_user_agent.browser %>
+	<%= f.hidden_field :browser_version, :value=>parsed_user_agent.version %>
+	<%= f.hidden_field :platform, :value=>parsed_user_agent.platform %>
+	<%= f.hidden_field :os, :value=>parsed_user_agent.os %>
+
 		<div class="text-center">
     	<%= f.submit "NEXT", :class=> "btn btn-default btn-outline btn-lg", :id=>"submit" %>
-			<button type="button" class="btn btn-default btn-outline btn-lg" id="submit2">NEXT</button>
 		</div>
 
 <% end %>

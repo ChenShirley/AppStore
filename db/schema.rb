@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151105074236) do
+ActiveRecord::Schema.define(version: 20151111064357) do
 
   create_table "applists", force: true do |t|
     t.text     "link"
@@ -46,6 +46,20 @@ ActiveRecord::Schema.define(version: 20151105074236) do
     t.text     "screenshot1"
     t.text     "screenshot2"
     t.text     "screenshot3"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "events", force: true do |t|
+    t.string   "esearch"
+    t.string   "regulatory_focus"
+    t.integer  "apporder"
+    t.string   "appname"
+    t.integer  "review"
+    t.integer  "detail"
+    t.integer  "purchase"
+    t.datetime "access_time"
+    t.datetime "leave_time"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -117,6 +131,10 @@ ActiveRecord::Schema.define(version: 20151105074236) do
     t.integer  "previous_experience"
     t.string   "ip_address"
     t.datetime "start_time"
+    t.string   "browser"
+    t.string   "browser_version"
+    t.string   "platform"
+    t.string   "os"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

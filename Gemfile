@@ -46,3 +46,6 @@ end
 
 # Rails 4 not support 'attr_accessible', so add this gem
 gem 'protected_attributes'
+
+# to parse details of browser, version, os for user_agent
+gem 'useragent', :git => "http://github.com/jilion/useragent"

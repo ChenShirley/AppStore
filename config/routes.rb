@@ -7,9 +7,8 @@ AppStore::Application.routes.draw do
 	get "appstores/apps/:esearch"=>"appstores#apps"
 	get "appstores/detail/:esearch/:apporder"=>"appstores#detail"
 	get "appstores/review/:esearch/:apporder"=>"appstores#review"
-	get "appstores/detail/:esearch/:apporder"=>"appstores#detail"
 
-  get "appstores/survey/:esearch"=>"appstores#survey"
+  get "appstores/survey/:esearch/:apporder"=>"appstores#survey"
   post "appstores/endsurvey"=>"appstores#endsurvey" # create is POST
   get "appstores/thankyou"=>"appstores#thankyou"
 

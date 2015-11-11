@@ -182,12 +182,21 @@ class AppstoresController < ApplicationController
 	def apps
 		@subject_esearch = params[:esearch]
 		@app = Mockupapp.where(:esearch => @subject_esearch)
+		# track where user come back from, only work with "back to appstore button", not work with browser's back button
+		if Event.find_by_esearch(@subject_esearch).present?
+			@lastevent = Event.where(:esearch=>@subject_esearch).order("id").last
+			@lastevent.update_attributes!(:leave_time => Time.now)
+		end
 	end
 
 	def detail
 		@subject_esearch = params[:esearch]
 		@app_order = params[:apporder]
 		@app = Mockupapp.find_by_esearch(@subject_esearch, :conditions => "apporder = #{@app_order}")
+		# track everytime user click the read details button
+		Event.create(:esearch => @subject_esearch, :regulatory_focus => @app.regulatory_focus, 
+								 :apporder => @app_order, :appname => @app.appname, 
+								 :review => 0, :detail => 1, :purchase => 0, :access_time => Time.now)
 	end
 
 	def review
@@ -195,11 +204,20 @@ class AppstoresController < ApplicationController
 		@app_order = params[:apporder]
 		@app = Mockupapp.find_by_esearch(@subject_esearch, :conditions => "apporder = #{@app_order}")
 		@appreview= Mockupreview.where("esearch=? AND apporder=?", @subject_esearch, @app_order).order("revieworder ASC")
+		# track everytime user click the read reviews button
+		Event.create(:esearch => @subject_esearch, :regulatory_focus => @app.regulatory_focus, 
+								 :apporder => @app_order, :appname => @app.appname, 
+								 :review => 1, :detail => 0, :purchase => 0, :access_time => Time.now)
 	end
 
 	def survey
 		@subject_esearch = params[:esearch]
 		@app_order = params[:apporder]
+		@app = Mockupapp.find_by_esearch(@subject_esearch, :conditions => "apporder = #{@app_order}")
+		# track everytime user click the purchase button
+		Event.create(:esearch => @subject_esearch, :regulatory_focus => @app.regulatory_focus, 
+								 :apporder => @app_order, :appname => @app.appname, 
+								 :review => 0, :detail => 0, :purchase => 1, :access_time => Time.now)
 		@esearch = Subjectinfo.find_by_esearch(@subject_esearch)
   	@subject = Survey.new
 	end

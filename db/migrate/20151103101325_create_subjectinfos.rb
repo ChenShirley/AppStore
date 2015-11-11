@@ -10,6 +10,10 @@ class CreateSubjectinfos < ActiveRecord::Migration
       t.integer :previous_experience
       t.string :ip_address
       t.datetime :start_time
+      t.string :browser
+      t.string :browser_version
+      t.string :platform
+      t.string :os
 
       t.timestamps
     end
