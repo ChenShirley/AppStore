@@ -24,14 +24,14 @@ class CreateApplists < ActiveRecord::Migration
       t.integer :all4
       t.integer :all5
 									
-      t.string :compatibility
+      t.text :compatibility
       t.string :category
       t.string :updated_date
       t.string :size
       t.string :seller
       t.string :rated
-      t.string :requirements
-      t.string :bundleid
+      t.text :requirements
+      t.text :bundleid
 
 			t.text :screenshot1
 			t.text :screenshot2
