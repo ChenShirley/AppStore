@@ -299,7 +299,9 @@ input[type=radio].with-font:focus ~ label {
 	margin: 2px auto;
 }
 /* sm, md, lg */
-@media (min-width: 768px), @media (min-width: 992px), @media (min-width: 1200px) {
+@media (min-width: 768px), 
+@media (min-width: 992px), 
+@media (min-width: 1200px) {
 	.app-icon {
 		max-width: 150px;
 		width: 100%;
@@ -326,7 +328,9 @@ input[type=radio].with-font:focus ~ label {
 	margin: 2px auto;
 }
 /* sm, md, lg */
-@media (min-width: 768px), @media (min-width: 992px), @media (min-width: 1200px) {
+@media (min-width: 768px), 
+@media (min-width: 992px), 
+@media (min-width: 1200px) {
 	.avatar {
 		width: 80px;
 		vertical-align: middle;
