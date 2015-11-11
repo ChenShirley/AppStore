@@ -8,11 +8,12 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
- *= require_tree .
+
+
  */
 
 /* for button outline */
+
 .btn-outline {
   background-color: transparent;
   color: inherit;
@@ -299,7 +300,9 @@ input[type=radio].with-font:focus ~ label {
 	margin: 2px auto;
 }
 /* sm, md, lg */
-@media (min-width: 768px) {
+@media (min-width: 768px), 
+@media (min-width: 992px), 
+@media (min-width: 1200px) {
 	.app-icon {
 		max-width: 150px;
 		width: 100%;
@@ -326,7 +329,9 @@ input[type=radio].with-font:focus ~ label {
 	margin: 2px auto;
 }
 /* sm, md, lg */
-@media (min-width: 768px){
+@media (min-width: 768px), 
+@media (min-width: 992px), 
+@media (min-width: 1200px) {
 	.avatar {
 		width: 80px;
 		vertical-align: middle;
