@@ -145,6 +145,9 @@ class AppstoresController < ApplicationController
 										:price => "0.99", :subjectinfo_id => @subject_id.id)
 
 			@subject_id.update_attributes!(:regulatory_focus => @rf)
+
+			Event.create(:esearch => @subject_esearch, :regulatory_focus => @rf, :appname => @name.appname, :apporder => i+1,
+									 :review => 0, :detail => 0, :purchase => 0, :clickorder => "")
 		end # end for loop
 
 
@@ -183,10 +186,12 @@ class AppstoresController < ApplicationController
 		@subject_esearch = params[:esearch]
 		@app = Mockupapp.where(:esearch => @subject_esearch)
 		# track where user come back from, only work with "back to appstore button", not work with browser's back button
+=begin
 		if Event.find_by_esearch(@subject_esearch).present?
 			@lastevent = Event.where(:esearch=>@subject_esearch).order("id").last
 			@lastevent.update_attributes!(:leave_time => Time.now)
 		end
+=end
 	end
 
 	def detail
@@ -194,9 +199,8 @@ class AppstoresController < ApplicationController
 		@app_order = params[:apporder]
 		@app = Mockupapp.find_by_esearch(@subject_esearch, :conditions => "apporder = #{@app_order}")
 		# track everytime user click the read details button
-		Event.create(:esearch => @subject_esearch, :regulatory_focus => @app.regulatory_focus, 
-								 :apporder => @app_order, :appname => @app.appname, 
-								 :review => 0, :detail => 1, :purchase => 0, :access_time => Time.now)
+		@lastevent = Event.find_by_esearch(@subject_esearch, :conditions => "appname = '#{@app.appname}'")
+		@lastevent.update_attributes!(:detail => (1+@lastevent.detail.to_i), :clickorder => (@lastevent.clickorder.to_s + "d"))
 	end
 
 	def review
@@ -205,9 +209,8 @@ class AppstoresController < ApplicationController
 		@app = Mockupapp.find_by_esearch(@subject_esearch, :conditions => "apporder = #{@app_order}")
 		@appreview= Mockupreview.where("esearch=? AND apporder=?", @subject_esearch, @app_order).order("revieworder ASC")
 		# track everytime user click the read reviews button
-		Event.create(:esearch => @subject_esearch, :regulatory_focus => @app.regulatory_focus, 
-								 :apporder => @app_order, :appname => @app.appname, 
-								 :review => 1, :detail => 0, :purchase => 0, :access_time => Time.now)
+		@lastevent = Event.find_by_esearch(@subject_esearch, :conditions => "appname = '#{@app.appname}'")
+		@lastevent.update_attributes!(:review => 1+@lastevent.review.to_i, :clickorder => @lastevent.clickorder.to_s + "r")
 	end
 
 	def survey
@@ -215,9 +218,9 @@ class AppstoresController < ApplicationController
 		@app_order = params[:apporder]
 		@app = Mockupapp.find_by_esearch(@subject_esearch, :conditions => "apporder = #{@app_order}")
 		# track everytime user click the purchase button
-		Event.create(:esearch => @subject_esearch, :regulatory_focus => @app.regulatory_focus, 
-								 :apporder => @app_order, :appname => @app.appname, 
-								 :review => 0, :detail => 0, :purchase => 1, :access_time => Time.now)
+		@lastevent = Event.find_by_esearch(@subject_esearch, :conditions => "appname = '#{@app.appname}'")
+		@lastevent.update_attributes!(:purchase => 1+@lastevent.purchase.to_i, :clickorder => @lastevent.clickorder.to_s + "p")
+
 		@esearch = Subjectinfo.find_by_esearch(@subject_esearch)
   	@subject = Survey.new
 	end

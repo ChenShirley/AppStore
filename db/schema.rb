@@ -53,13 +53,12 @@ ActiveRecord::Schema.define(version: 20151111064357) do
   create_table "events", force: true do |t|
     t.string   "esearch"
     t.string   "regulatory_focus"
-    t.integer  "apporder"
     t.string   "appname"
+    t.integer  "apporder"
     t.integer  "review"
     t.integer  "detail"
     t.integer  "purchase"
-    t.datetime "access_time"
-    t.datetime "leave_time"
+    t.string   "clickorder"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
