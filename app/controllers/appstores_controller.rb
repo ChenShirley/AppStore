@@ -62,27 +62,27 @@ class AppstoresController < ApplicationController
 		@rf_sequence = Random.rand(2)
 
 		# app name, app description
-		@name_sequence = [1,2,3,4,5,6,7,8].shuffle
+		@name_sequence = [1,2,3,4].shuffle
 
 		# app icon, app screenshot
-		@icon_sequence = [1,2,3,4,5,6,7,8].shuffle
+		@icon_sequence = [1,2,3,4].shuffle
 
 		# app description
-		@description_sequence = [1,2,3,4,5,6,7,8].shuffle
+		@description_sequence = [1,2,3,4].shuffle
 
 		# app screenshot
-		@screenshot_sequence = [1,2,3,4,5,6,7,8].shuffle
+		@screenshot_sequence = [1,2,3,4].shuffle
 
 		# number of ratings, 0 for 20-50, 1 for 1000-5000
 		# @num = Random.rand(2)
-		@num_sequence = [0,0,0,0,1,1,1,1].shuffle
+		@num_sequence = [0,0,1,1].shuffle
 
 		# rating distribution shape, 0 for J shaped, 1 for U shaped
 		# @distr = Random.rand(2)
-		@distr_sequence = [0,0,0,0,1,1,1,1].shuffle
+		@distr_sequence = [0,0,1,1].shuffle
 
 		# rating distribution shape detail, 3 shapes for J or U
-		@barchart_sequence = 8.times.map {Random.rand(3)}
+		@barchart_sequence = 4.times.map {Random.rand(3)}
 
 
 		# create random content and store to database
@@ -93,7 +93,7 @@ class AppstoresController < ApplicationController
 			@rf = "prevention"
 		end
 
-		(0..7).each do |i|	# select which to be the (i+1)-th, (i+1) is app order
+		(0..3).each do |i|	# select which to be the (i+1)-th, (i+1) is app order
 			@name = Applist.find(@name_sequence[i])	
 			@icon = Applist.find(@icon_sequence[i])
 			@description = Applist.find(@description_sequence[i])	
@@ -155,9 +155,9 @@ class AppstoresController < ApplicationController
 		# review display order
 		@review_sequence = [1,2,3,4,5].shuffle
 		# review_star_sequence[4][0] is star5 refer to (review_star_sequence[4][0])-th review
-		@review_star_sequence = [[1,2,3,4,5,6,7,8].shuffle,[1,2,3,4,5,6,7,8].shuffle,[1,2,3,4,5,6,7,8].shuffle,[1,2,3,4,5,6,7,8].shuffle,[1,2,3,4,5,6,7,8].shuffle]
+		@review_star_sequence = [[1,2,3,4].shuffle,[1,2,3,4].shuffle,[1,2,3,4].shuffle,[1,2,3,4].shuffle,[1,2,3,4].shuffle]
 
-		for i in 0..7	# select which to be the (i+1)-th, (i+1) is app order
+		for i in 0..3	# select which to be the (i+1)-th, (i+1) is app order
 			@app = Mockupapp.where("esearch=? AND apporder=?",@subject_esearch,i+1)
 			for j in 0..4
 				review_star = Reviewlist.where("star=?",j+1)

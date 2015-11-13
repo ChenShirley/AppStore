@@ -320,7 +320,7 @@ input[type=radio].with-font:focus ~ label {
 /* for avatar in review */
 /* xs */
 .avatar {
-	width: 35px;
+	width: 30px;
 	vertical-align: middle;
 	text-align: right;
 	margin: 2px auto;
@@ -328,13 +328,21 @@ input[type=radio].with-font:focus ~ label {
 /* sm, md, lg */
 @media (min-width: 768px){
 	.avatar {
-		width: 80px;
+		width: 60px;
 		vertical-align: middle;
 		text-align: right;
 		margin: 2px auto;
 	}
 }
 
+@media (min-width: 992px){
+	.avatar {
+		width: 60px;
+		vertical-align: middle;
+		text-align: right;
+		margin: 2px auto;
+	}
+}
 
 hr {
 	width: 90%;
