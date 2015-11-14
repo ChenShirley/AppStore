@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 group :development, :test do
+		gem "rspec-rails"
 		gem 'byebug'
 		# Use sqlite3 as the database for Active Record
 		gem 'sqlite3'
