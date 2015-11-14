@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 group :development, :test do
-		gem 'debugger'
+		gem 'debugger', '1.6.8'
 		# Use sqlite3 as the database for Active Record
 		gem 'sqlite3'
 end
