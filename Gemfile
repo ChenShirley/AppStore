@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 group :development, :test do
-		gem 'debugger', '1.6.8'
+		gem 'byebug'
 		# Use sqlite3 as the database for Active Record
 		gem 'sqlite3'
 end
