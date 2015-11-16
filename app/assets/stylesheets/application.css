@@ -310,10 +310,8 @@ input[type=radio].with-font:focus ~ label {
 }
 
 .app-screenshot {
-	max-width: 200px;
 	width: 100%;
 	vertical-align: middle;
-	text-align: right;
 	margin: 2px auto;
 }
 
@@ -322,7 +320,6 @@ input[type=radio].with-font:focus ~ label {
 .avatar {
 	width: 30px;
 	vertical-align: middle;
-	text-align: right;
 	margin: 2px auto;
 }
 /* sm, md, lg */
@@ -330,7 +327,6 @@ input[type=radio].with-font:focus ~ label {
 	.avatar {
 		width: 60px;
 		vertical-align: middle;
-		text-align: right;
 		margin: 2px auto;
 	}
 }
@@ -351,4 +347,8 @@ hr {
 
 th {
 	text-align: center;
+}
+
+.thumbnail {
+	border-width: medium;
 }
