@@ -17,65 +17,6 @@
 					<!-- start second layer -->
 					<div class="row" style="padding:2px 2px;">
 						<div class="col-xs-12">
-							<div>
-								<span class="hidden"><%= @app.averagerating %></span>
-									<% case ((@app.averagerating*2.0).round / 2.0) %>
-										<% when 1 %>
-												<i class="fa fa-star fa-lg"></i>
-												<i class="fa fa-star-o fa-lg"></i>
-												<i class="fa fa-star-o fa-lg"></i>
-												<i class="fa fa-star-o fa-lg"></i>
-												<i class="fa fa-star-o fa-lg"></i>
-										<% when 2 %>
-												<i class="fa fa-star fa-lg"></i>
-												<i class="fa fa-star fa-lg"></i>
-												<i class="fa fa-star-o fa-lg"></i>
-												<i class="fa fa-star-o fa-lg"></i>
-												<i class="fa fa-star-o fa-lg"></i>
-										<% when 3 %>
-												<i class="fa fa-star fa-lg"></i>
-												<i class="fa fa-star fa-lg"></i>
-												<i class="fa fa-star fa-lg"></i>
-												<i class="fa fa-star-o fa-lg"></i>
-												<i class="fa fa-star-o fa-lg"></i>
-										<% when 4 %>
-												<i class="fa fa-star fa-lg"></i>
-												<i class="fa fa-star fa-lg"></i>
-												<i class="fa fa-star fa-lg"></i>
-												<i class="fa fa-star fa-lg"></i>
-												<i class="fa fa-star-o fa-lg"></i>
-										<% when 5 %>
-												<i class="fa fa-star fa-lg"></i>
-												<i class="fa fa-star fa-lg"></i>
-												<i class="fa fa-star fa-lg"></i>
-												<i class="fa fa-star fa-lg"></i>
-												<i class="fa fa-star fa-lg"></i>
-										<% when 1.5 %>
-												<i class="fa fa-star fa-lg"></i>
-												<i class="fa fa-star-half-o fa-lg"></i>
-												<i class="fa fa-star-o fa-lg"></i>
-												<i class="fa fa-star-o fa-lg"></i>
-												<i class="fa fa-star-o fa-lg"></i>
-										<% when 2.5 %>
-												<i class="fa fa-star fa-lg"></i>
-												<i class="fa fa-star fa-lg"></i>
-												<i class="fa fa-star-half-o fa-lg"></i>
-												<i class="fa fa-star-o fa-lg"></i>
-												<i class="fa fa-star-o fa-lg"></i>
-										<% when 3.5 %>
-												<i class="fa fa-star fa-lg"></i>
-												<i class="fa fa-star fa-lg"></i>
-												<i class="fa fa-star fa-lg"></i>
-												<i class="fa fa-star-half-o fa-lg"></i>
-												<i class="fa fa-star-o fa-lg"></i>
-										<% when 4.5 %>
-												<i class="fa fa-star fa-lg"></i>
-												<i class="fa fa-star fa-lg"></i>
-												<i class="fa fa-star fa-lg"></i>
-												<i class="fa fa-star fa-lg"></i>
-												<i class="fa fa-star-half-o fa-lg"></i>
-										<% end %>
-							</div>
 							<div style="margin-top: 1em;">
 								<span class="h2"><%= number_with_delimiter(@app.totalrating, delimiter: ",") %></span>
 								<i class="fa fa-user fa-lg"></i>
