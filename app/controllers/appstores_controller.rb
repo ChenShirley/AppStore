@@ -18,6 +18,8 @@ class AppstoresController < ApplicationController
 			random_barchart(num, a1, a2, b1, b2 ,c1, c2, d1, d2, e1, e2)
 		elsif @bar2 > @bar1 && @bar2 > @bar3
 			random_barchart(num, a1, a2, b1, b2 ,c1, c2, d1, d2, e1, e2)
+		elsif @bar3 > @bar2 && @bar3 > @bar4
+			random_barchart(num, a1, a2, b1, b2 ,c1, c2, d1, d2, e1, e2)
 		elsif @bar5>=1 && @bar4>=1 && @bar3>=1 && @bar2>=1 && @bar1>=1	# to display reviews, each star at least 1
 			@pct5 = (@bar5.fdiv(num)*100).round(1)
 			@pct4 = (@bar4.fdiv(num)*100).round(1)
@@ -82,7 +84,7 @@ class AppstoresController < ApplicationController
 		@distr_sequence = [0,0,1,1].shuffle
 
 		# rating distribution shape detail, 3 shapes for J or U
-		@barchart_sequence = 4.times.map {Random.rand(3)}
+		# @barchart_sequence = 4.times.map {Random.rand(3)}
 
 
 		# create random content and store to database
@@ -110,6 +112,8 @@ class AppstoresController < ApplicationController
 			# rating distribution shape detail, 3 shapes for J or U
 			if @distr_sequence[i] == 0
 				@distr = "J"
+				@pct_star5, @pct_star4, @pct_star3, @pct_star2, @pct_star1, @bar_star5, @bar_star4, @bar_star3, @bar_star2, @bar_star1 = random_barchart(@num, 70, 90, 5, 35, 5, 10, 1, 10, 5, 15)
+=begin
 				case @barchart_sequence[i]
 					when 0
 						@pct_star5, @pct_star4, @pct_star3, @pct_star2, @pct_star1, @bar_star5, @bar_star4, @bar_star3, @bar_star2, @bar_star1 = random_barchart(@num, 60, 80, 10, 20, 10, 15, 5, 15, 10, 20)
@@ -118,8 +122,11 @@ class AppstoresController < ApplicationController
 					when 2
 						@pct_star5, @pct_star4, @pct_star3, @pct_star2, @pct_star1, @bar_star5, @bar_star4, @bar_star3, @bar_star2, @bar_star1 = random_barchart(@num, 60, 80, 20, 40, 10, 15, 5, 15, 10, 30)
 				end
+=end
 			elsif @distr_sequence[i] == 1
 				@distr = "U"
+				@pct_star5, @pct_star4, @pct_star3, @pct_star2, @pct_star1, @bar_star5, @bar_star4, @bar_star3, @bar_star2, @bar_star1 = random_barchart(@num, 70, 90, 5, 35, 5, 15, 1, 15, 60, 75)
+=begin
 				case @barchart_sequence[i]
 					when 0
 						@pct_star5, @pct_star4, @pct_star3, @pct_star2, @pct_star1, @bar_star5, @bar_star4, @bar_star3, @bar_star2, @bar_star1 = random_barchart(@num, 70, 90, 10, 20, 10, 20, 10, 20, 65, 75)
@@ -128,6 +135,7 @@ class AppstoresController < ApplicationController
 					when 2
 						@pct_star5, @pct_star4, @pct_star3, @pct_star2, @pct_star1, @bar_star5, @bar_star4, @bar_star3, @bar_star2, @bar_star1 = random_barchart(@num, 70, 90, 20, 40, 10, 20, 20, 40, 65, 75)
 				end
+=end
 			end
 
 			# calculate average rating

@@ -6,12 +6,12 @@
 #   cities: City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-# 8 real apps detail
+# 4 real apps detail
 Applist.create([
     {
         link: "https://www.appannie.com/apps/ios/app/jogstats-running-jogging-walking/",
         appname: "JogStats - Running, Jogging, Walking GPS Tracking",
-        icon: "https://static-s.aa-cdn.net/img/ios/711125330/0283afe435e53db541cbc05456eddfdb",
+        icon: "http://i.imgur.com/SzGgAAp.png",
         store: "iOS Store",
         price: "0.99 USD",
         description: "Stay in shape with this simple, easy to use fitness tracker. Use GPS to track you while jogging, walking, hiking, biking or running and analyze the stats when you are finished. Stats recorded include elapsed time, distance, speed, pace, calories, and altitude. The app can record Laps/Split times with custom lengths, enable audio cues at each quarter mile, route mapping with markers at each lap/split, and share your stats via Twitter or Facebook.",
@@ -38,14 +38,14 @@ Applist.create([
         rated: "Rated 4+",
         requirements: " Requires iOS 8.0 or later. Compatible with iPhone, iPad?2 Wi-Fi + 3G, iPad Wi-Fi + Cellular (3rd generation), iPad Wi-Fi + Cellular (4th generation), iPad mini Wi-Fi + Cellular, iPad Air Wi-Fi + Cellular, iPad?mini?2 Wi-Fi + Cellular, iPad Air?2 Wi-Fi + Cellular, iPad mini?3 Wi-Fi + Cellular, iPad mini?4 Wi-Fi + Cellular, and iPad Pro Wi-Fi + Cellular.",
         bundleid: " com.rustyapps.jogstats",
-        screenshot1: "https://static-s.aa-cdn.net/img/ios/711125330/0130580c22e31282d63bb390701eb910",
-        screenshot2: "https://static-s.aa-cdn.net/img/ios/711125330/1239dc99651d2f629c58fcd223656239",
-        screenshot3: "https://static-s.aa-cdn.net/img/ios/711125330/6003ad5f9caaefe45898feed551d79d5"
+        screenshot1: "http://i.imgur.com/Rp3dBiO.png",
+        screenshot2: "http://i.imgur.com/hHPHjik.png",
+        screenshot3: "http://i.imgur.com/voHvUba.png"
     },
     {
         link: "https://www.appannie.com/apps/ios/app/gps-map-my-walk-steps-pocket-pedometer-free/",
         appname: "GPS Map My Walk - Steps Pocket Pedometer Free",
-        icon: "https://static-s.aa-cdn.net/img/ios/1025289016/5375f4527d9397f1b4ba93e4744d0e89",
+        icon: "http://i.imgur.com/efiSrFE.png",
         store: "iOS Store",
         price: "Free",
         description: "Track your run pace, measure workout, crush training goals and more with Best Running App! It is the simplest way to improve fitness, whether you're just deciding to get off the couch for a 5k, biking every day, or deep into marathon training. It is ideal for all people who want to get in shape without using any exercise equipment. It provides calories tracking, real time map route, and activity log.",
@@ -72,48 +72,14 @@ Applist.create([
         rated: "Rated 4+",
         requirements: " Requires iOS 8.0 or later. Compatible with iPhone, iPad, and iPod touch.",
         bundleid: " com.hiddenbrain.MyWalk.Steps.Pedometer.GPSMap",
-        screenshot1: "https://static-s.aa-cdn.net/img/ios/1025289016/d57470fb89393a40e9b30c3679593450",
-        screenshot2: "https://static-s.aa-cdn.net/img/ios/1025289016/b7d3c88dd4b6fc3c4d2b826fa2486a39",
-        screenshot3: "https://static-s.aa-cdn.net/img/ios/1025289016/5a2c5e02ae6cc919daa25f36c0626f2e"
-    },
-    {
-        link: "https://www.appannie.com/apps/ios/app/runr-gps-run-tracker/",
-        appname: "Runr - GPS Run Tracker",
-        icon: "https://static-s.aa-cdn.net/img/ios/658911937/b9b204da9f673074feccb36cc262272f",
-        store: "iOS Store",
-        price: "Free",
-        description: "Go for a run with us! With this app, you can stop fiddling with settings (no more squinting or stopping to see the screen during a run!), hear spoken feedback during your run, and also check your progress and watch yourself improve through beautiful distance and pace graphs with past routes, distance, time, calories, and pace. As you run, you'll earn achievements and climb leaderboards that encourage more running.",
-        country: "United States",
-        average_current: "3.6",
-        total_current: "9",
-        average_all: "4.2",
-        total_all: "72",
-        current1: "3",
-        current2: "0",
-        current3: "0",
-        current4: "1",
-        current5: "5",
-        all1: "5",
-        all2: "5",
-        all3: "4",
-        all4: "13",
-        all5: "45",
-        compatibility: " iPhone Only",
-        category: " Health and Fitness",
-        updated_date: " Sep 16, 2015",
-        size: " 20.2 MB",
-        seller: " iRare Media",
-        rated: "Rated 4+",
-        requirements: " Requires iOS 8.0 or later. Compatible with iPhone, iPad?2 Wi-Fi + 3G, iPad Wi-Fi + Cellular (3rd generation), iPad Wi-Fi + Cellular (4th generation), iPad mini Wi-Fi + Cellular, iPad Air Wi-Fi + Cellular, iPad?mini?2 Wi-Fi + Cellular, iPad Air?2 Wi-Fi + Cellular, iPad mini?3 Wi-Fi + Cellular, iPad mini?4 Wi-Fi + Cellular, and iPad Pro Wi-Fi + Cellular.",
-        bundleid: " com.iRare-Media.FitCenter",
-        screenshot1: "http://i.imgur.com/BIxY6Wa.png",
-        screenshot2: "http://i.imgur.com/YTZEmPB.png",
-        screenshot3: "http://i.imgur.com/wnixVaQ.png"
+        screenshot1: "http://i.imgur.com/BBChY8E.png",
+        screenshot2: "http://i.imgur.com/QmQHeGH.png",
+        screenshot3: "http://i.imgur.com/1cVWfwV.png"
     },
     {
         link: "https://www.appannie.com/apps/ios/app/1015819468/",
         appname: "FITAPP - GPS Running App to Burn Calories",
-        icon: "https://static-s.aa-cdn.net/img/ios/1015819468/8ae9831096a8c6d09836e36299d9e59e",
+        icon: "http://i.imgur.com/2cSshTE.png",
         store: "iOS Store",
         price: "Free",
         description: "Your Buddy to lose weight and reach sports goals! The app tracks your sports activities via GPS, compares your performance, and provides sports diary with calories counter and weight lose statistics. It tracks all your important data and presents in an outstanding fresh design. Tracking features include distance, time, speed, pace, calories, different sports activities, and BMI. Put on your sports shoes and let's get it started!",
@@ -140,48 +106,14 @@ Applist.create([
         rated: "Rated 4+",
         requirements: " Requires iOS 8.0 or later. Compatible with iPhone, iPad, and iPod touch.",
         bundleid: " com.fitapp",
-        screenshot1: "http://i.imgur.com/L1SOAoL.jpg",
-        screenshot2: "http://i.imgur.com/H7wVunT.jpg",
-        screenshot3: "http://i.imgur.com/ImvE5Jn.jpg"
-    },
-    {
-        link: "https://www.appannie.com/apps/ios/app/run-diary-gps-running-maps/",
-        appname: "Run Diary - GPS Running Maps and Running Routes Planner for Fitness",
-        icon: "https://static-s.aa-cdn.net/img/ios/860504175/7fc8c7d8b4691962ffa66c9c004d9083",
-        store: "iOS Store",
-        price: "Free",
-        description: "This app will keep you motivated for your running process. It uses GPS to locate and give the current speed, used time, distance and route in map, also calculates calorie burned according to your weight, speed and time used. It keeps running logs with mood, weather and area icon. You can create running goal with days and distance, share logs info by Facebook, Twitter and Email.",
-        country: "United States",
-        average_current: "0",
-        total_current: "0",
-        average_all: "0",
-        total_all: "0",
-        current1: "0",
-        current2: "0",
-        current3: "0",
-        current4: "0",
-        current5: "0",
-        all1: "0",
-        all2: "0",
-        all3: "0",
-        all4: "0",
-        all5: "0",
-        compatibility: " Universal",
-        category: " Health and Fitness",
-        updated_date: " Sep 16, 2015",
-        size: " 7.3 MB",
-        seller: " Maxwell Software",
-        rated: "Rated 4+",
-        requirements: " Requires iOS 7.0 or later. Compatible with iPhone, iPad, and iPod touch.",
-        bundleid: " com.maxwell.rundiaryfree",
-        screenshot1: "https://static-s.aa-cdn.net/img/ios/860504175/1ec3209529cd4925604d09342bf397e6",
-        screenshot2: "https://static-s.aa-cdn.net/img/ios/860504175/ec2e8e2913581eacaaf873c1503d9d48",
-        screenshot3: "https://static-s.aa-cdn.net/img/ios/860504175/6f812ca9e66d8bcf9813e69da959cc5c"
+        screenshot1: "http://i.imgur.com/RfV2pYV.png",
+        screenshot2: "http://i.imgur.com/dWliZiK.png",
+        screenshot3: "http://i.imgur.com/R5Fg0iZ.png"
     },
     {
         link: "https://www.appannie.com/apps/ios/app/gps-running-watch-pro/",
         appname: "GPS Running Watch",
-        icon: "https://static-s.aa-cdn.net/img/ios/434216912/f6df0cd97b8e44d9362bcea037a7769f",
+        icon: "http://i.imgur.com/lsXM7Qc.png",
         store: "iOS Store",
         price: "2.99 USD",
         description: "Either you are running for pleasure or training as professional - it is your irreplaceable assistant to healthier and longer live. Don't even think of getting one of that slick and expensive standalone GPS devices, just try us instead. You can easily track time, distance, speed, pace, calories burned, location and finally, see that all on a map and tell the world about your accomplishments via Facebook, Twitter and Email.",
@@ -208,81 +140,13 @@ Applist.create([
         rated: "Rated 4+",
         requirements: " Requires iOS 6.0 or later. Compatible with iPhone, iPad?2 Wi-Fi + 3G, iPad Wi-Fi + Cellular (3rd generation), iPad Wi-Fi + Cellular (4th generation), iPad mini Wi-Fi + Cellular, iPad Air Wi-Fi + Cellular, iPad?mini?2 Wi-Fi + Cellular, iPad Air?2 Wi-Fi + Cellular, iPad mini?3 Wi-Fi + Cellular, iPad mini?4 Wi-Fi + Cellular, and iPad Pro Wi-Fi + Cellular.",
         bundleid: " com.appannex.runwatch",
-        screenshot1: "https://static-s.aa-cdn.net/img/ios/434216912/9dd5735e6ce32a8a8fd80cb1e87e4c49",
-        screenshot2: "https://static-s.aa-cdn.net/img/ios/434216912/bc67b7099af4ec6aff92848920a46dce",
-        screenshot3: "https://static-s.aa-cdn.net/img/ios/434216912/58deb342e9b6daa0e5a640d533daf677"
-    },
-    {
-        link: "https://www.appannie.com/apps/ios/app/runtime-simple-run-tracking/",
-        appname: "Runtime - Simple Run Tracking",
-        icon: "https://static-s.aa-cdn.net/img/ios/718633921/6b034c9d1c0384d920a6c5b8fc7bbc0a",
-        store: "iOS Store",
-        price: "Free",
-        description: "Track your route, time, speed, pace, and altitude everywhere you go for a run/walk/hike/jog etc. The app allows users to quickly visualize your content, you can organize your routes and times into places and view rich 3D map images of each run. You can also view stats on your progress while you're on the go, including pace, distance, time, location, and split times and a complete elevation profile.",
-        country: "United States",
-        average_current: "0",
-        total_current: "0",
-        average_all: "4",
-        total_all: "25",
-        current1: "0",
-        current2: "0",
-        current3: "0",
-        current4: "0",
-        current5: "0",
-        all1: "6",
-        all2: "0",
-        all3: "0",
-        all4: "1",
-        all5: "18",
-        compatibility: " Universal",
-        category: " Health and Fitness",
-        updated_date: " Sep 11, 2015",
-        size: " 22.7 MB",
-        seller: " Conrad Stoll",
-        rated: "Rated 4+",
-        requirements: " Requires iOS 8.0 or later. Compatible with iPhone, iPad, and iPod touch.",
-        bundleid: " com.conradstoll.Runtime",
-        screenshot1: "https://static-s.aa-cdn.net/img/ios/718633921/e1e01fa68ecce9e0d979f87705a31569",
-        screenshot2: "https://static-s.aa-cdn.net/img/ios/718633921/78bbc20475001709c4043f93891254ef",
-        screenshot3: "https://static-s.aa-cdn.net/img/ios/718633921/287e68e509cc77151703af6107ad3a8f"
-    },
-    {
-        link: "https://www.appannie.com/apps/ios/app/keep-my-run-health-trainer/",
-        appname: "Keep My Run: Health Trainer, Calories Tracking, GPS Workout",
-        icon: "https://static-s.aa-cdn.net/img/ios/960227983/610c35c6127b28563c1eaaa032baf14b",
-        store: "iOS Store",
-        price: "Free",
-        description: "Run anytime, anywhere! Start your healthy life today! It is ideal for all people who want to get in shape without using any exercise equipment. The app provides calories tracking, real time map route, activity log, on-screen instructions and timer. There is no internet access needed and no ads. You can use this app in background mode.",
-        country: "United States",
-        average_current: "3.5",
-        total_current: "6",
-        average_all: "3.5",
-        total_all: "6",
-        current1: "2",
-        current2: "0",
-        current3: "0",
-        current4: "1",
-        current5: "3",
-        all1: "2",
-        all2: "0",
-        all3: "0",
-        all4: "1",
-        all5: "3",
-        compatibility: " Universal",
-        category: " Health and Fitness",
-        updated_date: " Sep 16, 2015",
-        size: " 2.4 MB",
-        seller: " Ievgenii Koltsov",
-        rated: "Rated 4+",
-        requirements: " Requires iOS 7.0 or later. Compatible with iPhone, iPad, and iPod touch.",
-        bundleid: " com.keep.myrun",
-        screenshot1: "http://i.imgur.com/hkgjN7G.jpg",
-        screenshot2: "http://i.imgur.com/flIe3ok.jpg",
-        screenshot3: "http://i.imgur.com/Ewf3M2B.jpg"
+        screenshot1: "http://i.imgur.com/ZpG5yj7.png",
+        screenshot2: "http://i.imgur.com/8Tet8vX.png",
+        screenshot3: "http://i.imgur.com/z2BliZk.png"
     }
 ])
 
-# 40 real reviews
+# 20 real reviews
 Reviewlist.create(
 [
     {
@@ -306,46 +170,6 @@ Reviewlist.create(
         version: "1"
     },
     {
-        appname: "gpsrunningwatch",
-        star: "5",
-        title: "Great App (one of the best)",
-        author: "Jovani Schaefer",
-        content: "This app is amazing dunno why people don't buy this",
-        date: "1-Mar-15",
-        country: "United States",
-        version: "3.0.5"
-    },
-    {
-        appname: "keepmyrun",
-        star: "5",
-        title: "Great job!",
-        author: "Campbell Mora",
-        content: "Told me all the calories I lost and miles I ran great app ;)",
-        date: "16-Jun-15",
-        country: "United States",
-        version: "1.1"
-    },
-    {
-        appname: "keepmyrun",
-        star: "5",
-        title: "Love it",
-        author: "Samantha Ruiz",
-        content: "The app works great show you your distance and the calories. It also marks were you run!!",
-        date: "27-May-15",
-        country: "United States",
-        version: "1.1"
-    },
-    {
-        appname: "keepmyrun",
-        star: "5",
-        title: "Works great",
-        author: "Heaven Tate",
-        content: "This app works great. I would recommend it if you need something simple. You don't even need Internet access and you can tell where you're traveling.",
-        date: "24-May-15",
-        country: "United States",
-        version: "1.1"
-    },
-    {
         appname: "runr",
         star: "5",
         title: "Easy to use",
@@ -364,26 +188,6 @@ Reviewlist.create(
         date: "26-Feb-15",
         country: "United States",
         version: "2"
-    },
-    {
-        appname: "keepmyrun",
-        star: "4",
-        title: "Great app!",
-        author: "Esther Franco",
-        content: "I haven't been on it very much yet, but by the looks of it it looks awesome and I can't wait to use it!",
-        date: "22-Mar-15",
-        country: "United States",
-        version: "1.1"
-    },
-    {
-        appname: "mapmyrun",
-        star: "4",
-        title: "Go to running app.",
-        author: "Rayna Mclaughlin",
-        content: "Pretty accurate as far as I can tell.",
-        date: "10-Oct-15",
-        country: "United States",
-        version: "5.12.4"
     },
     {
         appname: "mapmyrun",
@@ -408,16 +212,6 @@ Reviewlist.create(
     {
         appname: "mapmyrun",
         star: "4",
-        title: "Great",
-        author: "Kobe Daniels",
-        content: "Good but drains Iphone battery",
-        date: "9-Oct-15",
-        country: "United States",
-        version: "5.12.4"
-    },
-    {
-        appname: "mapmyrun",
-        star: "4",
         title: "Good app, works well",
         author: "Winston Stark",
         content: "I like all the features it offers and does a good job tracking my workouts.",
@@ -434,46 +228,6 @@ Reviewlist.create(
         date: "7-Oct-15",
         country: "United States",
         version: "5.12.4"
-    },
-    {
-        appname: "mapmyrun",
-        star: "4",
-        title: "Easy to use",
-        author: "Maribel Galloway",
-        content: "I recommend this app to anyone based on its ease of use.",
-        date: "7-Oct-15",
-        country: "United States",
-        version: "5.12.4"
-    },
-    {
-        appname: "mapmyrun",
-        star: "3",
-        title: "I really don't know I'm new to all this....",
-        author: "Cheyenne Stevenson",
-        content: "I'll have more to say after I use it more often.",
-        date: "13-Aug-15",
-        country: "United States",
-        version: "5.12.2"
-    },
-    {
-        appname: "mapmyrun",
-        star: "3",
-        title: "Sometimes it works, sometimes not...",
-        author: "Yuliana Ferrell",
-        content: "I have found this app to be unreliable. When it works it is great.",
-        date: "29-Sep-15",
-        country: "United States",
-        version: "5.12.4"
-    },
-    {
-        appname: "mapmyrun",
-        star: "3",
-        title: "Lot of new features but still lacking",
-        author: "Aliza Atkinson",
-        content: "They've added too many features and the app doesn't seem as stable and precise.",
-        date: "12-Aug-15",
-        country: "United States",
-        version: "5.12.2"
     },
     {
         appname: "mapmyrun",
@@ -508,52 +262,12 @@ Reviewlist.create(
     {
         appname: "mapmyrun",
         star: "3",
-        title: "Works great outside. Can't figure out how to make it work on the track inside.",
-        author: "Clare Daugherty",
-        content: "The app works awesome outside when running/walking around a neighborhood/park/etc. But when I have to use it on a track (inside or outside) it gets totally confused!!",
-        date: "26-Sep-15",
-        country: "United States",
-        version: "5.12.4"
-    },
-    {
-        appname: "mapmyrun",
-        star: "3",
         title: "Keep your screen on!",
         author: "Kaelyn Berry",
         content: "The app works well if you are keeping your app open on the screen and your phone unlocked. If you close the screen the app jumps mileage and calories. It becomes extremely inaccurate.",
         date: "2-Sep-15",
         country: "United States",
         version: "5.12.2"
-    },
-    {
-        appname: "mapmyrun",
-        star: "2",
-        title: "Not working",
-        author: "Octavio Peters",
-        content: "After the recent update, I used this app and it calculates my miles wrong. Needless to say the update didn't work....",
-        date: "2-Aug-15",
-        country: "United States",
-        version: "5.12.2"
-    },
-    {
-        appname: "mapmyrun",
-        star: "2",
-        title: "Poor tracking",
-        author: "Johnny Duarte",
-        content: "For some reason, the app does not accurately track the route I traveled or the time. I have no idea why, but this is incredibly frustrating.",
-        date: "12-Sep-15",
-        country: "United States",
-        version: "5.12.4"
-    },
-    {
-        appname: "mapmyrun",
-        star: "2",
-        title: "Sound!",
-        author: "Kassidy Hughes",
-        content: "What happened to the sound after you updated? It wont tell me when I've started, how far I've gone or anything! I liked it better before the update!",
-        date: "22-Sep-15",
-        country: "United States",
-        version: "5.12.4"
     },
     {
         appname: "mapmyrun",
@@ -586,16 +300,6 @@ Reviewlist.create(
         version: "5.11.1"
     },
     {
-        appname: "mapmyrun",
-        star: "2",
-        title: "Gps and calories way off",
-        author: "Roderick Medina",
-        content: "I walk around a track so I know 4 times around I hit 1 mile. This app would tell me I walked a mile after 3.25 laps. It also says I burned 400 calories after a walk which a friend told me there is no way that is right. I can't use it if it is not accurate.",
-        date: "13-Aug-15",
-        country: "United States",
-        version: "5.12.2"
-    },
-    {
         appname: "runr",
         star: "2",
         title: "stop recording as background",
@@ -614,16 +318,6 @@ Reviewlist.create(
         date: "11-Aug-15",
         country: "United States",
         version: "2.2"
-    },
-    {
-        appname: "mapmyrun",
-        star: "1",
-        title: "Runner",
-        author: "Issac Vega",
-        content: "Terrible user experience. Cannot add routes when logging or see routes in more detail. Why even download?",
-        date: "5-Sep-15",
-        country: "United States",
-        version: "5.12.2"
     },
     {
         appname: "mapmyrun",
@@ -654,36 +348,6 @@ Reviewlist.create(
         date: "30-Aug-15",
         country: "United States",
         version: "5.12.2"
-    },
-    {
-        appname: "mapmyrun",
-        star: "1",
-        title: "Watch app freezes",
-        author: "Miranda Gilmore",
-        content: "Not planning to use until watch app stops freezing...nothing more frustrating than being 0.5 miles into a run to find the app is frozen.",
-        date: "2-Aug-15",
-        country: "United States",
-        version: "5.12.2"
-    },
-    {
-        appname: "mapmyrun",
-        star: "1",
-        title: "Horses",
-        author: "Jeramiah Boyer",
-        content: "Started out working fine, but now, it crashes on me if I try to do anything else with my phone while this app is running.",
-        date: "28-Aug-15",
-        country: "United States",
-        version: "5.12.2"
-    },
-    {
-        appname: "mapmyrun",
-        star: "1",
-        title: "Used to be good",
-        author: "Deegan Kline",
-        content: "I used to have great results with this app but now it doesn't GPS properly. I've tried it in NYC and in South Florida.",
-        date: "18-Sep-15",
-        country: "United States",
-        version: "5.12.4"
     }
 ])
 
