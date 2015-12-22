@@ -15,6 +15,8 @@ class CreateSubjectinfos < ActiveRecord::Migration
       t.string :platform
       t.string :os
 
+      t.references :choicesetting
+
       t.timestamps
     end
   end

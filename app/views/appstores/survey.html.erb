@@ -2,23 +2,97 @@
 /* need to rewrite based on survey questions */
 $(document).ready(function(){
 	$("#formvalidate").submit(function() {
-		var esearch = $("input[name='subjectinfo[esearch]']").val();
-		var mobile = $("input[name='subjectinfo[mobile_user]']:checked").val();
-		if(esearch.length == 0){
-			$("#esearch_error").text("This field is required.");
+		var involvement1 = $("input[name='survey[involvement1]']:checked").val();
+		var involvement2 = $("input[name='survey[involvement2]']:checked").val();
+		var involvement3 = $("input[name='survey[involvement3]']:checked").val();
+		var rf1 = $("input[name='survey[rf1]']:checked").val();
+		var rf2 = $("input[name='survey[rf2]']:checked").val();
+		var rf3 = $("input[name='survey[rf3]']:checked").val();
+		var rf4 = $("input[name='survey[rf4]']:checked").val();
+		var rf5 = $("input[name='survey[rf5]']:checked").val();
+		var rf6 = $("input[name='survey[rf6]']:checked").val();
+		var rf7 = $("input[name='survey[rf7]']:checked").val();
+		var why = $("input[name='survey[why]']").val();
+		var age = $("input[name='survey[age]']").val();
+		var gender = $("input[name='survey[gender]']:checked").val();
+		var income = $("input[name='survey[income]']:checked").val();
+
+		if(why.length == 0){
+			$("#why_error").text("This field is required.");
 		} else {
-			$("#esearch_error").text("");
+			$("#why_error").text("");
 		}
-		if(mobile===undefined){
-			$("#mobile_error").text("This field is required.");
+		if(age.length == 0){
+			$("#age_error").text("This field is required.");
 		} else {
-			$("#mobile_error").text("");
+			$("#age_error").text("");
 		}
 
-		if(esearch.length != 0 && mobile!==undefined){
+		if(involvement1===undefined){
+			$("#involvement1_error").text("This field is required.");
+		} else {
+			$("#involvement1_error").text("");
+		}
+		if(involvement2===undefined){
+			$("#involvement2_error").text("This field is required.");
+		} else {
+			$("#involvement2_error").text("");
+		}
+		if(involvement3===undefined){
+			$("#involvement3_error").text("This field is required.");
+		} else {
+			$("#involvement3_error").text("");
+		}
+		if(rf1===undefined){
+			$("#rf1_error").text("This field is required.");
+		} else {
+			$("#rf1_error").text("");
+		}
+		if(rf2===undefined){
+			$("#rf2_error").text("This field is required.");
+		} else {
+			$("#rf2_error").text("");
+		}
+		if(rf3===undefined){
+			$("#rf3_error").text("This field is required.");
+		} else {
+			$("#rf3_error").text("");
+		}
+		if(rf4===undefined){
+			$("#rf4_error").text("This field is required.");
+		} else {
+			$("#rf4_error").text("");
+		}
+		if(rf5===undefined){
+			$("#rf5_error").text("This field is required.");
+		} else {
+			$("#rf5_error").text("");
+		}
+		if(rf6===undefined){
+			$("#rf6_error").text("This field is required.");
+		} else {
+			$("#rf6_error").text("");
+		}
+		if(rf7===undefined){
+			$("#rf7_error").text("This field is required.");
+		} else {
+			$("#rf7_error").text("");
+		}
+		if(gender===undefined){
+			$("#gender_error").text("This field is required.");
+		} else {
+			$("#gender_error").text("");
+		}
+		if(income===undefined){
+			$("#income_error").text("This field is required.");
+		} else {
+			$("#income_error").text("");
+		}
+
+		if(why.length != 0 && age.length != 0 && involvement1!==undefined && involvement2!==undefined && involvement3!==undefined && rf1!==undefined && rf2!==undefined && rf3!==undefined && rf4!==undefined && rf5!==undefined && rf6!==undefined && rf7!==undefined && gender!==undefined && income!==undefined){
 			return true;
 		} else {
-			alert("Please make sure you have already answer all required fields.");
+			alert("Please make sure you have already answered all required fields.");
 			return false;
 		}
 	});
@@ -43,7 +117,7 @@ $(document).ready(function(){
 
 				<h3 class="text-center">Part3 - Perception toward Apps</h3>
 
-<%= form_for @subject, :url => { :controller => 'appstores', :action => 'endsurvey', :esearch =>@esearch.esearch } do |f| %>
+<%= form_for @subject, :url => { :controller => 'appstores', :action => 'endsurvey', :esearch =>@esearch.esearch }, :html=> { :class => "form-horizontal", :id=>"formvalidate"} do |f| %>
 
 <ol>
 	<li>Involvement</li>
@@ -628,7 +702,21 @@ $(document).ready(function(){
 	<tbody>
 </table>
 </div>
+
+	<li>Reasons for Purchasing</li>
+	<span id="helpBlock" class="help-block">
+		Please tell us why you answered the previous questions the way you did.
+	</span>
+  <div class="form-group">
+		<%= f.label :why, "Why you choose this app as final choice?", :class=>"control-label", :for=>"why" %>
+		<% if @subject.errors[:why].presence %>
+			<span class="model-error"><%= @subject.errors[:why].join(", ") %></span>
+		<% end %>
+		<%= f.text_area :why, :autocomplete=>"off", :class=>"form-control", :rows=>"5", :id=>"why" %>
+  </div>
 </ol> <!-- end question for perception toward apps-->
+
+</br>
 
 				<h3 class="text-center">Demographic Information</h3>
 <ol>

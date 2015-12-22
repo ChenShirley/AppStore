@@ -16,6 +16,7 @@ class CreateSurveys < ActiveRecord::Migration
       t.integer :rf5
       t.integer :rf6
       t.integer :rf7
+			t.text :why
       t.datetime :end_time
 
       t.timestamps

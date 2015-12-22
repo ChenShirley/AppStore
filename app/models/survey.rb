@@ -5,5 +5,6 @@ class Survey < ActiveRecord::Base
 									:age, :gender, :income,
 									:involvement1, :involvement2, :involvement3, 
 									:rf1, :rf2, :rf3, :rf4, :rf5, :rf6, :rf7,
+									:why,
 									:end_time
 end

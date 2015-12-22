@@ -7,6 +7,7 @@ class Mockupapp < ActiveRecord::Base
 									:pct_star5, :pct_star4, :pct_star3,
 									:pct_star2, :pct_star1,
 									:price,
+									:revieworder,
 									:subjectinfo_id
 	belongs_to :subjectinfo
 end

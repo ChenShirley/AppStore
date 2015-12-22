@@ -59,92 +59,65 @@ class AppstoresController < ApplicationController
 			@subject_esearch = params[:subjectinfo][:esearch]
 			@subject_id = Subjectinfo.find_by_esearch(@subject_esearch)
 
+		# random give choice set
+			@choiceset_id = 1 + Random.rand(143)
+			@choiceset = Choicesetting.find(@choiceset_id)
+
 		# create random sequences
-		# regulatory focus, 0 for promotion, 1 for prevention
-		@rf_sequence = Random.rand(2)
+		# regulatory focus, 1 for promotion, 2 for prevention
+		@rf_sequence = @choiceset.regulatory_focus
 
-		# app name, app description
-		@name_sequence = [1,2,3,4].shuffle
+		# appinfo
+		@appinfo_sequence = @choiceset.appinfo_position
 
-		# app icon, app screenshot
-		@icon_sequence = [1,2,3,4].shuffle
+		# apporder
+		@apporder_sequence = @choiceset.apporder_position
 
-		# app description
-		@description_sequence = [1,2,3,4].shuffle
+		# number of ratings, 1 for 20-50, 2 for 1000-5000
+		# @num_sequence = [0,0,1,1].shuffle
+		@num_sequence = @choiceset.totalrating_position
 
-		# app screenshot
-		@screenshot_sequence = [1,2,3,4].shuffle
-
-		# number of ratings, 0 for 20-50, 1 for 1000-5000
-		# @num = Random.rand(2)
-		@num_sequence = [0,0,1,1].shuffle
-
-		# rating distribution shape, 0 for J shaped, 1 for U shaped
-		# @distr = Random.rand(2)
-		@distr_sequence = [0,0,1,1].shuffle
-
-		# rating distribution shape detail, 3 shapes for J or U
-		# @barchart_sequence = 4.times.map {Random.rand(3)}
-
+		# rating distribution shape, 1 for J shaped, 2 for U shaped
+		# @distr_sequence = [0,0,1,1].shuffle
+		@distr_sequence = @choiceset.distribution_position
 
 		# create random content and store to database
 		# regulatory focus
-		if @rf_sequence == 0
+		if @rf_sequence == "1"
+			@subject_id.update_attributes!(:choicesetting_id => @choiceset_id, :regulatory_focus => "promotion")
 			@rf = "promotion"
-		elsif @rf_sequence == 1
+		elsif @rf_sequence == "2"
+			@subject_id.update_attributes!(:choicesetting_id => @choiceset_id, :regulatory_focus => "prevention")
 			@rf = "prevention"
 		end
 
-		(0..3).each do |i|	# select which to be the (i+1)-th, (i+1) is app order
-			@name = Applist.find(@name_sequence[i])	
-			@icon = Applist.find(@icon_sequence[i])
-			@description = Applist.find(@description_sequence[i])	
-			@screenshot = Applist.find(@screenshot_sequence[i])
+		(0..3).each do |i|	# count 4 app
+			@appinfo = Applist.find(@appinfo_sequence[2*i])
 
 			# number of ratings
-			if @num_sequence[i] == 0
+			if @num_sequence[2*i] == "1"
 				@num = 20 + Random.rand(30)
-			elsif @num_sequence[i] == 1
+			elsif @num_sequence[2*i] == "2"
 				@num = 1000 + Random.rand(4000)
 			end
 
 			# rating distribution shape
 			# rating distribution shape detail, 3 shapes for J or U
-			if @distr_sequence[i] == 0
+			if @distr_sequence[2*i] == "1"
 				@distr = "J"
-				@pct_star5, @pct_star4, @pct_star3, @pct_star2, @pct_star1, @bar_star5, @bar_star4, @bar_star3, @bar_star2, @bar_star1 = random_barchart(@num, 70, 90, 5, 35, 5, 10, 1, 10, 5, 15)
-=begin
-				case @barchart_sequence[i]
-					when 0
-						@pct_star5, @pct_star4, @pct_star3, @pct_star2, @pct_star1, @bar_star5, @bar_star4, @bar_star3, @bar_star2, @bar_star1 = random_barchart(@num, 60, 80, 10, 20, 10, 15, 5, 15, 10, 20)
-					when 1
-						@pct_star5, @pct_star4, @pct_star3, @pct_star2, @pct_star1, @bar_star5, @bar_star4, @bar_star3, @bar_star2, @bar_star1 = random_barchart(@num, 60, 80, 30, 50, 10, 15, 5, 15, 10, 20)
-					when 2
-						@pct_star5, @pct_star4, @pct_star3, @pct_star2, @pct_star1, @bar_star5, @bar_star4, @bar_star3, @bar_star2, @bar_star1 = random_barchart(@num, 60, 80, 20, 40, 10, 15, 5, 15, 10, 30)
-				end
-=end
-			elsif @distr_sequence[i] == 1
+				@pct_star5, @pct_star4, @pct_star3, @pct_star2, @pct_star1, @bar_star5, @bar_star4, @bar_star3, @bar_star2, @bar_star1 = random_barchart(@num, 70, 90, 10, 50, 5, 10, 1, 10, 5, 15)
+			elsif @distr_sequence[2*i] == "2"
 				@distr = "U"
-				@pct_star5, @pct_star4, @pct_star3, @pct_star2, @pct_star1, @bar_star5, @bar_star4, @bar_star3, @bar_star2, @bar_star1 = random_barchart(@num, 70, 90, 5, 35, 5, 15, 1, 15, 60, 75)
-=begin
-				case @barchart_sequence[i]
-					when 0
-						@pct_star5, @pct_star4, @pct_star3, @pct_star2, @pct_star1, @bar_star5, @bar_star4, @bar_star3, @bar_star2, @bar_star1 = random_barchart(@num, 70, 90, 10, 20, 10, 20, 10, 20, 65, 75)
-					when 1
-						@pct_star5, @pct_star4, @pct_star3, @pct_star2, @pct_star1, @bar_star5, @bar_star4, @bar_star3, @bar_star2, @bar_star1 = random_barchart(@num, 70, 90, 25, 40, 10, 20, 1, 20, 65, 75)
-					when 2
-						@pct_star5, @pct_star4, @pct_star3, @pct_star2, @pct_star1, @bar_star5, @bar_star4, @bar_star3, @bar_star2, @bar_star1 = random_barchart(@num, 70, 90, 20, 40, 10, 20, 20, 40, 65, 75)
-				end
-=end
+				@pct_star5, @pct_star4, @pct_star3, @pct_star2, @pct_star1, @bar_star5, @bar_star4, @bar_star3, @bar_star2, @bar_star1 = random_barchart(@num, 70, 90, 5, 35, 5, 15, 1, 15, 65, 75)
 			end
 
 			# calculate average rating
 			@average = ((5*@bar_star5 + 4*@bar_star4 + 3*@bar_star3 + 2*@bar_star2 + 1*@bar_star1).fdiv(@num)).round(1)
 
 			Mockupapp.create(:esearch => @subject_esearch, :regulatory_focus => @rf,
-										:apporder => i+1, :appname => @name.appname, :description => @description.description,
-										:icon => @icon.icon,
-										:screenshot1 => @screenshot.screenshot1, :screenshot2 => @screenshot.screenshot2, :screenshot3 => @screenshot.screenshot3,
+										:apporder => @apporder_sequence[2*i], :appname => @appinfo.appname, :description => @appinfo.description,
+										:icon => @appinfo.icon,
+										:screenshot1 => @appinfo.screenshot1, :screenshot2 => @appinfo.screenshot2, :screenshot3 => @appinfo.screenshot3,
 										:averagerating => @average, :totalrating => @num, :distribution => @distr,
 										:num_star5 => @bar_star5, :num_star4 => @bar_star4, :num_star3 => @bar_star3,
 										:num_star2 => @bar_star2, :num_star1 => @bar_star1,
@@ -152,30 +125,29 @@ class AppstoresController < ApplicationController
 										:pct_star2 => @pct_star2, :pct_star1 => @pct_star1,
 										:price => "0.99", :subjectinfo_id => @subject_id.id)
 
-			@subject_id.update_attributes!(:regulatory_focus => @rf)
-
-			Event.create(:esearch => @subject_esearch, :regulatory_focus => @rf, :appname => @name.appname, :apporder => i+1,
+			Event.create(:esearch => @subject_esearch, :regulatory_focus => @rf, :appname => @appinfo.appname,
+									 :apporder => @apporder_sequence[2*i],
 									 :review => 0, :detail => 0, :purchase => 0, :clickorder => "")
 		end # end for loop
 
 
 		# app reviews
-		# review display order
-		@review_sequence = [1,2,3,4,5].shuffle
 		# review_star_sequence[4][0] is star5 refer to (review_star_sequence[4][0])-th review
 		@review_star_sequence = [[1,2,3,4].shuffle,[1,2,3,4].shuffle,[1,2,3,4].shuffle,[1,2,3,4].shuffle,[1,2,3,4].shuffle]
 
 		for i in 0..3	# select which to be the (i+1)-th, (i+1) is app order
-			@app = Mockupapp.where("esearch=? AND apporder=?",@subject_esearch,i+1)
+			#@app = Mockupapp.where("esearch=? AND apporder=?",@subject_esearch,i+1)
+			@app_order = i+1
+			@app = Mockupapp.find_by_esearch(@subject_esearch, :conditions => "apporder = #{@app_order}")
 			for j in 0..4
 				review_star = Reviewlist.where("star=?",j+1)
 				# there are review_star[0] - review_star[7]
 				@review = review_star[@review_star_sequence[j][i]-1]
-
-				Mockupreview.create(:esearch => @app[0].esearch, :apporder => @app[0].apporder, :appname => @app[0].appname,
-											:revieworder => @review_sequence[j],
-											:star => @review.star,:title => @review.title,:author => @review.author,:content => @review.content,
-											:date => @review.date, :mockupapp_id => @app[0].id)
+				if @app.revieworder.blank?
+					@app.update_attributes!(:revieworder => @review.id.to_s)
+				else
+					@app.update_attributes!(:revieworder => (@app.revieworder.to_s + "," + @review.id.to_s))
+				end
 			end # end for loop j
 		end # end for loop i
 
@@ -215,7 +187,9 @@ class AppstoresController < ApplicationController
 		@subject_esearch = params[:esearch]
 		@app_order = params[:apporder]
 		@app = Mockupapp.find_by_esearch(@subject_esearch, :conditions => "apporder = #{@app_order}")
-		@appreview= Mockupreview.where("esearch=? AND apporder=?", @subject_esearch, @app_order).order("revieworder ASC")
+		@revieworder = @app.revieworder.split(',')
+		@appreview= Reviewlist.where("id=? OR id=? OR id=? OR id=? OR id=?", @revieworder[0], @revieworder[1], @revieworder[2], @revieworder[3], @revieworder[4])
+
 		# track everytime user click the read reviews button
 		@lastevent = Event.find_by_esearch(@subject_esearch, :conditions => "appname = '#{@app.appname}'")
 		@lastevent.update_attributes!(:review => 1+@lastevent.review.to_i, :clickorder => @lastevent.clickorder.to_s + "r")

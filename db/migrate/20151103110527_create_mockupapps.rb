@@ -24,6 +24,7 @@ class CreateMockupapps < ActiveRecord::Migration
       t.float :pct_star2
       t.float :pct_star1
       t.string :price
+      t.string :revieworder
 
       t.references :subjectinfo
 

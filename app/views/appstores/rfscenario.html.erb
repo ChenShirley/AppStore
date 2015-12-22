@@ -30,14 +30,30 @@ $(document).ready(function(){
 					Please behave the way you do in app store as usual, and carefully read the scenario and evaluating apps based on it.
 				</p>
 
+</br>
+
 				<h3 class="text-left">Scenario</h3>
 				<p class="rfscenario">
 					<% if @subject.regulatory_focus=="promotion" %>
-						Regular exercise provide your body greater energy, so you can get through the day, and even <strong>enhance your work performance</strong>. 
+							Research has shown that being physically active for at least half an hour per day almost every day of the week will <strong>improve your physical performance</strong>. 
+							Regular physical activity <strong>makes your body fit and gives you more energy throughout the day</strong>. 
+							Moreover, physical training improves your sleep quality and cognitive functioning which helps you to become more focused and concentrated to accomplish the daily tasks. 
+							Even life style activities like cycling or walking can trigger these effects when they lead to sweating and breathing harder and last for at least 10 min each bout. 
+							A physically active life-style <strong>enhances your self-esteem and raises your mood</strong>. 
+							Be active and take the chance to experience fun and enjoyment! 
+							Half an hour of physical activity each day does not only make you attractive but gives you a good feeling. 
+							You can improve your vitality with your behavior!
 					<% elsif @subject.regulatory_focus=="prevention" %>
-						No more exhausted, frustrated, and annoyed! 
-						Regular exercise makes endorphins which help you <strong>stay away from negative emotions</strong>. 
-						Regular exercise <strong>reduce the risk of chronic diseases</strong> and help <strong>prevent disease</strong>.
+							Research has shown that being physically active for at least half an hour per day almost every day of the week <strong>prevents you from chronic heart diseases or chronic back pain</strong>. 
+							Regular physical activity <strong>counteracts the decrease of physical performance</strong>. 
+							It helps you to <strong>cope better with daily hassles and reduces mental stress</strong>. 
+							Even life style activities like cycling or walking can trigger these effects when they lead to sweating and breathing harder and last for at least 10 min each bout. 
+							A physically active life-style can <strong>diminish the occurrence of depressive symptoms and anxiety</strong>. 
+							Moreover, tiredness is reduced and you’ll become more resistant toward infections. 
+							Stay healthy and avoid being physically inactive. 
+							Half an hour of physical activity each day does not only keep you healthy but prevents you from many diseases. 
+							Through avoiding risk behavior, everybody can prevent discomfort and ill being. 
+							You can avoid the development of lifestyle diseases with your behavior!
 					<% end %>
 				</p>
 
@@ -64,7 +80,9 @@ $(document).ready(function(){
 			</li>
 			<div class="radio radio-primary">
 		    <input type="radio" name="rf" id="rf_1" value="1", class="with-font">
-		    <label for="rf_1" class="control-label">Keep your body in good shape</label>
+		    <label for="rf_1" class="control-label">Boost your memory</label>
+
+
 			</div>
 			<div class="radio radio-primary">
 		    <input type="radio" name="rf" id="rf_0" value="0", class="with-font">
@@ -80,7 +98,7 @@ $(document).ready(function(){
 			</div>
 			<div class="radio radio-primary">
 		    <input type="radio" name="rf" id="rf_0" value="0", class="with-font">
-		    <label for="rf_0" class="control-label">Negative emotions</label>
+		    <label for="rf_0" class="control-label">Chronic diseases</label>
 			</div>
 		<% end %>
 		</div>

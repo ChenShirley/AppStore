@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151111064357) do
+ActiveRecord::Schema.define(version: 20151214070520) do
 
   create_table "applists", force: true do |t|
     t.text     "link"
@@ -35,17 +35,30 @@ ActiveRecord::Schema.define(version: 20151111064357) do
     t.integer  "all3"
     t.integer  "all4"
     t.integer  "all5"
-    t.string   "compatibility"
+    t.text     "compatibility"
     t.string   "category"
     t.string   "updated_date"
     t.string   "size"
     t.string   "seller"
     t.string   "rated"
-    t.string   "requirements"
-    t.string   "bundleid"
+    t.text     "requirements"
+    t.text     "bundleid"
     t.text     "screenshot1"
     t.text     "screenshot2"
     t.text     "screenshot3"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "choicesettings", force: true do |t|
+    t.string   "regulatory_focus"
+    t.string   "task"
+    t.string   "task_appinfo"
+    t.string   "task_apporder"
+    t.string   "appinfo_position"
+    t.string   "apporder_position"
+    t.string   "totalrating_position"
+    t.string   "distribution_position"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -87,6 +100,7 @@ ActiveRecord::Schema.define(version: 20151111064357) do
     t.float    "pct_star2"
     t.float    "pct_star1"
     t.string   "price"
+    t.string   "revieworder"
     t.integer  "subjectinfo_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -134,6 +148,7 @@ ActiveRecord::Schema.define(version: 20151111064357) do
     t.string   "browser_version"
     t.string   "platform"
     t.string   "os"
+    t.integer  "choicesetting_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -154,6 +169,7 @@ ActiveRecord::Schema.define(version: 20151111064357) do
     t.integer  "rf5"
     t.integer  "rf6"
     t.integer  "rf7"
+    t.text     "why"
     t.datetime "end_time"
     t.datetime "created_at"
     t.datetime "updated_at"

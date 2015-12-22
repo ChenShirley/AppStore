@@ -41,7 +41,7 @@ $(document).ready(function(){
 		if(esearch.length != 0 && mobile!==undefined && appstore!==undefined && visit!==undefined && expense!==undefined && experience!==undefined){
 			return true;
 		} else {
-			alert("Please make sure you have already answer all required fields.");
+			alert("Please make sure you have already answered all required fields.");
 			return false;
 		}
 	});
@@ -83,7 +83,7 @@ $(document).ready(function(){
   <div class="form-group">
 	<li>
 		<%= f.label :mobile_user, "Are you currently a smart mobile device user?", :class=>"control-label", :for=>"mobile_user" %>
-			<span id="helpBlock" class="help-block">Smart mobile devices are defined as one that can connect to the Internet AND download and run apps here.</span>
+		<span id="helpBlock" class="help-block">Smart mobile devices are defined as one that can connect to the Internet AND download and run apps here.</span>
 	</li>
 		<% if @subject.errors[:mobile_user].presence %>
 			<span class="model-error"><%= @subject.errors[:mobile_user].join(", ") %></span>
@@ -101,7 +101,7 @@ $(document).ready(function(){
 
   <div class="form-group">
 	<li>
-		<%= f.label :appstore, "Which app store is on the smart mobile device you currently use?", :class=>"control-label", :for=>"appstore" %>
+		<%= f.label :appstore, "Which app store is on the smart mobile device you currently used?", :class=>"control-label", :for=>"appstore" %>
 	</li>
 		<% if @subject.errors[:appstore].presence %>
 			<span class="model-error"><%= @subject.errors[:appstore].join(", ") %></span>
@@ -158,7 +158,7 @@ $(document).ready(function(){
   <div class="form-group">
 	<li>
 		<%= f.label :app_expense, "How much money do you spend on purchasing apps in a month?", :class=>"control-label", :for=>"app_expense" %>
-			<span id="helpBlock" class="help-block">Including but not limited to one-time charge, subscription, in-app purchase, etc.</span>
+		<span id="helpBlock" class="help-block">Including but not limited to one-time charge, subscription, in-app purchase, etc.</span>
 	</li>
 		<% if @subject.errors[:app_expense].presence %>
 			<span class="model-error"><%= @subject.errors[:app_expense].join(", ") %></span>
@@ -189,6 +189,7 @@ $(document).ready(function(){
   <div class="form-group">
 	<li>
 		<%= f.label :previous_experience, "How familiar are you with health & fitness apps?", :class=>"control-label", :for=>"previous_experience" %>
+		<span id="helpBlock" class="help-block">Health & fitness apps are designed with different functions for health maintenance, but we focus on apps with the majority being related to <strong>physical activity tracking and analytics</strong> here.</span>
 	</li>
 		<% if @subject.errors[:previous_experience].presence %>
 			<span class="model-error"><%= @subject.errors[:previous_experience].join(", ") %></span>
