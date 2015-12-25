@@ -12,6 +12,11 @@
  *= require_tree .
  */
 
+label.required:before { 
+	content: "* ";
+	color: #D9534F;
+}
+
 /* for button outline */
 .btn-outline {
   background-color: transparent;
@@ -206,7 +211,7 @@ input[type=radio].with-font:focus ~ label {
 
 /* form model level validation error */
 .model-error {
-	color: red;
+	color: #D9534F;
 }
 
 /* for star rating bar */

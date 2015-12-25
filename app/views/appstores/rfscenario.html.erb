@@ -60,7 +60,7 @@ $(document).ready(function(){
 	<ol>
 		<div class="form-group">
 			<li>
-				<label for="read" class="control-label">Have you read the scenario and understand the requirements completely?</label>
+				<label for="read" class="control-label required">Have you read the scenario and understand the requirements completely?</label>
 				<span id="helpBlock" class="help-block">please make sure you have carefully reviewed the scenario</span>
 			</li>
 			<div class="radio radio-primary">
@@ -76,7 +76,7 @@ $(document).ready(function(){
 		<div class="form-group">
 		<% if @subject.regulatory_focus=="promotion" %>
 			<li>
-				<label for="rf" class="control-label">According to the scenario above, what is the benefit of exercise?</label>
+				<label for="rf" class="control-label required">According to the scenario above, what is the benefit of exercise?</label>
 			</li>
 			<div class="radio radio-primary">
 		    <input type="radio" name="rf" id="rf_1" value="1", class="with-font">
@@ -90,7 +90,7 @@ $(document).ready(function(){
 			</div>
 		<% elsif @subject.regulatory_focus=="prevention" %>
 			<li>
-				<label for="rf" class="control-label">According to the scenario above, what can be prevented by exercise?</label>
+				<label for="rf" class="control-label required">According to the scenario above, what can be prevented by exercise?</label>
 			</li>
 			<div class="radio radio-primary">
 		    <input type="radio" name="rf" id="rf_1" value="1", class="with-font">

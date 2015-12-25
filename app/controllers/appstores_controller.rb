@@ -59,8 +59,15 @@ class AppstoresController < ApplicationController
 			@subject_esearch = params[:subjectinfo][:esearch]
 			@subject_id = Subjectinfo.find_by_esearch(@subject_esearch)
 
-		# random give choice set
+		# random give choice set for now
 			@choiceset_id = 1 + Random.rand(143)
+		# call function from ChoiceSetService
+		# @choiceset_queue = ChoiceSetService.new.start_choiceset
+		# @choiceset_id = @choiceset_queue.configuration
+		# @choiceset_rep = @choiceset_queue.repetition
+		# @choiceset_receipt = @choiceset_queue.receipt
+		# subject_id.update_attributes!(:choiceset_receipt => @choiceset_receipt, :choicesetting_id => @choiceset_id, :choiceset_rep => @choiceset_rep)
+
 			@choiceset = Choicesetting.find(@choiceset_id)
 
 		# create random sequences
@@ -213,6 +220,16 @@ class AppstoresController < ApplicationController
 		@subject = Survey.new(params[:survey])
 		@subject.save
 		if @subject.save
+			## after user has finished experiment, check respondent valid or not. if yes, close choiceset
+			# if (@subject.end_time - @esearch.start_time) > 180 # 3 minutes
+			# receipt = @esearch.choiceset_receipt
+			# ChoiceSetService.new.close_choiceset(receipt)
+			# else
+			# end
+
+			surveycode = "#{@esearch.choicesetting_id}" + "T" + "#{Time.now.to_i}"
+			@esearch.update_attributes!(:mturk_surveycode => surveycode)
+
 			flash[:notice] = "Your response has been recorded."
 		  render :action => "thankyou"
 		else # not pass DB validation

@@ -1,17 +1,12 @@
 <script>
 $(document).ready(function(){
 	$("#formvalidate").submit(function() {
-		var esearch = $("input[name='subjectinfo[esearch]']").val();
 		var mobile = $("input[name='subjectinfo[mobile_user]']:checked").val();
 		var appstore = $("input[name='subjectinfo[appstore]']:checked").val();
 		var visit = $("input[name='subjectinfo[visit_frequency]']:checked").val();
 		var expense = $("input[name='subjectinfo[app_expense]']:checked").val();
 		var experience = $("input[name='subjectinfo[previous_experience]']:checked").val();
-		if(esearch.length == 0){
-			$("#esearch_error").text("This field is required.");
-		} else {
-			$("#esearch_error").text("");
-		}
+
 		if(mobile===undefined){
 			$("#mobile_error").text("This field is required.");
 		} else {
@@ -38,7 +33,7 @@ $(document).ready(function(){
 			$("#experience_error").text("");
 		}
 
-		if(esearch.length != 0 && mobile!==undefined && appstore!==undefined && visit!==undefined && expense!==undefined && experience!==undefined){
+		if(mobile!==undefined && appstore!==undefined && visit!==undefined && expense!==undefined && experience!==undefined){
 			return true;
 		} else {
 			alert("Please make sure you have already answered all required fields.");
@@ -69,20 +64,11 @@ $(document).ready(function(){
 
 <%= form_for @subject, :url => { :controller => 'appstores', :action => 'create' }, :html=> { :class => "form-horizontal", :id=>"formvalidate"} do |f| %>
 <ol>
-  <div class="form-group">
-	<li>
-		<%= f.label :esearch, "Esearch ID：", :class=>"control-label", :for=>"esearch" %>
-	</li>
-		<% if @subject.errors[:esearch].presence %>
-			<span class="model-error"><%= @subject.errors[:esearch].join(", ") %></span>
-		<% end %>
-		<span id="esearch_error" class="model-error"></span>
-		<%= f.text_field :esearch, :autocomplete=>"off", :placeholder=>"Esearch ID", :class=>"form-control", :id=>"esearch" %>
-  </div>
+	<%= f.hidden_field :esearch, :value=>"T#{Time.now.to_i}" %>
 
   <div class="form-group">
 	<li>
-		<%= f.label :mobile_user, "Are you currently a smart mobile device user?", :class=>"control-label", :for=>"mobile_user" %>
+		<%= f.label :mobile_user, "Are you currently a smart mobile device user?", :class=>"control-label required", :for=>"mobile_user" %>
 		<span id="helpBlock" class="help-block">Smart mobile devices are defined as one that can connect to the Internet AND download and run apps here.</span>
 	</li>
 		<% if @subject.errors[:mobile_user].presence %>
@@ -101,7 +87,7 @@ $(document).ready(function(){
 
   <div class="form-group">
 	<li>
-		<%= f.label :appstore, "Which app store is on the smart mobile device you currently used?", :class=>"control-label", :for=>"appstore" %>
+		<%= f.label :appstore, "Which app store is on the smart mobile device you currently used?", :class=>"control-label required", :for=>"appstore" %>
 	</li>
 		<% if @subject.errors[:appstore].presence %>
 			<span class="model-error"><%= @subject.errors[:appstore].join(", ") %></span>
@@ -123,7 +109,7 @@ $(document).ready(function(){
 
   <div class="form-group">
 	<li>
-		<%= f.label :visit_frequency, "How often do you visit this app store?", :class=>"control-label", :for=>"visit_frequency" %>
+		<%= f.label :visit_frequency, "How often do you visit this app store?", :class=>"control-label required", :for=>"visit_frequency" %>
 	</li>
 		<% if @subject.errors[:visit_frequency].presence %>
 			<span class="model-error"><%= @subject.errors[:visit_frequency].join(", ") %></span>
@@ -157,7 +143,7 @@ $(document).ready(function(){
 
   <div class="form-group">
 	<li>
-		<%= f.label :app_expense, "How much money do you spend on purchasing apps in a month?", :class=>"control-label", :for=>"app_expense" %>
+		<%= f.label :app_expense, "How much money do you spend on purchasing apps in a month?", :class=>"control-label required", :for=>"app_expense" %>
 		<span id="helpBlock" class="help-block">Including but not limited to one-time charge, subscription, in-app purchase, etc.</span>
 	</li>
 		<% if @subject.errors[:app_expense].presence %>
@@ -188,7 +174,7 @@ $(document).ready(function(){
 
   <div class="form-group">
 	<li>
-		<%= f.label :previous_experience, "How familiar are you with health & fitness apps?", :class=>"control-label", :for=>"previous_experience" %>
+		<%= f.label :previous_experience, "How familiar are you with health & fitness apps?", :class=>"control-label required", :for=>"previous_experience" %>
 		<span id="helpBlock" class="help-block">Health & fitness apps are designed with different functions for health maintenance, but we focus on apps with the majority being related to <strong>physical activity tracking and analytics</strong> here.</span>
 	</li>
 		<% if @subject.errors[:previous_experience].presence %>

@@ -12,6 +12,8 @@ $(document).ready(function(){
 		var rf5 = $("input[name='survey[rf5]']:checked").val();
 		var rf6 = $("input[name='survey[rf6]']:checked").val();
 		var rf7 = $("input[name='survey[rf7]']:checked").val();
+		var attention = $("input[name='survey[attention]']:checked").val();
+		var suggestion = $("input[name='survey[suggestion]']").val();
 		var why = $("input[name='survey[why]']").val();
 		var age = $("input[name='survey[age]']").val();
 		var gender = $("input[name='survey[gender]']:checked").val();
@@ -26,6 +28,17 @@ $(document).ready(function(){
 			$("#age_error").text("This field is required.");
 		} else {
 			$("#age_error").text("");
+		}
+
+		if(suggestion.length == 0){
+			$("#suggestion_error").text("This field is required.");
+		} else {
+			$("#suggestion_error").text("");
+		}
+		if(attention===undefined){
+			$("#attention_error").text("This field is required.");
+		} else {
+			$("#attention_error").text("");
 		}
 
 		if(involvement1===undefined){
@@ -89,7 +102,7 @@ $(document).ready(function(){
 			$("#income_error").text("");
 		}
 
-		if(why.length != 0 && age.length != 0 && involvement1!==undefined && involvement2!==undefined && involvement3!==undefined && rf1!==undefined && rf2!==undefined && rf3!==undefined && rf4!==undefined && rf5!==undefined && rf6!==undefined && rf7!==undefined && gender!==undefined && income!==undefined){
+		if(why.length != 0 && age.length != 0 && involvement1!==undefined && involvement2!==undefined && involvement3!==undefined && rf1!==undefined && rf2!==undefined && rf3!==undefined && rf4!==undefined && rf5!==undefined && rf6!==undefined && rf7!==undefined && gender!==undefined && income!==undefined && attention!==undefined){
 			return true;
 		} else {
 			alert("Please make sure you have already answered all required fields.");
@@ -138,7 +151,7 @@ $(document).ready(function(){
 	<tbody>
 	<tr>
 	  <td class="text-left">
-			I have a strong interest in activities tracking apps.
+			<label class="required">I have a strong interest in activities tracking apps.</label>
 			<% if @subject.errors[:involvement1].presence %>
 					<span class="model-error"><%= @subject.errors[:involvement1].join(", ") %></span>
 			<% end %>
@@ -190,7 +203,7 @@ $(document).ready(function(){
 	</tr>
 	<tr>
 	  <td class="text-left">
-			For me, activities tracking apps does not matter.
+			<label class="required">For me, activities tracking apps does not matter.</label>
 			<% if @subject.errors[:involvement2].presence %>
 					<span class="model-error"><%= @subject.errors[:involvement2].join(", ") %></span>
 			<% end %>
@@ -242,7 +255,7 @@ $(document).ready(function(){
 	</tr>
 	<tr>
 	  <td class="text-left">
-			Activities tracking apps are very important to me.
+			<label class="required">Activities tracking apps are very important to me.</label>
 			<% if @subject.errors[:involvement3].presence %>
 					<span class="model-error"><%= @subject.errors[:involvement3].join(", ") %></span>
 			<% end %>
@@ -316,7 +329,7 @@ $(document).ready(function(){
 	<tbody>
 	<tr>
 	  <td class="text-left">
-			Using an activities tracking app helps me
+			<label class="required">Using an activities tracking app helps me</label>
 			<% if @subject.errors[:rf1].presence %>
 					<span class="model-error"><%= @subject.errors[:rf1].join(", ") %></span>
 			<% end %>
@@ -389,7 +402,7 @@ $(document).ready(function(){
 	<tbody>
 	<tr>
 	  <td class="text-left">
-			In evaluating an activities tracking app, I am more concerned about achieving success rather than avoiding failure.
+			<label class="required">In evaluating an activities tracking app, I am more concerned about achieving success rather than avoiding failure.</label>
 			<% if @subject.errors[:rf2].presence %>
 					<span class="model-error"><%= @subject.errors[:rf2].join(", ") %></span>
 			<% end %>
@@ -441,7 +454,7 @@ $(document).ready(function(){
 	</tr>
 	<tr>
 	  <td class="text-left">
-			In evaluating an activities tracking app, I am more concerned about avoiding failure rather than achieving success.
+			<label class="required">In evaluating an activities tracking app, I am more concerned about avoiding failure rather than achieving success.</label>
 			<% if @subject.errors[:rf3].presence %>
 					<span class="model-error"><%= @subject.errors[:rf3].join(", ") %></span>
 			<% end %>
@@ -491,9 +504,63 @@ $(document).ready(function(){
 			</div>
 	  </td>
 	</tr>
+
 	<tr>
 	  <td class="text-left">
-			When evaluating an activities tracking app, I consider achieving positive consequences from using it.
+			<label class="required">Please choose "Slightly Agree" for this question.</label>
+			<% if @subject.errors[:attention].presence %>
+					<span class="model-error"><%= @subject.errors[:attention].join(", ") %></span>
+			<% end %>
+		</td>
+	  <td>
+			<div class="form-group">
+			<div class="radio radio-primary">
+					<%= f.radio_button :attention, "1", :id=>"attention_1", :class=>"with-font" %>
+					<label class="control-label" for="attention_1" %>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :attention, "2", :id=>"attention_2", :class=>"with-font" %>
+					<label class="control-label" for="attention_2"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :attention, "3", :id=>"attention_3", :class=>"with-font" %>
+					<label class="control-label" for="attention_3"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :attention, "4", :id=>"attention_4", :class=>"with-font" %>
+					<label class="control-label" for="attention_4"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :attention, "5", :id=>"attention_5", :class=>"with-font" %>
+					<label class="control-label" for="attention_5"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :attention, "6", :id=>"attention_6", :class=>"with-font" %>
+					<label class="control-label" for="attention_6"></label>
+			</div>
+	  </td>
+	  <td>
+			<div class="radio radio-primary">
+					<%= f.radio_button :attention, "7", :id=>"attention_7", :class=>"with-font" %>
+					<label class="control-label" for="attention_7"></label>
+			</div>
+			</div>
+	  </td>
+	</tr>
+
+	<tr>
+	  <td class="text-left">
+			<label class="required">When evaluating an activities tracking app, I consider achieving positive consequences from using it.</label>
 			<% if @subject.errors[:rf4].presence %>
 					<span class="model-error"><%= @subject.errors[:rf4].join(", ") %></span>
 			<% end %>
@@ -545,7 +612,7 @@ $(document).ready(function(){
 	</tr>
 	<tr>
 	  <td class="text-left">
-			When evaluating an activities tracking app, I consider preventing negative consequences from using it.
+			<label class="required">When evaluating an activities tracking app, I consider preventing negative consequences from using it.</label>
 			<% if @subject.errors[:rf5].presence %>
 					<span class="model-error"><%= @subject.errors[:rf5].join(", ") %></span>
 			<% end %>
@@ -597,7 +664,7 @@ $(document).ready(function(){
 	</tr>
 	<tr>
 	  <td class="text-left">
-			If I buy an activities tracking app, I will feel excited about the purchase.
+			<label class="required">If I buy an activities tracking app, I will feel excited about the purchase.</label>
 			<% if @subject.errors[:rf6].presence %>
 					<span class="model-error"><%= @subject.errors[:rf6].join(", ") %></span>
 			<% end %>
@@ -649,7 +716,7 @@ $(document).ready(function(){
 	</tr>
 	<tr>
 	  <td class="text-left">
-			If I buy an activities tracking app, I will feel safe about the purchase.
+			<label class="required">If I buy an activities tracking app, I will feel safe about the purchase.</label>
 			<% if @subject.errors[:rf7].presence %>
 					<span class="model-error"><%= @subject.errors[:rf7].join(", ") %></span>
 			<% end %>
@@ -704,14 +771,14 @@ $(document).ready(function(){
 </div>
 
 	<li>Reasons for Purchasing</li>
-	<span id="helpBlock" class="help-block">
-		Please tell us why you answered the previous questions the way you did.
-	</span>
   <div class="form-group">
-		<%= f.label :why, "Why you choose this app as final choice?", :class=>"control-label", :for=>"why" %>
+		<%= f.label :why, "Why you choose this app as final choice?", :class=>"control-label required", :for=>"why" %>
 		<% if @subject.errors[:why].presence %>
 			<span class="model-error"><%= @subject.errors[:why].join(", ") %></span>
 		<% end %>
+		<span id="helpBlock" class="help-block">
+			Please tell us why you answered the previous questions the way you did.
+		</span>
 		<%= f.text_area :why, :autocomplete=>"off", :class=>"form-control", :rows=>"5", :id=>"why" %>
   </div>
 </ol> <!-- end question for perception toward apps-->
@@ -722,7 +789,7 @@ $(document).ready(function(){
 <ol>
   <div class="form-group">
 	<li>
-		<%= f.label :age, "What is your age：", :class=>"control-label", :for=>"age" %>
+		<%= f.label :age, "What is your age：", :class=>"control-label required", :for=>"age" %>
 	</li>
 		<% if @subject.errors[:age].presence %>
 			<span class="model-error"><%= @subject.errors[:age].join(", ") %></span>
@@ -732,7 +799,7 @@ $(document).ready(function(){
 
   <div class="form-group">
 	<li>
-		<%= f.label :gender, "What is your gender?", :class=>"control-label", :for=>"gender" %>
+		<%= f.label :gender, "What is your gender?", :class=>"control-label required", :for=>"gender" %>
 	</li>
 		<% if @subject.errors[:gender].presence %>
 			<span class="model-error"><%= @subject.errors[:gender].join(", ") %></span>
@@ -753,7 +820,7 @@ $(document).ready(function(){
 
   <div class="form-group">
 	<li>
-		<%= f.label :income, "What was your total household income during the past 12 months?", :class=>"control-label", :for=>"income" %>
+		<%= f.label :income, "What was your total household income during the past 12 months?", :class=>"control-label required", :for=>"income" %>
 	</li>
 		<% if @subject.errors[:income].presence %>
 			<span class="model-error"><%= @subject.errors[:income].join(", ") %></span>
@@ -787,7 +854,21 @@ $(document).ready(function(){
 			<%= f.label :income, "$150,000 or more", :class=>"control-label", :for=>"income_7" %>
 		</div>
   </div>
+
+	<li>Suggestions</li>
+  <div class="form-group">
+		<%= f.label :suggestion, "Do you have any suggestions for improvements?", :class=>"control-label", :for=>"suggestion" %>
+		<% if @subject.errors[:suggestion].presence %>
+			<span class="model-error"><%= @subject.errors[:suggestion].join(", ") %></span>
+		<% end %>
+	<span id="helpBlock" class="help-block">
+		Any advice or suggestions you have will be highly appreciated.
+	</span>
+		<%= f.text_area :suggestion, :autocomplete=>"off", :class=>"form-control", :rows=>"5", :id=>"suggestion" %>
+  </div>
 </ol>
+
+
 		<%= f.hidden_field :end_time, :value=>Time.now %>
 		<%= f.hidden_field :esearch, :value=>@esearch.esearch %>
 		<%= f.hidden_field :regulatory_focus, :value=>@esearch.regulatory_focus %>
