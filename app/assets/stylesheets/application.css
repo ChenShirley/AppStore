@@ -358,6 +358,14 @@ th {
 	border-width: medium;
 }
 
-.container-fluid {
-	font-size: 18px;
+@media (min-width: 992px){
+	.container-fluid {
+		font-size: 18px;
+	}
+}
+
+@media (min-width: 768px){
+	.container-fluid {
+		font-size: 18px;
+	}
 }

@@ -231,13 +231,14 @@ class AppstoresController < ApplicationController
 			@esearch.update_attributes!(:mturk_surveycode => surveycode)
 
 			flash[:notice] = "Your response has been recorded."
-		  render :action => "thankyou"
+		  render :action => "thankyou", :esearch => params[:survey][:esearch]
 		else # not pass DB validation
 		  render :action => :survey, :esearch => params[:survey][:esearch]
 		end
 	end
 
 	def thankyou
+		@esearch = Subjectinfo.find_by_esearch(params[:survey][:esearch])
 	end
 
 end

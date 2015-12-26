@@ -1,7 +1,6 @@
 <script>
-/* need to rewrite based on survey questions */
 $(document).ready(function(){
-	$("#formvalidate").submit(function() {
+	$("#formvalidate_survey").submit(function() {
 		var involvement1 = $("input[name='survey[involvement1]']:checked").val();
 		var involvement2 = $("input[name='survey[involvement2]']:checked").val();
 		var involvement3 = $("input[name='survey[involvement3]']:checked").val();
@@ -14,32 +13,10 @@ $(document).ready(function(){
 		var rf7 = $("input[name='survey[rf7]']:checked").val();
 		var attention = $("input[name='survey[attention]']:checked").val();
 		var suggestion = $("input[name='survey[suggestion]']").val();
-		var why = $("input[name='survey[why]']").val();
+		var why = $("textarea[name='survey[why]']").val();
 		var age = $("input[name='survey[age]']").val();
 		var gender = $("input[name='survey[gender]']:checked").val();
 		var income = $("input[name='survey[income]']:checked").val();
-
-		if(why.length == 0){
-			$("#why_error").text("This field is required.");
-		} else {
-			$("#why_error").text("");
-		}
-		if(age.length == 0){
-			$("#age_error").text("This field is required.");
-		} else {
-			$("#age_error").text("");
-		}
-
-		if(suggestion.length == 0){
-			$("#suggestion_error").text("This field is required.");
-		} else {
-			$("#suggestion_error").text("");
-		}
-		if(attention===undefined){
-			$("#attention_error").text("This field is required.");
-		} else {
-			$("#attention_error").text("");
-		}
 
 		if(involvement1===undefined){
 			$("#involvement1_error").text("This field is required.");
@@ -102,6 +79,23 @@ $(document).ready(function(){
 			$("#income_error").text("");
 		}
 
+		if(why.length == 0){
+			$("#why_error").text("This field is required.");
+		} else {
+			$("#why_error").text("");
+		}
+		if(age.length == 0){
+			$("#age_error").text("This field is required.");
+		} else {
+			$("#age_error").text("");
+		}
+
+		if(attention===undefined){
+			$("#attention_error").text("This field is required.");
+		} else {
+			$("#attention_error").text("");
+		}
+
 		if(why.length != 0 && age.length != 0 && involvement1!==undefined && involvement2!==undefined && involvement3!==undefined && rf1!==undefined && rf2!==undefined && rf3!==undefined && rf4!==undefined && rf5!==undefined && rf6!==undefined && rf7!==undefined && gender!==undefined && income!==undefined && attention!==undefined){
 			return true;
 		} else {
@@ -130,7 +124,7 @@ $(document).ready(function(){
 
 				<h3 class="text-center">Part3 - Perception toward Apps</h3>
 
-<%= form_for @subject, :url => { :controller => 'appstores', :action => 'endsurvey', :esearch =>@esearch.esearch }, :html=> { :class => "form-horizontal", :id=>"formvalidate"} do |f| %>
+<%= form_for @subject, :url => { :controller => 'appstores', :action => 'endsurvey', :esearch =>@esearch.esearch }, :html=> { :class => "form-horizontal", :id=>"formvalidate_survey"} do |f| %>
 
 <ol>
 	<li>Involvement</li>
@@ -155,6 +149,7 @@ $(document).ready(function(){
 			<% if @subject.errors[:involvement1].presence %>
 					<span class="model-error"><%= @subject.errors[:involvement1].join(", ") %></span>
 			<% end %>
+			<span id="involvement1_error" class="model-error"></span>
 		</td>
 	  <td>
 			<div class="form-group">
@@ -207,6 +202,7 @@ $(document).ready(function(){
 			<% if @subject.errors[:involvement2].presence %>
 					<span class="model-error"><%= @subject.errors[:involvement2].join(", ") %></span>
 			<% end %>
+			<span id="involvement2_error" class="model-error"></span>
 		</td>
 	  <td>
 			<div class="form-group">
@@ -259,6 +255,7 @@ $(document).ready(function(){
 			<% if @subject.errors[:involvement3].presence %>
 					<span class="model-error"><%= @subject.errors[:involvement3].join(", ") %></span>
 			<% end %>
+			<span id="involvement3_error" class="model-error"></span>
 		</td>
 	  <td>
 			<div class="form-group">
@@ -333,6 +330,7 @@ $(document).ready(function(){
 			<% if @subject.errors[:rf1].presence %>
 					<span class="model-error"><%= @subject.errors[:rf1].join(", ") %></span>
 			<% end %>
+			<span id="rf1_error" class="model-error"></span>
 		</td>
 		<td>attaining something positive</td>
 	  <td>
@@ -406,6 +404,7 @@ $(document).ready(function(){
 			<% if @subject.errors[:rf2].presence %>
 					<span class="model-error"><%= @subject.errors[:rf2].join(", ") %></span>
 			<% end %>
+			<span id="rf2_error" class="model-error"></span>
 		</td>
 	  <td>
 			<div class="form-group">
@@ -458,6 +457,7 @@ $(document).ready(function(){
 			<% if @subject.errors[:rf3].presence %>
 					<span class="model-error"><%= @subject.errors[:rf3].join(", ") %></span>
 			<% end %>
+			<span id="rf3_error" class="model-error"></span>
 		</td>
 	  <td>
 			<div class="form-group">
@@ -511,6 +511,7 @@ $(document).ready(function(){
 			<% if @subject.errors[:attention].presence %>
 					<span class="model-error"><%= @subject.errors[:attention].join(", ") %></span>
 			<% end %>
+			<span id="attention_error" class="model-error"></span>
 		</td>
 	  <td>
 			<div class="form-group">
@@ -564,6 +565,7 @@ $(document).ready(function(){
 			<% if @subject.errors[:rf4].presence %>
 					<span class="model-error"><%= @subject.errors[:rf4].join(", ") %></span>
 			<% end %>
+			<span id="rf4_error" class="model-error"></span>
 		</td>
 	  <td>
 			<div class="form-group">
@@ -616,6 +618,7 @@ $(document).ready(function(){
 			<% if @subject.errors[:rf5].presence %>
 					<span class="model-error"><%= @subject.errors[:rf5].join(", ") %></span>
 			<% end %>
+			<span id="rf5_error" class="model-error"></span>
 		</td>
 	  <td>
 			<div class="form-group">
@@ -668,6 +671,7 @@ $(document).ready(function(){
 			<% if @subject.errors[:rf6].presence %>
 					<span class="model-error"><%= @subject.errors[:rf6].join(", ") %></span>
 			<% end %>
+			<span id="rf6_error" class="model-error"></span>
 		</td>
 	  <td>
 			<div class="form-group">
@@ -720,6 +724,7 @@ $(document).ready(function(){
 			<% if @subject.errors[:rf7].presence %>
 					<span class="model-error"><%= @subject.errors[:rf7].join(", ") %></span>
 			<% end %>
+			<span id="rf7_error" class="model-error"></span>
 		</td>
 	  <td>
 			<div class="form-group">
@@ -776,6 +781,7 @@ $(document).ready(function(){
 		<% if @subject.errors[:why].presence %>
 			<span class="model-error"><%= @subject.errors[:why].join(", ") %></span>
 		<% end %>
+		<span id="why_error" class="model-error"></span>
 		<span id="helpBlock" class="help-block">
 			Please tell us why you answered the previous questions the way you did.
 		</span>
@@ -794,6 +800,7 @@ $(document).ready(function(){
 		<% if @subject.errors[:age].presence %>
 			<span class="model-error"><%= @subject.errors[:age].join(", ") %></span>
 		<% end %>
+		<span id="age_error" class="model-error"></span>
 		<%= f.text_field :age, :autocomplete=>"off", :placeholder=>"Age, please enter numeric values", :class=>"form-control", :id=>"age" %>
   </div>
 
@@ -804,17 +811,18 @@ $(document).ready(function(){
 		<% if @subject.errors[:gender].presence %>
 			<span class="model-error"><%= @subject.errors[:gender].join(", ") %></span>
 		<% end %>
+		<span id="gender_error" class="model-error"></span>
 		<div class="radio radio-primary">
 			<%= f.radio_button :gender, "1", :id=>"gender_1", :class=>"with-font" %>
 			<%= f.label :gender, "Male", :class=>"control-label", :for=>"gender_1" %>
 		</div>
 		<div class="radio radio-primary">
-			<%= f.radio_button :gender, "1", :id=>"gender_1", :class=>"with-font" %>
-			<%= f.label :gender, "Female", :class=>"control-label", :for=>"gender_1" %>
+			<%= f.radio_button :gender, "2", :id=>"gender_2", :class=>"with-font" %>
+			<%= f.label :gender, "Female", :class=>"control-label", :for=>"gender_2" %>
 		</div>
 		<div class="radio radio-primary">
-			<%= f.radio_button :gender, "1", :id=>"gender_1", :class=>"with-font" %>
-			<%= f.label :gender, "Other", :class=>"control-label", :for=>"gender_1" %>
+			<%= f.radio_button :gender, "3", :id=>"gender_3", :class=>"with-font" %>
+			<%= f.label :gender, "Other", :class=>"control-label", :for=>"gender_3" %>
 		</div>
   </div>
 
@@ -825,6 +833,7 @@ $(document).ready(function(){
 		<% if @subject.errors[:income].presence %>
 			<span class="model-error"><%= @subject.errors[:income].join(", ") %></span>
 		<% end %>
+		<span id="income_error" class="model-error"></span>
 		<div class="radio radio-primary">
 			<%= f.radio_button :income, "1", :id=>"income_1", :class=>"with-font" %>
 			<%= f.label :income, "Less than $25,000", :class=>"control-label", :for=>"income_1" %>
@@ -861,6 +870,7 @@ $(document).ready(function(){
 		<% if @subject.errors[:suggestion].presence %>
 			<span class="model-error"><%= @subject.errors[:suggestion].join(", ") %></span>
 		<% end %>
+		<span id="suggestion_error" class="model-error"></span>
 	<span id="helpBlock" class="help-block">
 		Any advice or suggestions you have will be highly appreciated.
 	</span>
@@ -874,7 +884,7 @@ $(document).ready(function(){
 		<%= f.hidden_field :regulatory_focus, :value=>@esearch.regulatory_focus %>
 
 		<div class="text-center">
-    	<%= f.submit "DONE", :class=> "btn btn-default btn-outline btn-lg" %>
+    	<%= f.submit "DONE", :class=> "btn btn-default btn-outline btn-lg", :id=>"submit" %>
 		</div>
 
 <% end %>
