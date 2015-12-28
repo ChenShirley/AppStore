@@ -12,7 +12,7 @@ $(document).ready(function(){
 		var rf6 = $("input[name='survey[rf6]']:checked").val();
 		var rf7 = $("input[name='survey[rf7]']:checked").val();
 		var attention = $("input[name='survey[attention]']:checked").val();
-		var suggestion = $("input[name='survey[suggestion]']").val();
+		var suggestion = $("textarea[name='survey[suggestion]']").val();
 		var why = $("textarea[name='survey[why]']").val();
 		var age = $("input[name='survey[age]']").val();
 		var gender = $("input[name='survey[gender]']:checked").val();
@@ -95,8 +95,13 @@ $(document).ready(function(){
 		} else {
 			$("#attention_error").text("");
 		}
+		if(suggestion.length == 0){
+			$("#suggestion_error").text("This field is required.");
+		} else {
+			$("#suggestion_error").text("");
+		}
 
-		if(why.length != 0 && age.length != 0 && involvement1!==undefined && involvement2!==undefined && involvement3!==undefined && rf1!==undefined && rf2!==undefined && rf3!==undefined && rf4!==undefined && rf5!==undefined && rf6!==undefined && rf7!==undefined && gender!==undefined && income!==undefined && attention!==undefined){
+		if(why.length != 0 && age.length != 0 && involvement1!==undefined && involvement2!==undefined && involvement3!==undefined && rf1!==undefined && rf2!==undefined && rf3!==undefined && rf4!==undefined && rf5!==undefined && rf6!==undefined && rf7!==undefined && gender!==undefined && income!==undefined && attention!==undefined && suggestion.length != 0){
 			return true;
 		} else {
 			alert("Please make sure you have already answered all required fields.");
@@ -836,37 +841,37 @@ $(document).ready(function(){
 		<span id="income_error" class="model-error"></span>
 		<div class="radio radio-primary">
 			<%= f.radio_button :income, "1", :id=>"income_1", :class=>"with-font" %>
-			<%= f.label :income, "Less than $25,000", :class=>"control-label", :for=>"income_1" %>
+			<%= f.label :income, "Less than USD$25,000", :class=>"control-label", :for=>"income_1" %>
 		</div>
 		<div class="radio radio-primary">
 			<%= f.radio_button :income, "2", :id=>"income_2", :class=>"with-font" %>
-			<%= f.label :income, "$25,000 to $34,999", :class=>"control-label", :for=>"income_2" %>
+			<%= f.label :income, "USD$25,000 to USD$34,999", :class=>"control-label", :for=>"income_2" %>
 		</div>
 		<div class="radio radio-primary">
 			<%= f.radio_button :income, "3", :id=>"income_3", :class=>"with-font" %>
-			<%= f.label :income, "$35,000 to $49,999", :class=>"control-label", :for=>"income_3" %>
+			<%= f.label :income, "USD$35,000 to USD$49,999", :class=>"control-label", :for=>"income_3" %>
 		</div>
 		<div class="radio radio-primary">
 			<%= f.radio_button :income, "4", :id=>"income_4", :class=>"with-font" %>
-			<%= f.label :income, "$50,000 to $74,999", :class=>"control-label", :for=>"income_4" %>
+			<%= f.label :income, "USD$50,000 to USD$74,999", :class=>"control-label", :for=>"income_4" %>
 		</div>
 		<div class="radio radio-primary">
 			<%= f.radio_button :income, "5", :id=>"income_5", :class=>"with-font" %>
-			<%= f.label :income, "$75,000 to $99,999", :class=>"control-label", :for=>"income_5" %>
+			<%= f.label :income, "USD$75,000 to USD$99,999", :class=>"control-label", :for=>"income_5" %>
 		</div>
 		<div class="radio radio-primary">
 			<%= f.radio_button :income, "6", :id=>"income_6", :class=>"with-font" %>
-			<%= f.label :income, "$100,000 to $149,999", :class=>"control-label", :for=>"income_6" %>
+			<%= f.label :income, "USD$100,000 to USD$149,999", :class=>"control-label", :for=>"income_6" %>
 		</div>
 		<div class="radio radio-primary">
 			<%= f.radio_button :income, "7", :id=>"income_7", :class=>"with-font" %>
-			<%= f.label :income, "$150,000 or more", :class=>"control-label", :for=>"income_7" %>
+			<%= f.label :income, "USD$150,000 or more", :class=>"control-label", :for=>"income_7" %>
 		</div>
   </div>
 
 	<li>Suggestions</li>
   <div class="form-group">
-		<%= f.label :suggestion, "Do you have any suggestions for improvements?", :class=>"control-label", :for=>"suggestion" %>
+		<%= f.label :suggestion, "Do you have any suggestions for improvements?", :class=>"control-label required", :for=>"suggestion" %>
 		<% if @subject.errors[:suggestion].presence %>
 			<span class="model-error"><%= @subject.errors[:suggestion].join(", ") %></span>
 		<% end %>
