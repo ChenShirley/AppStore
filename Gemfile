@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+require 'aws-sdk'
+
 group :development, :test do
 		gem "rspec-rails"
 		gem 'byebug'
