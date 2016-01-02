@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-require 'aws-sdk'
+gem 'aws-sdk', '~> 2'
 
 group :development, :test do
 		gem "rspec-rails"
