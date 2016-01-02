@@ -1,4 +1,5 @@
 class AppstoresController < ApplicationController
+	require_dependency "services/ChoiceSetService.rb"
 
 	def random_barchart(num, a1, a2, b1, b2 ,c1, c2, d1, d2, e1, e2)
 		a = a1+Random.rand(a2-a1)
@@ -60,13 +61,13 @@ class AppstoresController < ApplicationController
 			@subject_id = Subjectinfo.find_by_esearch(@subject_esearch)
 
 		# random give choice set for now
-			@choiceset_id = 1 + Random.rand(143)
+		#	@choiceset_id = 1 + Random.rand(143)
 		# call function from ChoiceSetService
-		# @choiceset_queue = ChoiceSetService.new.start_choiceset
-		# @choiceset_id = @choiceset_queue.configuration
-		# @choiceset_rep = @choiceset_queue.repetition
-		# @choiceset_receipt = @choiceset_queue.receipt
-		# subject_id.update_attributes!(:choiceset_receipt => @choiceset_receipt, :choicesetting_id => @choiceset_id, :choiceset_rep => @choiceset_rep)
+		 @choiceset_queue = ChoiceSetService.new.start_choiceset
+		 @choiceset_id = @choiceset_queue.configuration
+		 @choiceset_rep = @choiceset_queue.replication
+		 @choiceset_receipt = @choiceset_queue.receipt
+		 @subject_id.update_attributes!(:choiceset_receipt => @choiceset_receipt, :choicesetting_id => @choiceset_id, :choiceset_rep => @choiceset_rep)
 
 			@choiceset = Choicesetting.find(@choiceset_id)
 
@@ -91,10 +92,10 @@ class AppstoresController < ApplicationController
 		# create random content and store to database
 		# regulatory focus
 		if @rf_sequence == "1"
-			@subject_id.update_attributes!(:choicesetting_id => @choiceset_id, :regulatory_focus => "promotion")
+			@subject_id.update_attributes!(:regulatory_focus => "promotion")
 			@rf = "promotion"
 		elsif @rf_sequence == "2"
-			@subject_id.update_attributes!(:choicesetting_id => @choiceset_id, :regulatory_focus => "prevention")
+			@subject_id.update_attributes!(:regulatory_focus => "prevention")
 			@rf = "prevention"
 		end
 
@@ -112,10 +113,10 @@ class AppstoresController < ApplicationController
 			# rating distribution shape detail, 3 shapes for J or U
 			if @distr_sequence[2*i] == "1"
 				@distr = "J"
-				@pct_star5, @pct_star4, @pct_star3, @pct_star2, @pct_star1, @bar_star5, @bar_star4, @bar_star3, @bar_star2, @bar_star1 = random_barchart(@num, 70, 90, 10, 50, 5, 10, 1, 10, 5, 15)
+				@pct_star5, @pct_star4, @pct_star3, @pct_star2, @pct_star1, @bar_star5, @bar_star4, @bar_star3, @bar_star2, @bar_star1 = random_barchart(@num, 60, 80, 10, 50, 5, 10, 1, 10, 5, 15)
 			elsif @distr_sequence[2*i] == "2"
 				@distr = "U"
-				@pct_star5, @pct_star4, @pct_star3, @pct_star2, @pct_star1, @bar_star5, @bar_star4, @bar_star3, @bar_star2, @bar_star1 = random_barchart(@num, 70, 90, 5, 35, 5, 15, 1, 15, 65, 75)
+				@pct_star5, @pct_star4, @pct_star3, @pct_star2, @pct_star1, @bar_star5, @bar_star4, @bar_star3, @bar_star2, @bar_star1 = random_barchart(@num, 70, 90, 5, 35, 5, 15, 1, 15, 50, 65)
 			end
 
 			# calculate average rating
@@ -219,13 +220,13 @@ class AppstoresController < ApplicationController
 
 		@subject = Survey.new(params[:survey])
 		@subject.save
+		@subject.update_attributes!(:end_time => Time.now)
 		if @subject.save
 			## after user has finished experiment, check respondent valid or not. if yes, close choiceset
-			# if (@subject.end_time - @esearch.start_time) > 180 # 3 minutes
-			# receipt = @esearch.choiceset_receipt
-			# ChoiceSetService.new.close_choiceset(receipt)
-			# else
-			# end
+			if (@subject.end_time - @esearch.start_time) > 120 # 2 minutes
+				receipt = @esearch.choiceset_receipt
+				ChoiceSetService.new.close_choiceset(receipt)
+			end
 
 			surveycode = "#{@esearch.choicesetting_id}" + "T" + "#{Time.now.to_i}"
 			@esearch.update_attributes!(:mturk_surveycode => surveycode)
