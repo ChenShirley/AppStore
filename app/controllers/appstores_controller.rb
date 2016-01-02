@@ -1,5 +1,5 @@
 class AppstoresController < ApplicationController
-	require_dependency "services/ChoiceSetService.rb"
+	require_dependency "services/choicesetservice.rb"
 
 	def random_barchart(num, a1, a2, b1, b2 ,c1, c2, d1, d2, e1, e2)
 		a = a1+Random.rand(a2-a1)
