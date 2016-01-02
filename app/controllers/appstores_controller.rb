@@ -1,5 +1,7 @@
+require_relative "../../services/ChoiceSetService.rb"
+
 class AppstoresController < ApplicationController
-	require_dependency "services/ChoiceSetService.rb"
+	# require_dependency "services/ChoiceSetService.rb"
 
 	def random_barchart(num, a1, a2, b1, b2 ,c1, c2, d1, d2, e1, e2)
 		a = a1+Random.rand(a2-a1)
@@ -46,7 +48,7 @@ class AppstoresController < ApplicationController
 		@subject_mobile = params[:subjectinfo][:mobile_user]
 		@subject_visit = params[:subjectinfo][:visit_frequency]
 		@subject_previous = params[:subjectinfo][:previous_experience]
-		
+
 		# terminate, not mobile user, unknow visit frequency, expert in health & fitness
 		if (@subject_mobile=="0" ||  (@subject_visit=="5" || @subject_visit=="6") || (@subject_previous=="7"))
 			flash[:notice] = "We’re sorry. You do not meet the qualifications for this survey. We are seeking respondents who are mobile device user AND have experience of using app store. We sincerely thank you and appreciate your time, dedication, and continued participation in our online surveys."
