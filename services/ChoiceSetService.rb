@@ -63,7 +63,8 @@ class ChoiceSetQueue
   end
 
   def fetch
-    msg = @sqs.receive_message(queue_url: @q_url).messages.first
+    msg = @sqs.receive_message( queue_url: @q_url,
+                                wait_time_seconds: 2).messages.first
   end
 
   def done(receipt)
@@ -141,8 +142,3 @@ class FakeSetQueue
     @@queue.size
   end
 end
-
-# q_attr =  @sqs.get_queue_attributes(
-#               queue_url: @q_url,
-#               attribute_names: ['ApproximateNumberOfMessages']
-#             )
