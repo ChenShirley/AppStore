@@ -22,40 +22,46 @@ $(document).ready(function(){
 			<div class="panel-body" style="margin:1em 2em;">
 				<h3 class="text-center">Part2 - App Purchasing Behavior</h3>
 
-				<h3 class="text-left">Instructions</h3>
-				<p>
-					On the following page, you will see a list of apps which are app store recommended when searching for an “activity tracking app” in the health & fitness category.</br>
-					Imagine you were given 0.99 US dollar, and you were going to purchase an app. You can evaluate any app with app details, customer reviews, and any information from app list.
-					When you are ready, click the “Buy USD$ 0.99” button, as you were going to purchase this app, and there would be a following survey to finish.</br>
-					Please behave the way you do in app store as usual, and carefully read the scenario below and evaluating apps based on it.
-				</p>
-
-</br>
-
 				<h3 class="text-left">Scenario</h3>
 				<p class="rfscenario">
+					<p>
+						Imagine that you just realized how important regular physical activity is to your health, according to the article below. You decide to look for an app to help you better organize and record your physical activities.
+					</p>
+
+					</br>
+
 					<% if @subject.regulatory_focus=="promotion" %>
 							Research has shown that being physically active for at least half an hour per day almost every day of the week will <strong>improve your physical performance</strong>. 
-							Regular physical activity <strong>makes your body fit and gives you more energy throughout the day</strong>. 
-							Moreover, physical training improves your sleep quality and cognitive functioning which helps you to become more focused and concentrated to accomplish the daily tasks.</br> 
+							Regular physical activity <strong>makes your body fit and gives you more energy</strong> throughout the day. 
+							Moreover, physical training <strong>improves your sleep quality and cognitive functioning</strong> which helps you to become <strong>more focused and concentrated to accomplish the daily tasks</strong>.</br> 
 							Even life style activities like cycling or walking can trigger these effects when they lead to sweating and breathing harder and last for at least 10 min each bout. 
 							A physically active life-style <strong>enhances your self-esteem and raises your mood</strong>. 
-							Be active and take the chance to experience fun and enjoyment! 
+							Be active and take the chance to <strong>experience fun and enjoyment</strong>! 
 							Half an hour of physical activity each day does not only make you attractive but gives you a good feeling. 
-							You can improve your vitality with your behavior!
+							You can <strong>improve your vitality</strong> with your behavior!
 					<% elsif @subject.regulatory_focus=="prevention" %>
 							Research has shown that being physically active for at least half an hour per day almost every day of the week <strong>prevents you from chronic heart diseases or chronic back pain</strong>. 
 							Regular physical activity <strong>counteracts the decrease of physical performance</strong>. 
 							It helps you to <strong>cope better with daily hassles and reduces mental stress</strong>. </br>
 							Even life style activities like cycling or walking can trigger these effects when they lead to sweating and breathing harder and last for at least 10 min each bout. 
 							A physically active life-style can <strong>diminish the occurrence of depressive symptoms and anxiety</strong>. 
-							Moreover, tiredness is reduced and you’ll become more resistant toward infections. 
-							Stay healthy and avoid being physically inactive. 
-							Half an hour of physical activity each day does not only keep you healthy but prevents you from many diseases. 
-							Through avoiding risk behavior, everybody can prevent discomfort and ill being. 
-							You can avoid the development of lifestyle diseases with your behavior!
+							Moreover, <strong>tiredness is reduced</strong> and you’ll become <strong>more resistant toward infections</strong>. 
+							Stay healthy and <strong>avoid being physically inactive</strong>, everybody can <strong>prevent discomfort and ill being</strong>. 
+							Half an hour of physical activity each day does not only keep you healthy but prevents you from many diseases.
+							You can <strong>avoid the development of lifestyle diseases</strong> with your behavior!
 					<% end %>
 				</p>
+
+</br>
+
+				<h3 class="text-left">Instructions</h3>
+				<p>
+					On the following page, you will see a list of apps which are app store recommended when searching for an “activity tracking app” in the health & fitness category.</br>
+					Imagine you were given 0.99 US dollar, and you were going to purchase an app. You can evaluate any app with app details, customer reviews, and any information from app list. When you are ready, click the “Buy USD$ 0.99” button, as you were going to purchase this app, and there would be a following survey to finish.</br>
+					Please behave the way you do in app store as usual, read the scenario above carefully and evaluate apps based on the scenario.
+				</p>
+
+</br>
 
 	<ol>
 		<div class="form-group">

@@ -11,7 +11,6 @@ $(document).ready(function(){
 		var rf5 = $("input[name='survey[rf5]']:checked").val();
 		var rf6 = $("input[name='survey[rf6]']:checked").val();
 		var rf7 = $("input[name='survey[rf7]']:checked").val();
-		var attention = $("input[name='survey[attention]']:checked").val();
 		var suggestion = $("textarea[name='survey[suggestion]']").val();
 		var why = $("textarea[name='survey[why]']").val();
 		var age = $("input[name='survey[age]']").val();
@@ -90,18 +89,7 @@ $(document).ready(function(){
 			$("#age_error").text("");
 		}
 
-		if(attention===undefined){
-			$("#attention_error").text("This field is required.");
-		} else {
-			$("#attention_error").text("");
-		}
-		if(suggestion.length == 0){
-			$("#suggestion_error").text("This field is required.");
-		} else {
-			$("#suggestion_error").text("");
-		}
-
-		if(why.length != 0 && age.length != 0 && involvement1!==undefined && involvement2!==undefined && involvement3!==undefined && rf1!==undefined && rf2!==undefined && rf3!==undefined && rf4!==undefined && rf5!==undefined && rf6!==undefined && rf7!==undefined && gender!==undefined && income!==undefined && attention!==undefined && suggestion.length != 0){
+		if(why.length != 0 && age.length != 0 && involvement1!==undefined && involvement2!==undefined && involvement3!==undefined && rf1!==undefined && rf2!==undefined && rf3!==undefined && rf4!==undefined && rf5!==undefined && rf6!==undefined && rf7!==undefined && gender!==undefined && income!==undefined){
 			return true;
 		} else {
 			alert("Please make sure you have already answered all required fields.");
@@ -405,7 +393,7 @@ $(document).ready(function(){
 	<tbody>
 	<tr>
 	  <td class="text-left">
-			<label class="required">In evaluating an activities tracking app, I am more concerned about achieving success rather than avoiding failure.</label>
+			<label class="required">In evaluating an activities tracking app, I am more concerned about achieving success.</label>
 			<% if @subject.errors[:rf2].presence %>
 					<span class="model-error"><%= @subject.errors[:rf2].join(", ") %></span>
 			<% end %>
@@ -458,7 +446,7 @@ $(document).ready(function(){
 	</tr>
 	<tr>
 	  <td class="text-left">
-			<label class="required">In evaluating an activities tracking app, I am more concerned about avoiding failure rather than achieving success.</label>
+			<label class="required">In evaluating an activities tracking app, I am more concerned about avoiding failure.</label>
 			<% if @subject.errors[:rf3].presence %>
 					<span class="model-error"><%= @subject.errors[:rf3].join(", ") %></span>
 			<% end %>
@@ -505,60 +493,6 @@ $(document).ready(function(){
 			<div class="radio radio-primary">
 					<%= f.radio_button :rf3, "7", :id=>"rf3_7", :class=>"with-font" %>
 					<label class="control-label" for="rf3_7"></label>
-			</div>
-			</div>
-	  </td>
-	</tr>
-
-	<tr>
-	  <td class="text-left">
-			<label class="required">Please choose "Slightly Agree" for this question.</label>
-			<% if @subject.errors[:attention].presence %>
-					<span class="model-error"><%= @subject.errors[:attention].join(", ") %></span>
-			<% end %>
-			<span id="attention_error" class="model-error"></span>
-		</td>
-	  <td>
-			<div class="form-group">
-			<div class="radio radio-primary">
-					<%= f.radio_button :attention, "1", :id=>"attention_1", :class=>"with-font" %>
-					<label class="control-label" for="attention_1" %>
-			</div>
-	  </td>
-	  <td>
-			<div class="radio radio-primary">
-					<%= f.radio_button :attention, "2", :id=>"attention_2", :class=>"with-font" %>
-					<label class="control-label" for="attention_2"></label>
-			</div>
-	  </td>
-	  <td>
-			<div class="radio radio-primary">
-					<%= f.radio_button :attention, "3", :id=>"attention_3", :class=>"with-font" %>
-					<label class="control-label" for="attention_3"></label>
-			</div>
-	  </td>
-	  <td>
-			<div class="radio radio-primary">
-					<%= f.radio_button :attention, "4", :id=>"attention_4", :class=>"with-font" %>
-					<label class="control-label" for="attention_4"></label>
-			</div>
-	  </td>
-	  <td>
-			<div class="radio radio-primary">
-					<%= f.radio_button :attention, "5", :id=>"attention_5", :class=>"with-font" %>
-					<label class="control-label" for="attention_5"></label>
-			</div>
-	  </td>
-	  <td>
-			<div class="radio radio-primary">
-					<%= f.radio_button :attention, "6", :id=>"attention_6", :class=>"with-font" %>
-					<label class="control-label" for="attention_6"></label>
-			</div>
-	  </td>
-	  <td>
-			<div class="radio radio-primary">
-					<%= f.radio_button :attention, "7", :id=>"attention_7", :class=>"with-font" %>
-					<label class="control-label" for="attention_7"></label>
 			</div>
 			</div>
 	  </td>
@@ -672,7 +606,7 @@ $(document).ready(function(){
 	</tr>
 	<tr>
 	  <td class="text-left">
-			<label class="required">If I buy an activities tracking app, I will feel excited about the purchase.</label>
+			<label class="required">If I buy an activities tracking app, I will make good things happen.</label>
 			<% if @subject.errors[:rf6].presence %>
 					<span class="model-error"><%= @subject.errors[:rf6].join(", ") %></span>
 			<% end %>
@@ -725,7 +659,7 @@ $(document).ready(function(){
 	</tr>
 	<tr>
 	  <td class="text-left">
-			<label class="required">If I buy an activities tracking app, I will feel safe about the purchase.</label>
+			<label class="required">If I buy an activities tracking app, I will keep bad things from happening.</label>
 			<% if @subject.errors[:rf7].presence %>
 					<span class="model-error"><%= @subject.errors[:rf7].join(", ") %></span>
 			<% end %>
@@ -869,9 +803,9 @@ $(document).ready(function(){
 		</div>
   </div>
 
-	<li>Suggestions</li>
+	<li>Comments</li>
   <div class="form-group">
-		<%= f.label :suggestion, "Do you have any suggestions for improvements?", :class=>"control-label required", :for=>"suggestion" %>
+		<%= f.label :suggestion, "Do you have any comments you would like to share with us?", :class=>"control-label", :for=>"suggestion" %>
 		<% if @subject.errors[:suggestion].presence %>
 			<span class="model-error"><%= @subject.errors[:suggestion].join(", ") %></span>
 		<% end %>
