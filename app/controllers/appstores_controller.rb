@@ -147,7 +147,7 @@ class AppstoresController < ApplicationController
 		for i in 0..3	# select which to be the (i+1)-th, (i+1) is app order
 			#@app = Mockupapp.where("esearch=? AND apporder=?",@subject_esearch,i+1)
 			@app_order = i+1
-			@app = Mockupapp.find_by_esearch(@subject_esearch, :conditions => "apporder = #{@app_order}")
+			@app = Mockupapp.find_by(esearch: @subject_esearch, apporder: @app_order)
 			for j in 0..4
 				review_star = Reviewlist.where("star=?",j+1)
 				# there are review_star[0] - review_star[7]
@@ -186,30 +186,30 @@ class AppstoresController < ApplicationController
 	def detail
 		@subject_esearch = params[:esearch]
 		@app_order = params[:apporder]
-		@app = Mockupapp.find_by_esearch(@subject_esearch, :conditions => "apporder = #{@app_order}")
+		@app = Mockupapp.find_by(esearch: @subject_esearch, apporder: @app_order)
 		# track everytime user click the read details button
-		@lastevent = Event.find_by_esearch(@subject_esearch, :conditions => "appname = '#{@app.appname}'")
+		@lastevent = Event.find_by(esearch: @subject_esearch, appname: @app.appname)
 		@lastevent.update_attributes!(:detail => (1+@lastevent.detail.to_i), :clickorder => (@lastevent.clickorder.to_s + "d"))
 	end
 
 	def review
 		@subject_esearch = params[:esearch]
 		@app_order = params[:apporder]
-		@app = Mockupapp.find_by_esearch(@subject_esearch, :conditions => "apporder = #{@app_order}")
+		@app = Mockupapp.find_by(esearch: @subject_esearch, apporder: @app_order)
 		@revieworder = @app.revieworder.split(',')
 		@appreview= Reviewlist.where("id=? OR id=? OR id=? OR id=? OR id=?", @revieworder[0], @revieworder[1], @revieworder[2], @revieworder[3], @revieworder[4])
 
 		# track everytime user click the read reviews button
-		@lastevent = Event.find_by_esearch(@subject_esearch, :conditions => "appname = '#{@app.appname}'")
+		@lastevent = Event.find_by(esearch: @subject_esearch, appname: @app.appname)
 		@lastevent.update_attributes!(:review => 1+@lastevent.review.to_i, :clickorder => @lastevent.clickorder.to_s + "r")
 	end
 
 	def survey
 		@subject_esearch = params[:esearch]
 		@app_order = params[:apporder]
-		@app = Mockupapp.find_by_esearch(@subject_esearch, :conditions => "apporder = #{@app_order}")
+		@app = Mockupapp.find_by(esearch: @subject_esearch, apporder: @app_order)
 		# track everytime user click the purchase button
-		@lastevent = Event.find_by_esearch(@subject_esearch, :conditions => "appname = '#{@app.appname}'")
+		@lastevent = Event.find_by(esearch: @subject_esearch, appname: @app.appname)
 		@lastevent.update_attributes!(:purchase => 1+@lastevent.purchase.to_i, :clickorder => @lastevent.clickorder.to_s + "p")
 
 		@esearch = Subjectinfo.find_by_esearch(@subject_esearch)

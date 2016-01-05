@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20151214070520) do
 
-  create_table "applists", force: true do |t|
+  create_table "applists", force: :cascade do |t|
     t.text     "link"
     t.string   "appname"
     t.text     "icon"
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20151214070520) do
     t.datetime "updated_at"
   end
 
-  create_table "choicesettings", force: true do |t|
+  create_table "choicesettings", force: :cascade do |t|
     t.string   "regulatory_focus"
     t.string   "task"
     t.string   "task_appinfo"
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 20151214070520) do
     t.datetime "updated_at"
   end
 
-  create_table "events", force: true do |t|
+  create_table "events", force: :cascade do |t|
     t.string   "esearch"
     t.string   "regulatory_focus"
     t.string   "appname"
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 20151214070520) do
     t.datetime "updated_at"
   end
 
-  create_table "mockupapps", force: true do |t|
+  create_table "mockupapps", force: :cascade do |t|
     t.string   "esearch"
     t.string   "regulatory_focus"
     t.integer  "apporder"
@@ -106,7 +106,7 @@ ActiveRecord::Schema.define(version: 20151214070520) do
     t.datetime "updated_at"
   end
 
-  create_table "mockupreviews", force: true do |t|
+  create_table "mockupreviews", force: :cascade do |t|
     t.string   "esearch"
     t.integer  "apporder"
     t.string   "appname"
@@ -121,7 +121,7 @@ ActiveRecord::Schema.define(version: 20151214070520) do
     t.datetime "updated_at"
   end
 
-  create_table "reviewlists", force: true do |t|
+  create_table "reviewlists", force: :cascade do |t|
     t.string   "appname"
     t.integer  "star"
     t.text     "title"
@@ -134,7 +134,7 @@ ActiveRecord::Schema.define(version: 20151214070520) do
     t.datetime "updated_at"
   end
 
-  create_table "subjectinfos", force: true do |t|
+  create_table "subjectinfos", force: :cascade do |t|
     t.string   "esearch"
     t.string   "regulatory_focus"
     t.integer  "mobile_user"
@@ -156,7 +156,7 @@ ActiveRecord::Schema.define(version: 20151214070520) do
     t.datetime "updated_at"
   end
 
-  create_table "surveys", force: true do |t|
+  create_table "surveys", force: :cascade do |t|
     t.string   "esearch"
     t.string   "regulatory_focus"
     t.string   "age"
