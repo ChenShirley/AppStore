@@ -1,8 +1,5 @@
 source 'https://rubygems.org'
-<<<<<<< Updated upstream
 ruby '2.2.3'
-=======
->>>>>>> Stashed changes
 
 group :development, :test do
 		gem "rspec-rails"
