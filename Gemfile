@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
+<<<<<<< Updated upstream
 ruby '2.2.3'
-
-gem 'aws-sdk', '~> 2'
+=======
+>>>>>>> Stashed changes
 
 group :development, :test do
 		gem "rspec-rails"
@@ -14,6 +15,11 @@ group :production do
 		gem 'pg' # use PostgreSQL in production (Heroku)
 end
 
+# Use AWS gem for accessing SQS
+gem 'aws-sdk', '~> 2'
+
+# Use Puma as the web server
+gem 'puma'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '> 4.0.5'
