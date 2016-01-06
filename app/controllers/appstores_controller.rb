@@ -235,7 +235,7 @@ class AppstoresController < ApplicationController
 				ChoiceSetService.new.close_choiceset(receipt)
 			end
 
-			surveycode = "#{@esearch.choicesetting_id}" + "T" + "#{Time.now.to_i}"
+			surveycode = "#{@esearch.choicesetting_id}" + "T" + "#{Time.now.to_i.to_s + (0...10).map { ('a'..'z').to_a[rand(26)] }.join}"
 			@esearch.update_attributes!(:mturk_surveycode => surveycode)
 
 			flash[:notice] = "Your response has been recorded."
