@@ -1,8 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.2.3'
 
-gem 'aws-sdk', '~> 2'
-
 group :development, :test do
 		gem "rspec-rails"
 		gem 'byebug'
@@ -12,8 +10,14 @@ end
 
 group :production do
 		gem 'pg' # use PostgreSQL in production (Heroku)
+		gem 'rails_12factor' # redirect logs to STDOUT
 end
 
+# Use AWS gem for accessing SQS
+gem 'aws-sdk', '~> 2'
+
+# Use Puma as the web server
+gem 'puma'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '> 4.0.5'
