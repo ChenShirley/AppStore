@@ -70,6 +70,9 @@ class AppstoresController < ApplicationController
 		 @choiceset_receipt = @choiceset_queue.receipt
 		 @subject_id.update_attributes!(:choiceset_receipt => @choiceset_receipt, :choicesetting_id => @choiceset_id, :choiceset_rep => @choiceset_rep)
 
+			# to check whether choiceset exist or not
+			puts "choiceset_receipt: #{@choiceset_receipt.inspect}"
+
 			@choiceset = Choicesetting.find(@choiceset_id)
 
 		# create random sequences
