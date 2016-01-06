@@ -10,6 +10,7 @@ end
 
 group :production do
 		gem 'pg' # use PostgreSQL in production (Heroku)
+		gem 'rails_12factor' # redirect logs to STDOUT
 end
 
 # Use AWS gem for accessing SQS
