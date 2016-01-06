@@ -71,6 +71,9 @@ class AppstoresController < ApplicationController
 		 @subject_id.update_attributes!(:choiceset_receipt => @choiceset_receipt, :choicesetting_id => @choiceset_id, :choiceset_rep => @choiceset_rep)
 
 			# to check whether choiceset exist or not
+			puts "create choiceset sucessfully!"
+			puts "choiceset_configuration: #{@choiceset_id.inspect}"
+			puts "choiceset_replication: #{@choiceset_rep.inspect}"
 			puts "choiceset_receipt: #{@choiceset_receipt.inspect}"
 
 			@choiceset = Choicesetting.find(@choiceset_id)
