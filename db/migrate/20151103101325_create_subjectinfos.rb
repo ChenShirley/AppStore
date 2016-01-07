@@ -16,7 +16,7 @@ class CreateSubjectinfos < ActiveRecord::Migration
       t.string :os
       t.string :mturk_surveycode
 			t.text :choiceset_receipt
-      t.integer :choiceset_rep
+      t.string :choiceset_rep
 
       t.references :choicesetting
 

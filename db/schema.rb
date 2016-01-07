@@ -51,7 +51,6 @@ ActiveRecord::Schema.define(version: 20151214070520) do
   end
 
   create_table "choicesettings", force: :cascade do |t|
-    t.string   "regulatory_focus"
     t.string   "task"
     t.string   "task_appinfo"
     t.string   "task_apporder"
@@ -150,7 +149,7 @@ ActiveRecord::Schema.define(version: 20151214070520) do
     t.string   "os"
     t.string   "mturk_surveycode"
     t.text     "choiceset_receipt"
-    t.integer  "choiceset_rep"
+    t.string   "choiceset_rep"
     t.integer  "choicesetting_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -174,7 +173,6 @@ ActiveRecord::Schema.define(version: 20151214070520) do
     t.integer  "rf7"
     t.text     "why"
     t.text     "suggestion"
-    t.integer  "attention"
     t.datetime "end_time"
     t.datetime "created_at"
     t.datetime "updated_at"

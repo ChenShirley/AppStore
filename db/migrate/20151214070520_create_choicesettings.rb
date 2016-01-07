@@ -1,7 +1,6 @@
 class CreateChoicesettings < ActiveRecord::Migration
   def change
     create_table :choicesettings do |t|
-      t.string :regulatory_focus
       t.string :task
       t.string :task_appinfo
       t.string :task_apporder

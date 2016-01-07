@@ -57,18 +57,22 @@ class AppstoresController < ApplicationController
 		end
 
 		if @subject.save
-
 			@subject_esearch = params[:subjectinfo][:esearch]
 			@subject_id = Subjectinfo.find_by_esearch(@subject_esearch)
 
-		# random give choice set for now
-		#	@choiceset_id = 1 + Random.rand(143)
-		# call function from ChoiceSetService
-		 @choiceset_queue = ChoiceSetService.new.start_choiceset
-		 @choiceset_id = @choiceset_queue.configuration
-		 @choiceset_rep = @choiceset_queue.replication
-		 @choiceset_receipt = @choiceset_queue.receipt
-		 @subject_id.update_attributes!(:choiceset_receipt => @choiceset_receipt, :choicesetting_id => @choiceset_id, :choiceset_rep => @choiceset_rep)
+			# call function from ChoiceSetService
+			@choiceset_queue = ChoiceSetService.new.start_choiceset
+			if @choiceset_queue.configuration.odd? # promotion
+				@choiceset_id = (@choiceset_queue.configuration + 1) / 2
+				@rf = "promotion"
+			elsif @choiceset_queue.configuration.even? # prevention
+				@choiceset_id = (@choiceset_queue.configuration / 2)
+				@rf = "prevention"
+			end
+
+			@choiceset_rep = "#{@choiceset_queue.replication}:#{@choiceset_queue.configuration}"
+			@choiceset_receipt = @choiceset_queue.receipt
+			@subject_id.update_attributes!(:regulatory_focus => @rf, :choiceset_receipt => @choiceset_receipt, :choicesetting_id => @choiceset_id, :choiceset_rep => @choiceset_rep)
 
 			# to check whether choiceset exist or not
 			puts "create choiceset sucessfully!"
@@ -78,10 +82,7 @@ class AppstoresController < ApplicationController
 
 			@choiceset = Choicesetting.find(@choiceset_id)
 
-		# create random sequences
-		# regulatory focus, 1 for promotion, 2 for prevention
-		@rf_sequence = @choiceset.regulatory_focus
-
+		## create random sequences
 		# appinfo
 		@appinfo_sequence = @choiceset.appinfo_position
 
@@ -97,15 +98,6 @@ class AppstoresController < ApplicationController
 		@distr_sequence = @choiceset.distribution_position
 
 		# create random content and store to database
-		# regulatory focus
-		if @rf_sequence == "1"
-			@subject_id.update_attributes!(:regulatory_focus => "promotion")
-			@rf = "promotion"
-		elsif @rf_sequence == "2"
-			@subject_id.update_attributes!(:regulatory_focus => "prevention")
-			@rf = "prevention"
-		end
-
 		(0..3).each do |i|	# count 4 app
 			@appinfo = Applist.find(@appinfo_sequence[2*i])
 
@@ -123,7 +115,7 @@ class AppstoresController < ApplicationController
 				@pct_star5, @pct_star4, @pct_star3, @pct_star2, @pct_star1, @bar_star5, @bar_star4, @bar_star3, @bar_star2, @bar_star1 = random_barchart(@num, 60, 80, 10, 50, 5, 10, 1, 10, 5, 15)
 			elsif @distr_sequence[2*i] == "2"
 				@distr = "U"
-				@pct_star5, @pct_star4, @pct_star3, @pct_star2, @pct_star1, @bar_star5, @bar_star4, @bar_star3, @bar_star2, @bar_star1 = random_barchart(@num, 70, 90, 5, 35, 5, 15, 1, 15, 50, 65)
+				@pct_star5, @pct_star4, @pct_star3, @pct_star2, @pct_star1, @bar_star5, @bar_star4, @bar_star3, @bar_star2, @bar_star1 = random_barchart(@num, 70, 90, 5, 35, 5, 15, 1, 15, 45, 65)
 			end
 
 			# calculate average rating
@@ -180,13 +172,6 @@ class AppstoresController < ApplicationController
 	def apps
 		@subject_esearch = params[:esearch]
 		@app = Mockupapp.where(:esearch => @subject_esearch)
-		# track where user come back from, only work with "back to appstore button", not work with browser's back button
-=begin
-		if Event.find_by_esearch(@subject_esearch).present?
-			@lastevent = Event.where(:esearch=>@subject_esearch).order("id").last
-			@lastevent.update_attributes!(:leave_time => Time.now)
-		end
-=end
 	end
 
 	def detail
@@ -226,16 +211,24 @@ class AppstoresController < ApplicationController
 		@esearch = Subjectinfo.find_by_esearch(params[:survey][:esearch])
 
 		@subject = Survey.new(params[:survey])
-		@subject.save
-		@subject.update_attributes!(:end_time => Time.now)
 		if @subject.save
+			@subject.update_attributes!(:end_time => Time.now)
 			## after user has finished experiment, check respondent valid or not. if yes, close choiceset
 			if (@subject.end_time - @esearch.start_time) > 120 # 2 minutes
 				receipt = @esearch.choiceset_receipt
 				ChoiceSetService.new.close_choiceset(receipt)
+
+				# to check whether choiceset exist or not
+				puts "choiceset had been closed sucessfully!"
+				puts "choiceset_configuration: #{@esearch.choicesetting_id.inspect}"
+				puts "choiceset_replication: #{@esearch.choiceset_rep.inspect}"
+				puts "choiceset_receipt: #{@esearch.choiceset_receipt.inspect}"
+
+				surveycode = "#{@esearch.choicesetting_id}" + "T" + "#{Time.now.to_i.to_s + (0...10).map { ('a'..'z').to_a[rand(26)] }.join}"
+			else
+				surveycode = "#{@esearch.choicesetting_id}" + "NC" + "#{Time.now.to_i.to_s + (0...10).map { ('a'..'z').to_a[rand(26)] }.join}"
 			end
 
-			surveycode = "#{@esearch.choicesetting_id}" + "T" + "#{Time.now.to_i.to_s + (0...10).map { ('a'..'z').to_a[rand(26)] }.join}"
 			@esearch.update_attributes!(:mturk_surveycode => surveycode)
 
 			flash[:notice] = "Your response has been recorded."

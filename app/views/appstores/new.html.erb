@@ -64,7 +64,7 @@ $(document).ready(function(){
 
 <%= form_for @subject, :url => { :controller => 'appstores', :action => 'create' }, :html=> { :class => "form-horizontal", :id=>"formvalidate"} do |f| %>
 <ol>
-	<%= f.hidden_field :esearch, :value=>"T#{Time.now.to_i}" %>
+	<%= f.hidden_field :esearch, :value=>"S#{Time.now.to_i.to_s + (0...10).map { ('a'..'z').to_a[rand(26)] }.join}" %>
 
   <div class="form-group">
 	<li>

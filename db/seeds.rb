@@ -6,10 +6,9 @@
 #   cities: City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-# 144 choice set
+# 72 choiceset, odd => promotion, even => prevent, therefore, there would be total 144 choiceset
 Choicesetting.create([
     {
-        regulatory_focus: "1",
         task: "1",
         task_appinfo: "14",
         task_apporder: "1",
@@ -19,7 +18,6 @@ Choicesetting.create([
         distribution_position: "1,2,1,2"
     },
     {
-        regulatory_focus: "1",
         task: "28",
         task_appinfo: "12",
         task_apporder: "1",
@@ -29,7 +27,6 @@ Choicesetting.create([
         distribution_position: "1,2,1,2"
     },
     {
-        regulatory_focus: "1",
         task: "49",
         task_appinfo: "18",
         task_apporder: "1",
@@ -39,7 +36,6 @@ Choicesetting.create([
         distribution_position: "1,2,1,2"
     },
     {
-        regulatory_focus: "1",
         task: "10",
         task_appinfo: "13",
         task_apporder: "2",
@@ -49,7 +45,6 @@ Choicesetting.create([
         distribution_position: "1,2,2,1"
     },
     {
-        regulatory_focus: "1",
         task: "14",
         task_appinfo: "15",
         task_apporder: "2",
@@ -59,7 +54,6 @@ Choicesetting.create([
         distribution_position: "1,2,2,1"
     },
     {
-        regulatory_focus: "1",
         task: "57",
         task_appinfo: "9",
         task_apporder: "2",
@@ -69,7 +63,6 @@ Choicesetting.create([
         distribution_position: "1,2,2,1"
     },
     {
-        regulatory_focus: "1",
         task: "31",
         task_appinfo: "2",
         task_apporder: "3",
@@ -79,7 +72,6 @@ Choicesetting.create([
         distribution_position: "1,1,2,2"
     },
     {
-        regulatory_focus: "1",
         task: "45",
         task_appinfo: "10",
         task_apporder: "3",
@@ -89,7 +81,6 @@ Choicesetting.create([
         distribution_position: "1,1,2,2"
     },
     {
-        regulatory_focus: "1",
         task: "69",
         task_appinfo: "4",
         task_apporder: "3",
@@ -99,7 +90,6 @@ Choicesetting.create([
         distribution_position: "1,1,2,2"
     },
     {
-        regulatory_focus: "1",
         task: "18",
         task_appinfo: "6",
         task_apporder: "4",
@@ -109,7 +99,6 @@ Choicesetting.create([
         distribution_position: "1,2,2,1"
     },
     {
-        regulatory_focus: "1",
         task: "19",
         task_appinfo: "4",
         task_apporder: "4",
@@ -119,7 +108,6 @@ Choicesetting.create([
         distribution_position: "1,2,2,1"
     },
     {
-        regulatory_focus: "1",
         task: "21",
         task_appinfo: "19",
         task_apporder: "4",
@@ -129,7 +117,6 @@ Choicesetting.create([
         distribution_position: "1,2,2,1"
     },
     {
-        regulatory_focus: "1",
         task: "5",
         task_appinfo: "6",
         task_apporder: "5",
@@ -139,7 +126,6 @@ Choicesetting.create([
         distribution_position: "1,1,2,2"
     },
     {
-        regulatory_focus: "1",
         task: "32",
         task_appinfo: "7",
         task_apporder: "5",
@@ -149,7 +135,6 @@ Choicesetting.create([
         distribution_position: "1,1,2,2"
     },
     {
-        regulatory_focus: "1",
         task: "66",
         task_appinfo: "20",
         task_apporder: "5",
@@ -159,7 +144,6 @@ Choicesetting.create([
         distribution_position: "1,1,2,2"
     },
     {
-        regulatory_focus: "1",
         task: "6",
         task_appinfo: "11",
         task_apporder: "6",
@@ -169,7 +153,6 @@ Choicesetting.create([
         distribution_position: "1,2,1,2"
     },
     {
-        regulatory_focus: "1",
         task: "11",
         task_appinfo: "5",
         task_apporder: "6",
@@ -179,7 +162,6 @@ Choicesetting.create([
         distribution_position: "1,2,1,2"
     },
     {
-        regulatory_focus: "1",
         task: "50",
         task_appinfo: "24",
         task_apporder: "6",
@@ -189,7 +171,6 @@ Choicesetting.create([
         distribution_position: "1,2,1,2"
     },
     {
-        regulatory_focus: "1",
         task: "30",
         task_appinfo: "23",
         task_apporder: "7",
@@ -199,7 +180,6 @@ Choicesetting.create([
         distribution_position: "2,1,1,2"
     },
     {
-        regulatory_focus: "1",
         task: "54",
         task_appinfo: "14",
         task_apporder: "7",
@@ -209,7 +189,6 @@ Choicesetting.create([
         distribution_position: "2,1,1,2"
     },
     {
-        regulatory_focus: "1",
         task: "70",
         task_appinfo: "6",
         task_apporder: "7",
@@ -219,7 +198,6 @@ Choicesetting.create([
         distribution_position: "2,1,1,2"
     },
     {
-        regulatory_focus: "1",
         task: "42",
         task_appinfo: "22",
         task_apporder: "8",
@@ -229,7 +207,6 @@ Choicesetting.create([
         distribution_position: "2,1,2,1"
     },
     {
-        regulatory_focus: "1",
         task: "61",
         task_appinfo: "9",
         task_apporder: "8",
@@ -239,7 +216,6 @@ Choicesetting.create([
         distribution_position: "2,1,2,1"
     },
     {
-        regulatory_focus: "1",
         task: "67",
         task_appinfo: "8",
         task_apporder: "8",
@@ -249,7 +225,6 @@ Choicesetting.create([
         distribution_position: "2,1,2,1"
     },
     {
-        regulatory_focus: "1",
         task: "46",
         task_appinfo: "7",
         task_apporder: "9",
@@ -259,7 +234,6 @@ Choicesetting.create([
         distribution_position: "2,1,1,2"
     },
     {
-        regulatory_focus: "1",
         task: "62",
         task_appinfo: "1",
         task_apporder: "9",
@@ -269,7 +243,6 @@ Choicesetting.create([
         distribution_position: "2,1,1,2"
     },
     {
-        regulatory_focus: "1",
         task: "65",
         task_appinfo: "14",
         task_apporder: "9",
@@ -279,7 +252,6 @@ Choicesetting.create([
         distribution_position: "2,1,1,2"
     },
     {
-        regulatory_focus: "1",
         task: "34",
         task_appinfo: "2",
         task_apporder: "10",
@@ -289,7 +261,6 @@ Choicesetting.create([
         distribution_position: "2,2,1,1"
     },
     {
-        regulatory_focus: "1",
         task: "36",
         task_appinfo: "22",
         task_apporder: "10",
@@ -299,7 +270,6 @@ Choicesetting.create([
         distribution_position: "2,2,1,1"
     },
     {
-        regulatory_focus: "1",
         task: "53",
         task_appinfo: "24",
         task_apporder: "10",
@@ -309,7 +279,6 @@ Choicesetting.create([
         distribution_position: "2,2,1,1"
     },
     {
-        regulatory_focus: "1",
         task: "52",
         task_appinfo: "20",
         task_apporder: "11",
@@ -319,7 +288,6 @@ Choicesetting.create([
         distribution_position: "2,1,2,1"
     },
     {
-        regulatory_focus: "1",
         task: "55",
         task_appinfo: "8",
         task_apporder: "11",
@@ -329,7 +297,6 @@ Choicesetting.create([
         distribution_position: "2,1,2,1"
     },
     {
-        regulatory_focus: "1",
         task: "72",
         task_appinfo: "3",
         task_apporder: "11",
@@ -339,7 +306,6 @@ Choicesetting.create([
         distribution_position: "2,1,2,1"
     },
     {
-        regulatory_focus: "1",
         task: "3",
         task_appinfo: "4",
         task_apporder: "12",
@@ -349,7 +315,6 @@ Choicesetting.create([
         distribution_position: "2,2,1,1"
     },
     {
-        regulatory_focus: "1",
         task: "9",
         task_appinfo: "18",
         task_apporder: "12",
@@ -359,7 +324,6 @@ Choicesetting.create([
         distribution_position: "2,2,1,1"
     },
     {
-        regulatory_focus: "1",
         task: "17",
         task_appinfo: "15",
         task_apporder: "12",
@@ -369,7 +333,6 @@ Choicesetting.create([
         distribution_position: "2,2,1,1"
     },
     {
-        regulatory_focus: "1",
         task: "2",
         task_appinfo: "12",
         task_apporder: "13",
@@ -379,7 +342,6 @@ Choicesetting.create([
         distribution_position: "1,1,2,2"
     },
     {
-        regulatory_focus: "1",
         task: "25",
         task_appinfo: "24",
         task_apporder: "13",
@@ -389,7 +351,6 @@ Choicesetting.create([
         distribution_position: "1,1,2,2"
     },
     {
-        regulatory_focus: "1",
         task: "35",
         task_appinfo: "21",
         task_apporder: "13",
@@ -399,7 +360,6 @@ Choicesetting.create([
         distribution_position: "1,1,2,2"
     },
     {
-        regulatory_focus: "1",
         task: "12",
         task_appinfo: "21",
         task_apporder: "14",
@@ -409,7 +369,6 @@ Choicesetting.create([
         distribution_position: "1,1,2,2"
     },
     {
-        regulatory_focus: "1",
         task: "27",
         task_appinfo: "23",
         task_apporder: "14",
@@ -419,7 +378,6 @@ Choicesetting.create([
         distribution_position: "1,1,2,2"
     },
     {
-        regulatory_focus: "1",
         task: "47",
         task_appinfo: "10",
         task_apporder: "14",
@@ -429,7 +387,6 @@ Choicesetting.create([
         distribution_position: "1,1,2,2"
     },
     {
-        regulatory_focus: "1",
         task: "24",
         task_appinfo: "11",
         task_apporder: "15",
@@ -439,7 +396,6 @@ Choicesetting.create([
         distribution_position: "1,2,1,2"
     },
     {
-        regulatory_focus: "1",
         task: "37",
         task_appinfo: "19",
         task_apporder: "15",
@@ -449,7 +405,6 @@ Choicesetting.create([
         distribution_position: "1,2,1,2"
     },
     {
-        regulatory_focus: "1",
         task: "68",
         task_appinfo: "13",
         task_apporder: "15",
@@ -459,7 +414,6 @@ Choicesetting.create([
         distribution_position: "1,2,1,2"
     },
     {
-        regulatory_focus: "1",
         task: "7",
         task_appinfo: "23",
         task_apporder: "16",
@@ -469,7 +423,6 @@ Choicesetting.create([
         distribution_position: "1,2,1,2"
     },
     {
-        regulatory_focus: "1",
         task: "13",
         task_appinfo: "9",
         task_apporder: "16",
@@ -479,7 +432,6 @@ Choicesetting.create([
         distribution_position: "1,2,1,2"
     },
     {
-        regulatory_focus: "1",
         task: "26",
         task_appinfo: "17",
         task_apporder: "16",
@@ -489,7 +441,6 @@ Choicesetting.create([
         distribution_position: "1,2,1,2"
     },
     {
-        regulatory_focus: "1",
         task: "33",
         task_appinfo: "19",
         task_apporder: "17",
@@ -499,7 +450,6 @@ Choicesetting.create([
         distribution_position: "1,2,2,1"
     },
     {
-        regulatory_focus: "1",
         task: "38",
         task_appinfo: "1",
         task_apporder: "17",
@@ -509,7 +459,6 @@ Choicesetting.create([
         distribution_position: "1,2,2,1"
     },
     {
-        regulatory_focus: "1",
         task: "64",
         task_appinfo: "22",
         task_apporder: "17",
@@ -519,7 +468,6 @@ Choicesetting.create([
         distribution_position: "1,2,2,1"
     },
     {
-        regulatory_focus: "1",
         task: "8",
         task_appinfo: "16",
         task_apporder: "18",
@@ -529,7 +477,6 @@ Choicesetting.create([
         distribution_position: "1,2,2,1"
     },
     {
-        regulatory_focus: "1",
         task: "22",
         task_appinfo: "13",
         task_apporder: "18",
@@ -539,7 +486,6 @@ Choicesetting.create([
         distribution_position: "1,2,2,1"
     },
     {
-        regulatory_focus: "1",
         task: "56",
         task_appinfo: "12",
         task_apporder: "18",
@@ -549,7 +495,6 @@ Choicesetting.create([
         distribution_position: "1,2,2,1"
     },
     {
-        regulatory_focus: "1",
         task: "4",
         task_appinfo: "15",
         task_apporder: "19",
@@ -559,7 +504,6 @@ Choicesetting.create([
         distribution_position: "2,1,2,1"
     },
     {
-        regulatory_focus: "1",
         task: "23",
         task_appinfo: "7",
         task_apporder: "19",
@@ -569,7 +513,6 @@ Choicesetting.create([
         distribution_position: "2,1,2,1"
     },
     {
-        regulatory_focus: "1",
         task: "48",
         task_appinfo: "5",
         task_apporder: "19",
@@ -579,7 +522,6 @@ Choicesetting.create([
         distribution_position: "2,1,2,1"
     },
     {
-        regulatory_focus: "1",
         task: "20",
         task_appinfo: "21",
         task_apporder: "20",
@@ -589,7 +531,6 @@ Choicesetting.create([
         distribution_position: "2,1,1,2"
     },
     {
-        regulatory_focus: "1",
         task: "29",
         task_appinfo: "11",
         task_apporder: "20",
@@ -599,7 +540,6 @@ Choicesetting.create([
         distribution_position: "2,1,1,2"
     },
     {
-        regulatory_focus: "1",
         task: "44",
         task_appinfo: "20",
         task_apporder: "20",
@@ -609,7 +549,6 @@ Choicesetting.create([
         distribution_position: "2,1,1,2"
     },
     {
-        regulatory_focus: "1",
         task: "39",
         task_appinfo: "1",
         task_apporder: "21",
@@ -619,7 +558,6 @@ Choicesetting.create([
         distribution_position: "2,2,1,1"
     },
     {
-        regulatory_focus: "1",
         task: "41",
         task_appinfo: "17",
         task_apporder: "21",
@@ -629,7 +567,6 @@ Choicesetting.create([
         distribution_position: "2,2,1,1"
     },
     {
-        regulatory_focus: "1",
         task: "63",
         task_appinfo: "16",
         task_apporder: "21",
@@ -639,7 +576,6 @@ Choicesetting.create([
         distribution_position: "2,2,1,1"
     },
     {
-        regulatory_focus: "1",
         task: "51",
         task_appinfo: "2",
         task_apporder: "22",
@@ -649,7 +585,6 @@ Choicesetting.create([
         distribution_position: "2,1,1,2"
     },
     {
-        regulatory_focus: "1",
         task: "59",
         task_appinfo: "3",
         task_apporder: "22",
@@ -659,7 +594,6 @@ Choicesetting.create([
         distribution_position: "2,1,1,2"
     },
     {
-        regulatory_focus: "1",
         task: "60",
         task_appinfo: "18",
         task_apporder: "22",
@@ -669,7 +603,6 @@ Choicesetting.create([
         distribution_position: "2,1,1,2"
     },
     {
-        regulatory_focus: "1",
         task: "15",
         task_appinfo: "5",
         task_apporder: "23",
@@ -679,7 +612,6 @@ Choicesetting.create([
         distribution_position: "2,2,1,1"
     },
     {
-        regulatory_focus: "1",
         task: "16",
         task_appinfo: "17",
         task_apporder: "23",
@@ -689,7 +621,6 @@ Choicesetting.create([
         distribution_position: "2,2,1,1"
     },
     {
-        regulatory_focus: "1",
         task: "58",
         task_appinfo: "3",
         task_apporder: "23",
@@ -699,7 +630,6 @@ Choicesetting.create([
         distribution_position: "2,2,1,1"
     },
     {
-        regulatory_focus: "1",
         task: "40",
         task_appinfo: "10",
         task_apporder: "24",
@@ -709,7 +639,6 @@ Choicesetting.create([
         distribution_position: "2,1,2,1"
     },
     {
-        regulatory_focus: "1",
         task: "43",
         task_appinfo: "8",
         task_apporder: "24",
@@ -719,727 +648,6 @@ Choicesetting.create([
         distribution_position: "2,1,2,1"
     },
     {
-        regulatory_focus: "1",
-        task: "71",
-        task_appinfo: "16",
-        task_apporder: "24",
-        appinfo_position: "1,3,2,4",
-        apporder_position: "3,1,4,2",
-        totalrating_position: "1,1,2,2",
-        distribution_position: "2,1,2,1"
-    },
-    {
-        regulatory_focus: "2",
-        task: "1",
-        task_appinfo: "14",
-        task_apporder: "1",
-        appinfo_position: "1,2,3,4",
-        apporder_position: "2,4,1,3",
-        totalrating_position: "2,2,1,1",
-        distribution_position: "1,2,1,2"
-    },
-    {
-        regulatory_focus: "2",
-        task: "28",
-        task_appinfo: "12",
-        task_apporder: "1",
-        appinfo_position: "3,4,2,1",
-        apporder_position: "2,4,1,3",
-        totalrating_position: "2,2,1,1",
-        distribution_position: "1,2,1,2"
-    },
-    {
-        regulatory_focus: "2",
-        task: "49",
-        task_appinfo: "18",
-        task_apporder: "1",
-        appinfo_position: "1,4,2,3",
-        apporder_position: "2,4,1,3",
-        totalrating_position: "2,2,1,1",
-        distribution_position: "1,2,1,2"
-    },
-    {
-        regulatory_focus: "2",
-        task: "10",
-        task_appinfo: "13",
-        task_apporder: "2",
-        appinfo_position: "1,2,4,3",
-        apporder_position: "2,4,3,1",
-        totalrating_position: "2,2,1,1",
-        distribution_position: "1,2,2,1"
-    },
-    {
-        regulatory_focus: "2",
-        task: "14",
-        task_appinfo: "15",
-        task_apporder: "2",
-        appinfo_position: "1,3,4,2",
-        apporder_position: "2,4,3,1",
-        totalrating_position: "2,2,1,1",
-        distribution_position: "1,2,2,1"
-    },
-    {
-        regulatory_focus: "2",
-        task: "57",
-        task_appinfo: "9",
-        task_apporder: "2",
-        appinfo_position: "2,3,4,1",
-        apporder_position: "2,4,3,1",
-        totalrating_position: "2,2,1,1",
-        distribution_position: "1,2,2,1"
-    },
-    {
-        regulatory_focus: "2",
-        task: "31",
-        task_appinfo: "2",
-        task_apporder: "3",
-        appinfo_position: "4,1,3,2",
-        apporder_position: "2,1,4,3",
-        totalrating_position: "2,1,2,1",
-        distribution_position: "1,1,2,2"
-    },
-    {
-        regulatory_focus: "2",
-        task: "45",
-        task_appinfo: "10",
-        task_apporder: "3",
-        appinfo_position: "4,3,2,1",
-        apporder_position: "2,1,4,3",
-        totalrating_position: "2,1,2,1",
-        distribution_position: "1,1,2,2"
-    },
-    {
-        regulatory_focus: "2",
-        task: "69",
-        task_appinfo: "4",
-        task_apporder: "3",
-        appinfo_position: "4,1,2,3",
-        apporder_position: "2,1,4,3",
-        totalrating_position: "2,1,2,1",
-        distribution_position: "1,1,2,2"
-    },
-    {
-        regulatory_focus: "2",
-        task: "18",
-        task_appinfo: "6",
-        task_apporder: "4",
-        appinfo_position: "3,1,2,4",
-        apporder_position: "2,3,4,1",
-        totalrating_position: "2,1,2,1",
-        distribution_position: "1,2,2,1"
-    },
-    {
-        regulatory_focus: "2",
-        task: "19",
-        task_appinfo: "4",
-        task_apporder: "4",
-        appinfo_position: "4,1,2,3",
-        apporder_position: "2,3,4,1",
-        totalrating_position: "2,1,2,1",
-        distribution_position: "1,2,2,1"
-    },
-    {
-        regulatory_focus: "2",
-        task: "21",
-        task_appinfo: "19",
-        task_apporder: "4",
-        appinfo_position: "4,2,1,3",
-        apporder_position: "2,3,4,1",
-        totalrating_position: "2,1,2,1",
-        distribution_position: "1,2,2,1"
-    },
-    {
-        regulatory_focus: "2",
-        task: "5",
-        task_appinfo: "6",
-        task_apporder: "5",
-        appinfo_position: "3,1,2,4",
-        apporder_position: "2,1,3,4",
-        totalrating_position: "2,1,1,2",
-        distribution_position: "1,1,2,2"
-    },
-    {
-        regulatory_focus: "2",
-        task: "32",
-        task_appinfo: "7",
-        task_apporder: "5",
-        appinfo_position: "3,2,4,1",
-        apporder_position: "2,1,3,4",
-        totalrating_position: "2,1,1,2",
-        distribution_position: "1,1,2,2"
-    },
-    {
-        regulatory_focus: "2",
-        task: "66",
-        task_appinfo: "20",
-        task_apporder: "5",
-        appinfo_position: "3,2,1,4",
-        apporder_position: "2,1,3,4",
-        totalrating_position: "2,1,1,2",
-        distribution_position: "1,1,2,2"
-    },
-    {
-        regulatory_focus: "2",
-        task: "6",
-        task_appinfo: "11",
-        task_apporder: "6",
-        appinfo_position: "2,4,3,1",
-        apporder_position: "2,3,1,4",
-        totalrating_position: "2,1,1,2",
-        distribution_position: "1,2,1,2"
-    },
-    {
-        regulatory_focus: "2",
-        task: "11",
-        task_appinfo: "5",
-        task_apporder: "6",
-        appinfo_position: "2,1,3,4",
-        apporder_position: "2,3,1,4",
-        totalrating_position: "2,1,1,2",
-        distribution_position: "1,2,1,2"
-    },
-    {
-        regulatory_focus: "2",
-        task: "50",
-        task_appinfo: "24",
-        task_apporder: "6",
-        appinfo_position: "2,4,1,3",
-        apporder_position: "2,3,1,4",
-        totalrating_position: "2,1,1,2",
-        distribution_position: "1,2,1,2"
-    },
-    {
-        regulatory_focus: "2",
-        task: "30",
-        task_appinfo: "23",
-        task_apporder: "7",
-        appinfo_position: "3,4,1,2",
-        apporder_position: "4,2,1,3",
-        totalrating_position: "2,2,1,1",
-        distribution_position: "2,1,1,2"
-    },
-    {
-        regulatory_focus: "2",
-        task: "54",
-        task_appinfo: "14",
-        task_apporder: "7",
-        appinfo_position: "1,2,3,4",
-        apporder_position: "4,2,1,3",
-        totalrating_position: "2,2,1,1",
-        distribution_position: "2,1,1,2"
-    },
-    {
-        regulatory_focus: "2",
-        task: "70",
-        task_appinfo: "6",
-        task_apporder: "7",
-        appinfo_position: "3,1,2,4",
-        apporder_position: "4,2,1,3",
-        totalrating_position: "2,2,1,1",
-        distribution_position: "2,1,1,2"
-    },
-    {
-        regulatory_focus: "2",
-        task: "42",
-        task_appinfo: "22",
-        task_apporder: "8",
-        appinfo_position: "2,3,1,4",
-        apporder_position: "4,2,3,1",
-        totalrating_position: "2,2,1,1",
-        distribution_position: "2,1,2,1"
-    },
-    {
-        regulatory_focus: "2",
-        task: "61",
-        task_appinfo: "9",
-        task_apporder: "8",
-        appinfo_position: "2,3,4,1",
-        apporder_position: "4,2,3,1",
-        totalrating_position: "2,2,1,1",
-        distribution_position: "2,1,2,1"
-    },
-    {
-        regulatory_focus: "2",
-        task: "67",
-        task_appinfo: "8",
-        task_apporder: "8",
-        appinfo_position: "4,2,3,1",
-        apporder_position: "4,2,3,1",
-        totalrating_position: "2,2,1,1",
-        distribution_position: "2,1,2,1"
-    },
-    {
-        regulatory_focus: "2",
-        task: "46",
-        task_appinfo: "7",
-        task_apporder: "9",
-        appinfo_position: "3,2,4,1",
-        apporder_position: "4,1,2,3",
-        totalrating_position: "2,1,2,1",
-        distribution_position: "2,1,1,2"
-    },
-    {
-        regulatory_focus: "2",
-        task: "62",
-        task_appinfo: "1",
-        task_apporder: "9",
-        appinfo_position: "3,1,4,2",
-        apporder_position: "4,1,2,3",
-        totalrating_position: "2,1,2,1",
-        distribution_position: "2,1,1,2"
-    },
-    {
-        regulatory_focus: "2",
-        task: "65",
-        task_appinfo: "14",
-        task_apporder: "9",
-        appinfo_position: "1,2,3,4",
-        apporder_position: "4,1,2,3",
-        totalrating_position: "2,1,2,1",
-        distribution_position: "2,1,1,2"
-    },
-    {
-        regulatory_focus: "2",
-        task: "34",
-        task_appinfo: "2",
-        task_apporder: "10",
-        appinfo_position: "4,1,3,2",
-        apporder_position: "4,3,2,1",
-        totalrating_position: "2,1,2,1",
-        distribution_position: "2,2,1,1"
-    },
-    {
-        regulatory_focus: "2",
-        task: "36",
-        task_appinfo: "22",
-        task_apporder: "10",
-        appinfo_position: "2,3,1,4",
-        apporder_position: "4,3,2,1",
-        totalrating_position: "2,1,2,1",
-        distribution_position: "2,2,1,1"
-    },
-    {
-        regulatory_focus: "2",
-        task: "53",
-        task_appinfo: "24",
-        task_apporder: "10",
-        appinfo_position: "2,4,1,3",
-        apporder_position: "4,3,2,1",
-        totalrating_position: "2,1,2,1",
-        distribution_position: "2,2,1,1"
-    },
-    {
-        regulatory_focus: "2",
-        task: "52",
-        task_appinfo: "20",
-        task_apporder: "11",
-        appinfo_position: "3,2,1,4",
-        apporder_position: "4,1,3,2",
-        totalrating_position: "2,1,1,2",
-        distribution_position: "2,1,2,1"
-    },
-    {
-        regulatory_focus: "2",
-        task: "55",
-        task_appinfo: "8",
-        task_apporder: "11",
-        appinfo_position: "4,2,3,1",
-        apporder_position: "4,1,3,2",
-        totalrating_position: "2,1,1,2",
-        distribution_position: "2,1,2,1"
-    },
-    {
-        regulatory_focus: "2",
-        task: "72",
-        task_appinfo: "3",
-        task_apporder: "11",
-        appinfo_position: "2,1,4,3",
-        apporder_position: "4,1,3,2",
-        totalrating_position: "2,1,1,2",
-        distribution_position: "2,1,2,1"
-    },
-    {
-        regulatory_focus: "2",
-        task: "3",
-        task_appinfo: "4",
-        task_apporder: "12",
-        appinfo_position: "4,1,2,3",
-        apporder_position: "4,3,1,2",
-        totalrating_position: "2,1,1,2",
-        distribution_position: "2,2,1,1"
-    },
-    {
-        regulatory_focus: "2",
-        task: "9",
-        task_appinfo: "18",
-        task_apporder: "12",
-        appinfo_position: "1,4,2,3",
-        apporder_position: "4,3,1,2",
-        totalrating_position: "2,1,1,2",
-        distribution_position: "2,2,1,1"
-    },
-    {
-        regulatory_focus: "2",
-        task: "17",
-        task_appinfo: "15",
-        task_apporder: "12",
-        appinfo_position: "1,3,4,2",
-        apporder_position: "4,3,1,2",
-        totalrating_position: "2,1,1,2",
-        distribution_position: "2,2,1,1"
-    },
-    {
-        regulatory_focus: "2",
-        task: "2",
-        task_appinfo: "12",
-        task_apporder: "13",
-        appinfo_position: "3,4,2,1",
-        apporder_position: "1,2,4,3",
-        totalrating_position: "1,2,2,1",
-        distribution_position: "1,1,2,2"
-    },
-    {
-        regulatory_focus: "2",
-        task: "25",
-        task_appinfo: "24",
-        task_apporder: "13",
-        appinfo_position: "2,4,1,3",
-        apporder_position: "1,2,4,3",
-        totalrating_position: "1,2,2,1",
-        distribution_position: "1,1,2,2"
-    },
-    {
-        regulatory_focus: "2",
-        task: "35",
-        task_appinfo: "21",
-        task_apporder: "13",
-        appinfo_position: "4,3,1,2",
-        apporder_position: "1,2,4,3",
-        totalrating_position: "1,2,2,1",
-        distribution_position: "1,1,2,2"
-    },
-    {
-        regulatory_focus: "2",
-        task: "12",
-        task_appinfo: "21",
-        task_apporder: "14",
-        appinfo_position: "4,3,1,2",
-        apporder_position: "1,2,3,4",
-        totalrating_position: "1,2,1,2",
-        distribution_position: "1,1,2,2"
-    },
-    {
-        regulatory_focus: "2",
-        task: "27",
-        task_appinfo: "23",
-        task_apporder: "14",
-        appinfo_position: "3,4,1,2",
-        apporder_position: "1,2,3,4",
-        totalrating_position: "1,2,1,2",
-        distribution_position: "1,1,2,2"
-    },
-    {
-        regulatory_focus: "2",
-        task: "47",
-        task_appinfo: "10",
-        task_apporder: "14",
-        appinfo_position: "4,3,2,1",
-        apporder_position: "1,2,3,4",
-        totalrating_position: "1,2,1,2",
-        distribution_position: "1,1,2,2"
-    },
-    {
-        regulatory_focus: "2",
-        task: "24",
-        task_appinfo: "11",
-        task_apporder: "15",
-        appinfo_position: "2,4,3,1",
-        apporder_position: "1,4,2,3",
-        totalrating_position: "1,2,2,1",
-        distribution_position: "1,2,1,2"
-    },
-    {
-        regulatory_focus: "2",
-        task: "37",
-        task_appinfo: "19",
-        task_apporder: "15",
-        appinfo_position: "4,2,1,3",
-        apporder_position: "1,4,2,3",
-        totalrating_position: "1,2,2,1",
-        distribution_position: "1,2,1,2"
-    },
-    {
-        regulatory_focus: "2",
-        task: "68",
-        task_appinfo: "13",
-        task_apporder: "15",
-        appinfo_position: "1,2,4,3",
-        apporder_position: "1,4,2,3",
-        totalrating_position: "1,2,2,1",
-        distribution_position: "1,2,1,2"
-    },
-    {
-        regulatory_focus: "2",
-        task: "7",
-        task_appinfo: "23",
-        task_apporder: "16",
-        appinfo_position: "3,4,1,2",
-        apporder_position: "1,3,2,4",
-        totalrating_position: "1,1,2,2",
-        distribution_position: "1,2,1,2"
-    },
-    {
-        regulatory_focus: "2",
-        task: "13",
-        task_appinfo: "9",
-        task_apporder: "16",
-        appinfo_position: "2,3,4,1",
-        apporder_position: "1,3,2,4",
-        totalrating_position: "1,1,2,2",
-        distribution_position: "1,2,1,2"
-    },
-    {
-        regulatory_focus: "2",
-        task: "26",
-        task_appinfo: "17",
-        task_apporder: "16",
-        appinfo_position: "1,4,3,2",
-        apporder_position: "1,3,2,4",
-        totalrating_position: "1,1,2,2",
-        distribution_position: "1,2,1,2"
-    },
-    {
-        regulatory_focus: "2",
-        task: "33",
-        task_appinfo: "19",
-        task_apporder: "17",
-        appinfo_position: "4,2,1,3",
-        apporder_position: "1,4,3,2",
-        totalrating_position: "1,2,1,2",
-        distribution_position: "1,2,2,1"
-    },
-    {
-        regulatory_focus: "2",
-        task: "38",
-        task_appinfo: "1",
-        task_apporder: "17",
-        appinfo_position: "3,1,4,2",
-        apporder_position: "1,4,3,2",
-        totalrating_position: "1,2,1,2",
-        distribution_position: "1,2,2,1"
-    },
-    {
-        regulatory_focus: "2",
-        task: "64",
-        task_appinfo: "22",
-        task_apporder: "17",
-        appinfo_position: "2,3,1,4",
-        apporder_position: "1,4,3,2",
-        totalrating_position: "1,2,1,2",
-        distribution_position: "1,2,2,1"
-    },
-    {
-        regulatory_focus: "2",
-        task: "8",
-        task_appinfo: "16",
-        task_apporder: "18",
-        appinfo_position: "1,3,2,4",
-        apporder_position: "1,3,4,2",
-        totalrating_position: "1,1,2,2",
-        distribution_position: "1,2,2,1"
-    },
-    {
-        regulatory_focus: "2",
-        task: "22",
-        task_appinfo: "13",
-        task_apporder: "18",
-        appinfo_position: "1,2,4,3",
-        apporder_position: "1,3,4,2",
-        totalrating_position: "1,1,2,2",
-        distribution_position: "1,2,2,1"
-    },
-    {
-        regulatory_focus: "2",
-        task: "56",
-        task_appinfo: "12",
-        task_apporder: "18",
-        appinfo_position: "3,4,2,1",
-        apporder_position: "1,3,4,2",
-        totalrating_position: "1,1,2,2",
-        distribution_position: "1,2,2,1"
-    },
-    {
-        regulatory_focus: "2",
-        task: "4",
-        task_appinfo: "15",
-        task_apporder: "19",
-        appinfo_position: "1,3,4,2",
-        apporder_position: "3,2,4,1",
-        totalrating_position: "1,2,2,1",
-        distribution_position: "2,1,2,1"
-    },
-    {
-        regulatory_focus: "2",
-        task: "23",
-        task_appinfo: "7",
-        task_apporder: "19",
-        appinfo_position: "3,2,4,1",
-        apporder_position: "3,2,4,1",
-        totalrating_position: "1,2,2,1",
-        distribution_position: "2,1,2,1"
-    },
-    {
-        regulatory_focus: "2",
-        task: "48",
-        task_appinfo: "5",
-        task_apporder: "19",
-        appinfo_position: "2,1,3,4",
-        apporder_position: "3,2,4,1",
-        totalrating_position: "1,2,2,1",
-        distribution_position: "2,1,2,1"
-    },
-    {
-        regulatory_focus: "2",
-        task: "20",
-        task_appinfo: "21",
-        task_apporder: "20",
-        appinfo_position: "4,3,1,2",
-        apporder_position: "3,2,1,4",
-        totalrating_position: "1,2,1,2",
-        distribution_position: "2,1,1,2"
-    },
-    {
-        regulatory_focus: "2",
-        task: "29",
-        task_appinfo: "11",
-        task_apporder: "20",
-        appinfo_position: "2,4,3,1",
-        apporder_position: "3,2,1,4",
-        totalrating_position: "1,2,1,2",
-        distribution_position: "2,1,1,2"
-    },
-    {
-        regulatory_focus: "2",
-        task: "44",
-        task_appinfo: "20",
-        task_apporder: "20",
-        appinfo_position: "3,2,1,4",
-        apporder_position: "3,2,1,4",
-        totalrating_position: "1,2,1,2",
-        distribution_position: "2,1,1,2"
-    },
-    {
-        regulatory_focus: "2",
-        task: "39",
-        task_appinfo: "1",
-        task_apporder: "21",
-        appinfo_position: "3,1,4,2",
-        apporder_position: "3,4,2,1",
-        totalrating_position: "1,2,2,1",
-        distribution_position: "2,2,1,1"
-    },
-    {
-        regulatory_focus: "2",
-        task: "41",
-        task_appinfo: "17",
-        task_apporder: "21",
-        appinfo_position: "1,4,3,2",
-        apporder_position: "3,4,2,1",
-        totalrating_position: "1,2,2,1",
-        distribution_position: "2,2,1,1"
-    },
-    {
-        regulatory_focus: "2",
-        task: "63",
-        task_appinfo: "16",
-        task_apporder: "21",
-        appinfo_position: "1,3,2,4",
-        apporder_position: "3,4,2,1",
-        totalrating_position: "1,2,2,1",
-        distribution_position: "2,2,1,1"
-    },
-    {
-        regulatory_focus: "2",
-        task: "51",
-        task_appinfo: "2",
-        task_apporder: "22",
-        appinfo_position: "4,1,3,2",
-        apporder_position: "3,1,2,4",
-        totalrating_position: "1,1,2,2",
-        distribution_position: "2,1,1,2"
-    },
-    {
-        regulatory_focus: "2",
-        task: "59",
-        task_appinfo: "3",
-        task_apporder: "22",
-        appinfo_position: "2,1,4,3",
-        apporder_position: "3,1,2,4",
-        totalrating_position: "1,1,2,2",
-        distribution_position: "2,1,1,2"
-    },
-    {
-        regulatory_focus: "2",
-        task: "60",
-        task_appinfo: "18",
-        task_apporder: "22",
-        appinfo_position: "1,4,2,3",
-        apporder_position: "3,1,2,4",
-        totalrating_position: "1,1,2,2",
-        distribution_position: "2,1,1,2"
-    },
-    {
-        regulatory_focus: "2",
-        task: "15",
-        task_appinfo: "5",
-        task_apporder: "23",
-        appinfo_position: "2,1,3,4",
-        apporder_position: "3,4,1,2",
-        totalrating_position: "1,2,1,2",
-        distribution_position: "2,2,1,1"
-    },
-    {
-        regulatory_focus: "2",
-        task: "16",
-        task_appinfo: "17",
-        task_apporder: "23",
-        appinfo_position: "1,4,3,2",
-        apporder_position: "3,4,1,2",
-        totalrating_position: "1,2,1,2",
-        distribution_position: "2,2,1,1"
-    },
-    {
-        regulatory_focus: "2",
-        task: "58",
-        task_appinfo: "3",
-        task_apporder: "23",
-        appinfo_position: "2,1,4,3",
-        apporder_position: "3,4,1,2",
-        totalrating_position: "1,2,1,2",
-        distribution_position: "2,2,1,1"
-    },
-    {
-        regulatory_focus: "2",
-        task: "40",
-        task_appinfo: "10",
-        task_apporder: "24",
-        appinfo_position: "4,3,2,1",
-        apporder_position: "3,1,4,2",
-        totalrating_position: "1,1,2,2",
-        distribution_position: "2,1,2,1"
-    },
-    {
-        regulatory_focus: "2",
-        task: "43",
-        task_appinfo: "8",
-        task_apporder: "24",
-        appinfo_position: "4,2,3,1",
-        apporder_position: "3,1,4,2",
-        totalrating_position: "1,1,2,2",
-        distribution_position: "2,1,2,1"
-    },
-    {
-        regulatory_focus: "2",
         task: "71",
         task_appinfo: "16",
         task_apporder: "24",
