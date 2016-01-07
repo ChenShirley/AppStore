@@ -92,6 +92,10 @@ class ChoiceSetQueue
     self
   end
 
+  def purge_queue
+    @sqs.purge_queue(queue_url: @q_url)
+  end
+
   def sets_remaining
     @sqs.get_queue_attributes(
       queue_url: @q_url,
@@ -122,7 +126,7 @@ class FakeSetQueue
     end
   end
 
-  ## CAUTION: DO NOT USE THIS METHOD UNLESS YOU WANT TO FILL THE QUEUE
+  ##
   # Fill the queue wil repititions and combinations
   # Parameters: reps and combos, each as array or range
   # Ex.:  fill_queue(1..3, 1..144)
@@ -136,6 +140,10 @@ class FakeSetQueue
       end
     end
     self
+  end
+
+  def purge_queue
+    @@queue.clear
   end
 
   def sets_remaining
