@@ -81,14 +81,17 @@ class ChoiceSetQueue
   # Parameters: reps and combos, each as array or range
   # Ex.:  fill_queue(1..3, 1..144)
   #       fill_queue([1,3], 1..144)
-  def fill_queue(reps, combos)
-    reps.each do |r|
-      combos.each do |c|
-        msg = "#{r}:#{c}"
-        print "#{msg}, "
-        @sqs.send_message(queue_url: @q_url, message_body: msg)
-      end
+  def fill_queue(reps, combos, should_buffer=true)
+    puts "Approximately #{sets_remaining} items found in queue"
+    configurations = reps.map { |r| combos.map { |c| "#{r}:#{c}" } }
+                         .flatten.shuffle
+    configurations += configurations[-20..-1] if should_buffer
+    configurations.each do |msg|
+      print "#{msg}, "
+      @sqs.send_message(queue_url: @q_url, message_body: msg)
     end
+    puts "\nApproximately #{sets_remaining} items left in queue\n"
+
     self
   end
 
@@ -132,13 +135,16 @@ class FakeSetQueue
   # Ex.:  fill_queue(1..3, 1..144)
   #       fill_queue([1,3], 1..144)
   def fill_queue(reps, combos)
-    reps.each do |r|
-      combos.each do |c|
-        msg = "#{r}:#{c}"
-        print "#{msg}, "
-        @@queue.push(msg)
-      end
+    puts "Approximately #{sets_remaining} items found in queue"
+    configurations = reps.map { |r| combos.map { |c| "#{r}:#{c}" } }
+                         .flatten.shuffle
+    configurations += configurations[-20..-1] if should_buffer
+    configurations.each do |msg|
+      print "#{msg}, "
+      @@queue.push(msg)
     end
+    puts "\nApproximately #{sets_remaining} items left in queue\n"
+
     self
   end
 
