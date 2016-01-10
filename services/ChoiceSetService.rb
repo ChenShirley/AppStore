@@ -95,6 +95,13 @@ class ChoiceSetQueue
     self
   end
 
+  def push(sets)
+    sets.each do |msg|
+      print "#{msg}, "
+      @sqs.send_message(queue_url: @q_url, message_body: msg)
+    end
+  end
+
   def purge_queue
     @sqs.purge_queue(queue_url: @q_url)
   end
