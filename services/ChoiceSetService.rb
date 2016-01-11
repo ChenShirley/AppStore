@@ -141,7 +141,7 @@ class FakeSetQueue
   # Parameters: reps and combos, each as array or range
   # Ex.:  fill_queue(1..3, 1..144)
   #       fill_queue([1,3], 1..144)
-  def fill_queue(reps, combos)
+  def fill_queue(reps, combos, should_buffer=true)
     puts "Approximately #{sets_remaining} items found in queue"
     configurations = reps.map { |r| combos.map { |c| "#{r}:#{c}" } }
                          .flatten.shuffle
