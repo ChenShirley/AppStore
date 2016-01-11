@@ -19,7 +19,15 @@ namespace :queue do
 
   desc "Fill the ChoiceSet queue on SQS"
   task fill: [:environment, :setup] do
-    ChoiceSetQueue.new.fill_queue((1..5),(1..10))
+    ChoiceSetQueue.new.fill_queue((1..3),(1..144), should_buffer=true)
+  end
+
+  # E.g., $ rake queue:push[msgs.txt]
+  desc "Add choicesets from file to queue"
+  task :push, [:filename] => [:environment, :setup] do |t, args|
+    msgs = File.read args[:filename]
+    ChoiceSetQueue.new.push(msgs.split)
+    # ChoiceSetQueue.new.fill_queue((1..3),(1..144), should_buffer=true)
   end
 
   desc "Purge the ChoiceSet queue on SQS"
